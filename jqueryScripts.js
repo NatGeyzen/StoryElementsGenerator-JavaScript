@@ -4,6 +4,3 @@ $("#nav-icon-container")
       $("#nav-link-container")
         .toggleClass("active"); 
     });
-
-
-  

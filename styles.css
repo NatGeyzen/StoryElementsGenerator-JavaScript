@@ -20,12 +20,13 @@ header {
 #header-text-container-top {
   width: 80vw;
   margin: auto;
+
 }
 h1 {
   font-family: 'Amatic SC', cursive;
   font-size: 3em;
   text-shadow: 0 0 5px lightslategray;
-  margin: auto;
+  margin: 20vh auto auto auto;
 }
 #header-text-container-bottom {
   position: relative;
@@ -53,24 +54,23 @@ nav {
   color: #272626;
 }
 .non-active {
-  opacity: 0;
-  height: 17vh;
-  -webkit-transition: all 1.4s ease;  
-  -moz-transition: all 1.4s ease;  
-  -o-transition: all 1.4s ease;  
-  -ms-transition: all 1.4s ease;  
-  transition: all 1.4s ease;
-}
-.non-active > a {
-  padding: 0;
+  transform:scaleY(0);
+  transform-origin: top;
+  -webkit-transition: transform 0.5s ease-out;  
+  -moz-transition: transform 0.5s ease-out;  
+  -o-transition: transform 0.5s ease-out;  
+  -ms-transition: transform 0.5s ease-out;  
+  transition: transform 0.5s ease-out;
 }
 .active {
-  opacity: 1;
-  height: 27vh;
+  overflow: hidden;
+  height: auto;
+  transform: scaleY(1);
+  transform-origin: top;
   display: flex;
   flex-direction: column;
 }
-.active > a {
+.active > a 
   padding: 0.35em 0;
 }
 nav a {
@@ -152,17 +152,19 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     margin-right: 5em;
-    -webkit-transition: all 1.4s ease;  
-    -moz-transition: all 1.4s ease;  
-    -o-transition: all 1.4s ease;  
-    -ms-transition: all 1.4s ease;  
-    transition: all 1.4s ease;
+    transform: none;
+    -webkit-transition: all 1s ease;  
+    -moz-transition: all 1s ease;  
+    -o-transition: all 1s ease;  
+    -ms-transition: all 1s ease;  
+    transition: all 1s ease;
   }
   .active {
     width: 60vw;
     height: auto;
     opacity: 1;
     margin-right: 3em;
+    transform: none;
     display: flex;
     justify-content: space-between;
   }
