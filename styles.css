@@ -126,34 +126,46 @@ footer {
    --------------------------------------------------------------------------------------------- */
 
 .char-body {
-  font-family: 'Inconsolata', monospace; 
+  font-family: 'Bellota Text', cursive;
+  height: 100vh;
 }
 
 #characters-background-image {
   height: 100vh;
-  background-image: linear-gradient(to bottom right, rgba(89, 255, 163, 0.6), rgba(111, 192, 17, 0.6) , rgba(232, 220, 97, 0.6)), url("images/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg");
+  background-image: 
+    linear-gradient(to bottom right, rgba(0, 15, 15, 0.7), rgba(0, 16, 20, 0.7) , rgba(0, 5, 10, 0.7)), 
+    url("images/blur-1283865_1920.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  opacity: 0.5;
+  background-size: cover;
+  
 }
 
 #characters-container {
-  height: 75vh;
+  height: 100vh;
   width: 95vw;
   margin: auto;
   display: flex;
   flex-flow: column;
   justify-content: center;
   text-align: center;
-  transform: translate(0, -110%);
+  z-index: 5;
+  position: absolute;
+    top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
 }
 
 .character-text {
-  font-size: 1.25em;
+  font-size: 1em;
   letter-spacing: 2px;
   line-height: 125%;
   padding: 0 25px 10px;
-  font-weight: 600;
+  font-weight: 500;
+  font-variant: small-caps;
+  color: #83e7f7;
+  text-shadow: 1px 1px 1px rgb(3, 84, 97),
+              2px 2px 1px rgb(7, 164, 189);
+  
 }
 
 .animated.fadeIn {
@@ -175,7 +187,7 @@ footer {
 }
 
 .character-text.smaller {
-  font-size: 1em;
+  font-size: 0.7em;
   margin-top: -1vh;
   font-style: italic;
 }
@@ -184,28 +196,33 @@ footer {
   display: flex;
   justify-content: center;
   margin: 3em auto 0;
-  width: 75%;
+  width: 55%;
 }
 
 .btn-wrapper button {
   width: 175px;
   height: 30px;
-  margin: 10px 15px;
+  margin: 10px 50px;
   color: rgb(37, 2, 30);
   background-color: rgba(68, 67, 67, 0.5); 
-  border: 1px solid rgba(102, 101, 101, 0.5);
+  border: 2px solid rgb(30, 89, 199);
   box-shadow: 2px 2px 2px rgb(26, 25, 25);
   font-size: 1em;
+  color: rgb(30, 89, 199);
   /* animation: btnRandomIn 0.5s; */
 }
 
 .btn-wrapper button:first-child {
-  background-color: rgba(230, 152, 0, 0.5); 
-  box-shadow: 2px 2px 2px rgba(88, 59, 0, 0.5);
+  background-color: rgb(30, 89, 199); 
+  box-shadow: 1px 1px 1px rgb(3, 56, 155),
+              2px 2px 1px rgb(3, 56, 155),
+              -1px -1px 1px rgb(55, 119, 240);
+  color: white;
+  font-variant: small-caps;
 }
 
 
-.btn-wrapper button:hover {
+/* .btn-wrapper button:hover {
   animation: btnHover 0.5s;
   animation-fill-mode: forwards;
 }
@@ -219,7 +236,7 @@ footer {
     font-size: 125%;
     font-weight: bolder;
   }
-}
+} */
 
 .button-wrapper {
   width: 100%;
@@ -387,17 +404,21 @@ footer {
     }
 
     #characters-container {
-      height: 65vh;
-      width: 75vw;
-      transform: translate(0, -130%);
+      height: 80vh;
+      width: 80vw;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     .character-text {
-      font-size: 2.25em;
+      font-size: 2.5em;
     }
 
     .character-text.small {
-      font-size: 1.5em;
+      font-size: 1.6em;
+      line-height: 150%;
     }
 
     .character-text.filter {
@@ -414,10 +435,13 @@ footer {
       height: 50px;
       margin: 10px 30px;
       color: rgb(37, 2, 30);
-      background-color: rgba(68, 67, 67, 0.5); 
-      border: 1px solid rgba(102, 101, 101, 0.5);
-      box-shadow: 2px 2px 2px rgb(26, 25, 25);
+      background-color: rgba(252, 250, 250, 0.7); 
+      border: 2px solid rgb(30, 89, 199);
+      box-shadow: 2px 2px 2px rgb(8, 54, 139);
       font-size: 1.3em;
+      color: rgb(30, 89, 199);
+      font-variant: small-caps;
+      font-weight: bold;
       /* animation: btnRandomIn 0.5s; */
     }
 
