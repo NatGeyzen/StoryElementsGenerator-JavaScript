@@ -15,7 +15,7 @@ html {
 header {
   height: 100vh;
   background-color: #fff8d4;
-  background-image: linear-gradient(to bottom right, rgba(16, 212, 212, 0.6), rgba(16, 166, 212, 0.6) , rgba(1, 58, 133, 0.5)), url("images/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg");
+  background-image: linear-gradient(to bottom right, rgba(16, 212, 212, 0.6), rgba(16, 166, 212, 0.6) , rgba(1, 58, 133, 0.5)), url("../images/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -125,149 +125,7 @@ footer {
    characters main page
    --------------------------------------------------------------------------------------------- */
 
-.char-body {
-  font-family: 'Bellota Text', cursive;
-  height: 100vh;
-}
 
-#characters-background-image {
-  height: 100vh;
-  background-image: 
-    linear-gradient(to bottom right, rgba(0, 15, 15, 0.7), rgba(0, 16, 20, 0.7) , rgba(0, 5, 10, 0.7)), 
-    url("images/blur-1283865_1920.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-}
-
-#characters-container {
-  height: 100vh;
-  width: 100vw;
-  margin: auto;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  text-align: center;
-  z-index: 5;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#js--text-wrapper {
-  width: 80vw;
-  margin: 0 auto;
-}
-
-.character-text {
-  font-size: 1em;
-  letter-spacing: 2px;
-  line-height: 125%;
-  padding: 0 25px 10px;
-  font-weight: 500;
-  font-variant: small-caps;
-  color: #83e7f7;
-  text-shadow: 1px 1px 1px rgb(3, 84, 97),
-              2px 2px 1px rgb(3, 84, 97);
-  
-}
-
-.animated.fadeIn {
-  animation-duration: 0.75s;
-  animation-delay: 0.25s;
-}
-
-.animated.fadeIn.extraDelay {
-  animation-duration: 0.75s;
-  animation-delay: 0.6s;
-}
-
- .character-text.small {
-   font-size: 1em;
- }
-
- .character-text.filter {
-   border-bottom: 1px dashed black;
-}
-
-.character-text.smaller {
-  font-size: 1.2em;
-  margin-top: -1vh;
-  text-shadow: none;
-  font-weight: bold;
-}
-
-.btn-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 3em auto 0;
-  width: 40%;
-}
-
-.btn-wrapper button {
-  width: 175px;
-  height: 30px;
-  margin: 10px 50px;
-  color: rgb(37, 2, 30);
-  background-color: rgba(68, 67, 67, 0.5); 
-  border: 2px solid rgb(30, 89, 199);
-  box-shadow: 1px 1px 1px rgb(3, 56, 155),
-              2px 2px 1px rgb(3, 56, 155),
-              -1px -1px 1px rgb(55, 119, 240);
-  font-size: 1em;
-  color: rgb(13, 68, 170);
-  border-radius: 30px;
-  /* animation: btnRandomIn 0.5s; */
-}
-
-.btn-wrapper button:first-child {
-  background-color: rgb(30, 89, 199); 
-  box-shadow: 1px 1px 1px rgb(3, 56, 155),
-              2px 2px 1px rgb(3, 56, 155),
-              -1px -1px 1px rgb(55, 119, 240);
-  color: white;
-  font-variant: small-caps;
-}
-
-
-/* .btn-wrapper button:hover {
-  animation: btnHover 0.5s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes btnHover {
-  from {
-    font-size: 100%;
-    font-weight: bold;
-  }
-  to {
-    font-size: 125%;
-    font-weight: bolder;
-  }
-} */
-
-.button-wrapper {
-  width: 100%;
-  margin: 10vh auto 15vh;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.btn-next-wrapper {
-  position: absolute;
-  right: 3%;
-  top: 50%;
-}
-
-.btn-nxt {
-  width: 50px;
-  height: 50px;
-  outline: none;
-  border: none;
-  background-color: transparent;
-}
 
 
 /* ---------------------------------------------------------------------------------------------
@@ -431,49 +289,6 @@ footer {
       font-size: 1.25em;
     }
 
-    #characters-container {
-      height: 100vh;
-      width: 100vw;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .character-text {
-      font-size: 2.5em;
-    }
-
-    .character-text.small {
-      font-size: 1.6em;
-      line-height: 150%;
-    }
-
-    .character-text.filter {
-      margin-top: 10vh;
-      border-bottom: 1px dashed black;
-   }
-
-    .btn-wrapper {
-      margin: 3em auto 0;
-    }
-    
-    .btn-wrapper button {
-      width: 350px;
-      height: 50px;
-      margin: 10px 30px;
-      color: rgb(37, 2, 30);
-      /* background-color: rgba(68, 67, 67, 0.7);  */
-      border: 2px solid rgb(30, 89, 199);
-      box-shadow: 1px 1px 1px rgb(3, 56, 155),
-              2px 2px 1px rgb(3, 56, 155);
-      font-size: 1.3em;
-      color: rgb(86, 145, 253);
-      font-variant: small-caps;
-      font-weight: bold;
-      text-shadow: 1px 1px 1px rgb(4, 73, 202);
-      /* animation: btnRandomIn 0.5s; */
-    }
 
     .randomResults {
       height: 100%;
