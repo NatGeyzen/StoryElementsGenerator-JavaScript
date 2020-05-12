@@ -142,7 +142,7 @@ footer {
 
 #characters-container {
   height: 100vh;
-  width: 95vw;
+  width: 100vw;
   margin: auto;
   display: flex;
   flex-flow: column;
@@ -150,9 +150,14 @@ footer {
   text-align: center;
   z-index: 5;
   position: absolute;
-    top: 60%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#js--text-wrapper {
+  width: 80vw;
+  margin: 0 auto;
 }
 
 .character-text {
@@ -164,7 +169,7 @@ footer {
   font-variant: small-caps;
   color: #83e7f7;
   text-shadow: 1px 1px 1px rgb(3, 84, 97),
-              2px 2px 1px rgb(7, 164, 189);
+              2px 2px 1px rgb(3, 84, 97);
   
 }
 
@@ -187,16 +192,17 @@ footer {
 }
 
 .character-text.smaller {
-  font-size: 0.7em;
+  font-size: 1.2em;
   margin-top: -1vh;
-  font-style: italic;
+  text-shadow: none;
+  font-weight: bold;
 }
 
 .btn-wrapper {
   display: flex;
   justify-content: center;
   margin: 3em auto 0;
-  width: 55%;
+  width: 40%;
 }
 
 .btn-wrapper button {
@@ -206,9 +212,12 @@ footer {
   color: rgb(37, 2, 30);
   background-color: rgba(68, 67, 67, 0.5); 
   border: 2px solid rgb(30, 89, 199);
-  box-shadow: 2px 2px 2px rgb(26, 25, 25);
+  box-shadow: 1px 1px 1px rgb(3, 56, 155),
+              2px 2px 1px rgb(3, 56, 155),
+              -1px -1px 1px rgb(55, 119, 240);
   font-size: 1em;
-  color: rgb(30, 89, 199);
+  color: rgb(13, 68, 170);
+  border-radius: 30px;
   /* animation: btnRandomIn 0.5s; */
 }
 
@@ -248,17 +257,16 @@ footer {
 
 .btn-next-wrapper {
   position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 3%;
+  top: 50%;
 }
 
 .btn-nxt {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  margin: auto;
-  background-color: rgba(230, 152, 0, 0.5);
+  outline: none;
+  border: none;
+  background-color: transparent;
 }
 
 
@@ -271,47 +279,67 @@ footer {
   height: 100vh;
   margin: auto;
   text-align: center;
+  display: flex;
+
 }
 
 .filter-text {
-  position: absolute;
-  width: 80vw;
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-icons {
+  height: 100px;
+  width: auto;
+  margin-bottom: 30px;
 }
 
 .genders-button-wrapper {
   position: absolute;
-  top: 50%;
+  bottom: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 75vw;
+  width: 60vw;
 }
 
-.genders-button-wrapper > button {
-  margin: 1em auto;
-  height: 27.5px;
-  width: 90px;
-  border: 1px solid black;
-  border-radius: 25px;
-  cursor: pointer;
+.non-selected {
+  width: 100px;
+  height: 30px;
+  margin: 10px 50px;
+  color: rgb(37, 2, 30);
+  background-color: rgba(252, 250, 250, 0.7);; 
+  border: 2px solid rgb(30, 89, 199);
+  box-shadow: 2px 2px 2px rgb(26, 25, 25);
   font-size: 1em;
+  color: rgb(30, 89, 199);
   font-variant: small-caps;
-  display: block;
-  background-color: rgb(161, 159, 159, 0.7);
-  box-shadow: 2px 2px 2px grey;
-  /* background-color: rgba(147, 197, 114, 0.7); */
+  font-weight: bold;
+}
+
+.selected {
+  background-color: rgb(30, 89, 199); 
+  box-shadow: 1px 1px 1px rgb(3, 56, 155),
+              2px 2px 1px rgb(3, 56, 155),
+              -1px -1px 1px rgb(55, 119, 240);
+  color: white;
+  font-variant: small-caps;
 }
 
 .icon-next {
-  font-size: 20px;
-  color: rgb(37, 2, 30)
+  
+  opacity: 0;
 }
 
-.btn-nxt:hover {
-    background-color: rgb(194, 130, 2);
+.icon-next-visible {
+  opacity: 1;
+  font-size: 50px;
+  color: 	#64e1dc;
 }
-.icon-next:hover {
-  font-weight: bold;
-}
+
 
 .genderValidation {
   width: 250px;
@@ -404,8 +432,8 @@ footer {
     }
 
     #characters-container {
-      height: 80vh;
-      width: 80vw;
+      height: 100vh;
+      width: 100vw;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -435,13 +463,15 @@ footer {
       height: 50px;
       margin: 10px 30px;
       color: rgb(37, 2, 30);
-      background-color: rgba(252, 250, 250, 0.7); 
+      /* background-color: rgba(68, 67, 67, 0.7);  */
       border: 2px solid rgb(30, 89, 199);
-      box-shadow: 2px 2px 2px rgb(8, 54, 139);
+      box-shadow: 1px 1px 1px rgb(3, 56, 155),
+              2px 2px 1px rgb(3, 56, 155);
       font-size: 1.3em;
-      color: rgb(30, 89, 199);
+      color: rgb(86, 145, 253);
       font-variant: small-caps;
       font-weight: bold;
+      text-shadow: 1px 1px 1px rgb(4, 73, 202);
       /* animation: btnRandomIn 0.5s; */
     }
 
@@ -468,16 +498,13 @@ footer {
 
     .filter-wrapper {
       position: absolute;
-      width: 70vw;
+      left: 0;
+      width: 100vw;
       height: 100vh;
     }
     
     .filter-text {
-      position: absolute;
-      top: 25%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 50vw;
+      width: 100vw;
     }
 
     .genders-button-wrapper {
@@ -487,13 +514,10 @@ footer {
     .genders-button-wrapper > button {
       margin: 5em 1em;
       height: 50px;
-      width: 15vw;
-      border: 1px solid black;
-      border-radius: 25px;
+      width: 10vw;
       cursor: pointer;
       font-size: 1.3em;
       display: inline-block;
-
     }
 
   }

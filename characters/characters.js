@@ -79,18 +79,20 @@ randomBtn.addEventListener('click', () => {
 let genderFilter = `
     <div class="filter-wrapper">
         <div class="filter-text">
-            <p class="character-text filter">Gender</p>
+            <img src="../images/gender.png" alt="gender" class="filter-icons" />
+            <p class="character-text small">Would you like to filter names based on gender?</p>
             <p class="character-text smaller">(Multiple options can be selected)</p>
         </div>
         <div class="genders-button-wrapper">
-            <button>Male</button>
-            <button>Female</button>
-            <button>Unisex</button>
+            <button id="male" class="non-selected">Male</button>
+            <button id="female" class="non-selected">Female</button>
+            <button id="unisex" class="non-selected">Unisex</button>
         </div> 
         <div class="btn-next-wrapper" id="js--btn-container">
             <button class="btn-nxt" id="btn-gender"><ion-icon name="arrow-forward" class="icon-next"></ion-icon></button>
         </div>
     </div>
+    icon-next
     
 `
 // First question of customization process
@@ -99,51 +101,50 @@ customizeBtn.addEventListener('click', () => {
 });
 
 
-// // Add event listener to dynamically inserted button to continue from 'gender' page
-// document.addEventListener('click',function(e){
 
-//     // Use event delegation on specific target to trigger the event listener
-//     if(e.target && e.target.id== 'btn-gender'){
+const toggleHandler = (e) => {
+    if (e.target.classList.contains('non-selected')) {
+        e.target.classList.remove('non-selected');
+        e.target.classList.add('selected');
+    } else {
+        e.target.classList.remove('selected');
+        e.target.classList.add('non-selected');
+    }    
+};
 
-//         // Storing variables inside of function so DOM selection only happens AFTER elements have dynamically been inserted into the page
-//         const checkboxMale = document.getElementById('genderM');
-//         const checkboxFemale = document.getElementById('genderF');
-//         const checkboxUnisex = document.getElementById('genderU');
+let male = false;
+let female = false;
+let unisex = false;
 
-//         let maleChecked;
-//         let femaleChecked;
-//         let unisexChecked;
+// Add event listener to dynamically inserted button to continue from 'gender' page
+document.addEventListener('click',function(e){
 
-//         if (checkboxMale.checked == true) {
-//             maleChecked = true;
-//             console.log(maleChecked);
-//         }
-//         if (checkboxFemale.checked == true) {
-//             femaleChecked = true;
-//             console.log(femaleChecked);
-//         }
-//         if (checkboxUnisex.checked == true) {
-//             unisexChecked = true;
-//             console.log(unisexChecked);
-//         }
+    // Use event delegation on specific target to trigger the event listener
+    if(e.target && e.target.id == 'male'){
+        toggleHandler(e);
+        male = !male;
+    } else if (e.target && e.target.id == 'female') {
+        toggleHandler(e);
+        female = !female;
+    } else if (e.target && e.target.id == 'unisex') {
+        toggleHandler(e);
+        unisex = !unisex;
+    }   
 
-//         // If one or more options are selected, clear screen (go to next screen)
-//         if (checkboxMale.checked == true || checkboxFemale.checked == true || checkboxUnisex.checked == true) {
-//             charContainer.innerHTML = '';
-//         }
+    if (male === true || female === true || unisex === true) {
+        console.log('at least 1 option selected')
+        document.getElementById('icon-next').classList.remove('icon-next');
+        document.getElementById('icon-next').classList.add('icon-next-visible');
+    } else {
+        console.log('no options selected');
+    }
+});
 
-//         // If none of the options are selected, give a validation warning
-//         else if (checkboxMale.checked == false && checkboxFemale.checked == false && checkboxUnisex.checked == false) {
-//             alert('Please select one or more options to continue.');
-//             // const validationDiv = document.createElement('div'); 
-//             // validationDiv.classList.add('genderValidation');
-//             // var validationText = document.createTextNode('');
-//             // validationDiv.appendChild(validationText);
-//             // var buttonDiv = document.getElementById('js--btn-container');
-//             // document.body.insertAdjacentElement('afterEnd', validationDiv);
-//         }
-//      }
-//  });
+console.log(male);
+
+//  const checkForAnyToggledButtons = () => {
+//      if ()
+//  }
 
 
 
