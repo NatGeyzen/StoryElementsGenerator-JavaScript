@@ -30,6 +30,7 @@
 
 	<body class="char-body">
 		<div id="characters-background-image"></div>
+		<!-- FIRST SCREEN -->
 			<div id="js--characters-original-screen" class="visible">
 				<div id="js--text-wrapper">
 					<p class="character-text">
@@ -44,12 +45,13 @@
 					<button id="js--randomBtn">Random</button>
 				</div>
 			</div>
+
+			<!-- GENDER FILTER SCREEN -->
 			<div id="js--gender-filter-wrapper" class="hidden">
 				<div class="filter-text">
-					<img src="../images/gender.png" alt="gender" class="filter-icons" />
 					<div class="text-wrapper">
 						<p class="character-text">Would you like to filter names based on gender?</p>
-						<p class="character-text smaller">(Multiple options can be selected)</p>
+						<p class="character-text smaller">Multiple options can be selected</p>
 					</div>
 				</div>
 				<div class="genders-button-wrapper">
@@ -61,6 +63,30 @@
 					<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
 				</div>
 			</div> 
+
+			<!-- GENRE FILTER SCREEN -->
+			<div id="js--genre-filter-wrapper" class="hidden">
+				<div class="filter-text">
+					<div class="text-wrapper">
+						<p class="character-text">What genre best fits your story?</p>
+						<p class="character-text smaller">Only <span>one</span> option can be selected</p>
+					</div>
+				</div>
+				<div class="genre-options-wrapper">
+					<select id="genre-options">
+						<option value="choose an option">Choose an option...</option>
+						<option value="contemporary">Contemporary</option>
+						<option value="fantasy">Fantasy</option>
+						<option value="historical">Historical</option>
+						<option value="science fiction">Science fiction</option>
+						
+
+					</select>
+				</div> 
+				<div id="next-button2" class="btn-next-wrapper hidden">
+					<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+				</div>
+			</div> 
 		</div>
 
 		<!-- SCRIPTS -->  
@@ -69,5 +95,6 @@
 	</body>
 	<footer>
 		<!-- Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> -->
+		<!-- Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> -->
 	</footer>
 </html>

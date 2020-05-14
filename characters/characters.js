@@ -11,6 +11,9 @@ const male = document.getElementById('js--male');
 const female = document.getElementById('js--female');
 const unisex = document.getElementById('js--unisex');
 const nextButton1 = document.getElementById('next-button1');
+const genreFilter = document.getElementById('js--genre-filter-wrapper');
+const genreOptions = document.getElementById('genre-options');
+const nextButton2 = document.getElementById('next-button2');
 
 
 /* ----------------------------------------------------------------------------------------------------
@@ -112,7 +115,20 @@ female.addEventListener('click', (e) => toggleHandler(e));
 unisex.addEventListener('click', (e) => toggleHandler(e));
 
 
+/* ----------------------------------------------------------------------------------------------------
+   FILTER 2: GENRE
+------------------------------------------------------------------------------------------------------- */
+
 nextButton1.addEventListener('click', () => {
     genderFilter.classList.remove('visible');
     genderFilter.classList.add('hidden');
+    genreFilter.classList.remove('hidden');
+    genreFilter.classList.add('visible');
+});
+
+genreOptions.addEventListener('click', () => {
+    if (genreOptions.value !== 'choose an option') {
+        nextButton2.classList.remove('hidden');
+        nextButton2.classList.add('visible');
+    }
 })

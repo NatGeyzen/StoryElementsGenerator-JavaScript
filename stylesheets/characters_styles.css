@@ -23,12 +23,14 @@
 --------------------------------------------------------------- */
 
 #js--gender-filter-wrapper.hidden,
-#js--characters-original-screen.hidden {
+#js--characters-original-screen.hidden,
+#js--genre-filter-wrapper.hidden {
   display: none;
 }
 
 #js--gender-filter-wrapper.visible
-#js--characters-original-screen.visible {
+#js--characters-original-screen.visible,
+#js--genre-filter-wrapper.visible {
   display: block;
 }
 
@@ -77,10 +79,11 @@
 }
   
 .character-text.smaller {
-	font-size: 0.75em;
+	font-size: 0.8em;
 	margin-top: -1vh;
 	text-shadow: none;
 	font-weight: bold;
+	font-style: italic;
 }
   
 .btn-wrapper {
@@ -129,23 +132,28 @@
 	box-shadow: 1px 1px 1px rgb(3, 84, 97),
 				 2px 2px 1px rgb(3, 84, 97);  
 	background-color: rgba(0, 0, 0, 0.5);
+	
 }
 
 .selected {
 	height: 35px;
+	width: 130px;
 	border-radius: 50px;
 	background-color: #10d8f7;
 	border: 2px solid #10d8f7;
 	box-shadow: 1px 1px 1px rgb(3, 84, 97),
 				 2px 2px 1px rgb(3, 84, 97);  
 	color: rgba(0, 0, 0, 0.8);
+	margin: 10px 30px;
+	font-size: 1.1em;
+	font-weight: bold;
 }
   
 
 /* STYLES SECOND SCREEN 
 --------------------------------------------------------------- */
 
-#js--gender-filter-wrapper {
+#js--gender-filter-wrapper, #js--genre-filter-wrapper {
 	width: 90vw;
 	height: 100vh;
 	text-align: center;
@@ -154,29 +162,23 @@
 	left: 5vw;
 }
 
+.text-wrapper {
+	width: 80vw;
+	position: absolute;
+	top: 12.5vh;
+}
 .filter-text {
-	width: 100vw;
 	height: 80vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	left: 0;
-}
-  
-.filter-icons {
-	height: 70px;
-	width: auto;
-	position: absolute;
-	top: 7vh;
 }
 
 .genders-button-wrapper {
 	position: absolute;
-	bottom: 12.5%;
-	left: 10vw;
+	bottom: 20%;
 	transform: translate(0, -50%);
-	width: 80vw;
   }
   
   /* .selected {
@@ -229,7 +231,7 @@
 	stroke: rgb(30, 89, 199);
 	fill: none;
 	box-shadow: inset 3px 3px 3px rgb(1, 25, 66);
-	animation: stroke 0.5s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+	animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
   }
   
   .checkmark {
@@ -243,16 +245,16 @@
 	stroke-width: 5;
 	stroke: #fff;
 	stroke-miterlimit: 10;
-	margin: 10% auto;
+	margin: 5% auto;
 	box-shadow: inset 3px 3px 3px rgb(1, 25, 66);
-	animation: fill .3s ease-in-out .3s forwards, scale .2s ease-in-out .7s both;
+	animation: fill .4s ease-in-out .4s forwards, scale .4s ease-in-out .8s both;
   }
   
   .checkmark__check {
 	transform-origin: 50% 50%;
 	stroke-dasharray: 48;
 	stroke-dashoffset: 48;
-	animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+	animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
   }
   
   @keyframes stroke {
@@ -268,47 +270,71 @@
 	  	transform: none;
 	  	position: absolute;
 		left: 50%;
-		bottom: -5%;
+		bottom: 10%;
 		transform: translateX(-50%);
 	}
 	50% {
 		transform: scale3d(1.1, 1.1, 1);
 		position: absolute;
 		left: 50%;
-		bottom: -5%;
 		transform: translateX(-50%);
 	}
   }
   @keyframes fill {
-	0% {
-		position: absolute;
-		left: 50%;
-		bottom: -5%;
-		transform: translateX(-50%);
-	}
 	100% {
 	  	box-shadow: inset 0px 0px 0px 30px rgb(30, 89, 199);
 		transform: translateX(-50%);
 		position: absolute;
 		left: 50%;	
-		bottom: -5%;
-		transform: translateX(-50%);
 	}
   }
-  @keyframes vanish {
+  /* @keyframes vanish {
 	  0% {
 		  opacity: 1
 	  }
 	  100% {
 		  opacity: 0
 	  }
-  }
-  /* .genderValidation {
-	width: 250px;
-	height: 100px;
-	border: 1px solid rgba(211, 4, 4, 0.5);
-	background-color: rgba(247, 54, 54, 0.5);
   } */
+
+.genre-options-wrapper {
+	position: absolute;
+	bottom: 40vh;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#genre-options {
+	height: 40px;
+	width: 250px;
+	padding-left: 10px;
+	font-variant: small-caps;
+	color: #24ddfa;
+	border: 2px solid #10d8f7;
+	border: 10px;
+	box-shadow: 1px 1px 1px rgb(3, 84, 97),
+				 2px 2px 1px rgb(3, 84, 97);  
+	background-color: rgba(0, 0, 0, 0.5);
+	font-size: 15px;
+	font-weight: bolder;
+	outline: none;
+  }
+
+  .character-text.smaller > span {
+	  font-size: 16px;
+  }
+
+
+  /* width: 130px;
+	height: 35px;
+	margin: 10px 30px;
+	
+	font-size: 1.1em;
+	color: rgb(86, 145, 253);
+	border-radius: 30px;
+	font-variant: small-caps;
+	outline: none;
+	cursor: pointer; */
 
 /* ---------------------------------------------------------------------------------------------
    MEDIA QUERIES
@@ -321,12 +347,13 @@
 	.btn-wrapper button         		{ height: 50px; width: 200px; font-size: 1.3em; margin: 10px 30px;}
 }
 
-@media (max-height: 568px) {
+@media (max-height: 578px) {
 	#js--text-wrapper           		{ width: 80vw; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);}
 	.character-text             		{ font-size: 1em; padding: 0 10px 10px; }
 	.btn-wrapper button         		{ height: 30px; width: 140px; font-size: 1em; }
-	.genders-button-wrapper				{ bottom: 7.5%; }
-
+	.genders-button-wrapper				{ bottom: 20%; }
+	.non-selected, .selected			{ width: 115px; height: 35px; }
+	.text-wrapper						{ top: 10%; }
 }
 
 @media (min-height: 800px) {
@@ -362,7 +389,7 @@
 	  }
   
 	  .genders-button-wrapper {
-		top: 65%;
+		top: 60%;
 		width: 90vw;
 		position: absolute;
 		left: 0;
