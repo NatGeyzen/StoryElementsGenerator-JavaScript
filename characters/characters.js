@@ -5,7 +5,8 @@
 const textContainer = document.getElementById('js--text-wrapper');
 const customizeBtn = document.getElementById('js--customizeBtn');
 const randomBtn = document.getElementById('js--randomBtn');
-const charContainer = document.getElementById('characters-container');
+const charContainer = document.getElementById('js--characters-original-screen');
+const genderFilter = document.getElementById('js--gender-filter-wrapper');
 
 
 /* ----------------------------------------------------------------------------------------------------
@@ -76,75 +77,64 @@ randomBtn.addEventListener('click', () => {
    FILTER 1: GENDER
 ------------------------------------------------------------------------------------------------------- */
 
-let genderFilter = `
-    <div class="filter-wrapper">
-        <div class="filter-text">
-            <img src="../images/gender.png" alt="gender" class="filter-icons" />
-            <p class="character-text small">Would you like to filter names based on gender?</p>
-            <p class="character-text smaller">(Multiple options can be selected)</p>
-        </div>
-        <div class="genders-button-wrapper">
-            <button id="male" class="non-selected">Male</button>
-            <button id="female" class="non-selected">Female</button>
-            <button id="unisex" class="non-selected">Unisex</button>
-        </div> 
-        <div class="btn-next-wrapper" id="js--btn-container">
-            <button class="btn-nxt" id="btn-gender"><ion-icon name="arrow-forward" class="icon-next"></ion-icon></button>
-        </div>
-    </div>
-    icon-next
-    
-`
-// First question of customization process
+
 customizeBtn.addEventListener('click', () => {
-    charContainer.innerHTML = genderFilter;
+    charContainer.classList.remove('visible');
+    charContainer.classList.add('hidden');
+    genderFilter.classList.remove('hidden');
+    genderFilter.classList.add('visible');
 });
 
 
 
-const toggleHandler = (e) => {
+const toggleHandler = (e, genderFilter) => {
     if (e.target.classList.contains('non-selected')) {
         e.target.classList.remove('non-selected');
         e.target.classList.add('selected');
+        return genderFilter = true;
     } else {
         e.target.classList.remove('selected');
         e.target.classList.add('non-selected');
+        return genderFilter = false;
     }    
 };
 
-let male = false;
-let female = false;
-let unisex = false;
+let male;
+let female;
+let unisex;
 
 // Add event listener to dynamically inserted button to continue from 'gender' page
 document.addEventListener('click',function(e){
 
     // Use event delegation on specific target to trigger the event listener
     if(e.target && e.target.id == 'male'){
-        toggleHandler(e);
-        male = !male;
+        toggleHandler(e, male);
     } else if (e.target && e.target.id == 'female') {
-        toggleHandler(e);
-        female = !female;
+        toggleHandler(e, female);
     } else if (e.target && e.target.id == 'unisex') {
-        toggleHandler(e);
-        unisex = !unisex;
+        toggleHandler(e, unisex);
+        console.log(unisex);
     }   
 
-    if (male === true || female === true || unisex === true) {
-        console.log('at least 1 option selected')
-        document.getElementById('icon-next').classList.remove('icon-next');
-        document.getElementById('icon-next').classList.add('icon-next-visible');
-    } else {
-        console.log('no options selected');
-    }
 });
 
-console.log(male);
 
-//  const checkForAnyToggledButtons = () => {
-//      if ()
-//  }
+
+// if (male === true || female === true || unisex === true) {
+    //     charContainer.insertAdjacentHTML('beforeend', `
+    //         <div class="btn-next-wrapper" id="js--btn-container">
+    //             <button class="btn-nxt" id="btn-gender"><ion-icon name="arrow-forward" class="icon-next"></ion-icon></button>
+    //         </div>` 
+    //     )
+    // } 
+    // // else if (!male === true && !female === true && !unisex === true) {
+    // //     charContainer.insertAdjacentHTML('beforeend', '<div>Please select at least one option</div>');
+    // // }
+
+        
+    // // } else {
+    // //     console.log('no options selected');
+    // // }
 
 
 

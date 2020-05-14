@@ -132,79 +132,7 @@ footer {
    characters gender filter
    --------------------------------------------------------------------------------------------- */
 
-.filter-wrapper {
-  width: 80vw;
-  height: 100vh;
-  margin: auto;
-  text-align: center;
-  display: flex;
 
-}
-
-.filter-text {
-  width: 100vw;
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.filter-icons {
-  height: 100px;
-  width: auto;
-  margin-bottom: 30px;
-}
-
-.genders-button-wrapper {
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60vw;
-}
-
-.non-selected {
-  width: 100px;
-  height: 30px;
-  margin: 10px 50px;
-  color: rgb(37, 2, 30);
-  background-color: rgba(252, 250, 250, 0.7);; 
-  border: 2px solid rgb(30, 89, 199);
-  box-shadow: 2px 2px 2px rgb(26, 25, 25);
-  font-size: 1em;
-  color: rgb(30, 89, 199);
-  font-variant: small-caps;
-  font-weight: bold;
-}
-
-.selected {
-  background-color: rgb(30, 89, 199); 
-  box-shadow: 1px 1px 1px rgb(3, 56, 155),
-              2px 2px 1px rgb(3, 56, 155),
-              -1px -1px 1px rgb(55, 119, 240);
-  color: white;
-  font-variant: small-caps;
-}
-
-.icon-next {
-  
-  opacity: 0;
-}
-
-.icon-next-visible {
-  opacity: 1;
-  font-size: 50px;
-  color: 	#64e1dc;
-}
-
-
-.genderValidation {
-  width: 250px;
-  height: 100px;
-  border: 1px solid rgba(211, 4, 4, 0.5);
-  background-color: rgba(247, 54, 54, 0.5);
-}
 
 
 
@@ -311,29 +239,7 @@ footer {
       font-size: 120%;
     }
 
-    .filter-wrapper {
-      position: absolute;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-    }
     
-    .filter-text {
-      width: 100vw;
-    }
-
-    .genders-button-wrapper {
-      top: 60%;
-    }
-
-    .genders-button-wrapper > button {
-      margin: 5em 1em;
-      height: 50px;
-      width: 10vw;
-      cursor: pointer;
-      font-size: 1.3em;
-      display: inline-block;
-    }
 
   }
 
