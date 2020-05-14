@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------------------------------
-    VARIABLES
+    CONSTANTS / QUERY SELECTORS
    ---------------------------------------------------------------------------------------------------- */
 
 const textContainer = document.getElementById('js--text-wrapper');
@@ -7,6 +7,10 @@ const customizeBtn = document.getElementById('js--customizeBtn');
 const randomBtn = document.getElementById('js--randomBtn');
 const charContainer = document.getElementById('js--characters-original-screen');
 const genderFilter = document.getElementById('js--gender-filter-wrapper');
+const male = document.getElementById('js--male');
+const female = document.getElementById('js--female');
+const unisex = document.getElementById('js--unisex');
+const nextButton1 = document.getElementById('next-button1');
 
 
 /* ----------------------------------------------------------------------------------------------------
@@ -84,54 +88,31 @@ customizeBtn.addEventListener('click', () => {
     genderFilter.classList.add('visible');
 });
 
-const toggleHandler = (e, genderFilter) => {
+const toggleHandler = (e) => {
+
     if (e.target.classList.contains('non-selected')) {
         e.target.classList.remove('non-selected');
         e.target.classList.add('selected');
-        return genderFilter = true;
     } else {
         e.target.classList.remove('selected');
         e.target.classList.add('non-selected');
-        return genderFilter = false;
-    }    
+    }  
+    
+    if (male.classList.contains('selected') || female.classList.contains('selected') || unisex.classList.contains('selected')) {
+        nextButton1.classList.remove('hidden');
+        nextButton1.classList.add('visible');
+    } else {
+        nextButton1.classList.remove('visible');
+        nextButton1.classList.add('hidden');
+    }
 };
 
-let male;
-let female;
-let unisex;
-
-// Add event listener to dynamically inserted button to continue from 'gender' page
-document.addEventListener('click',function(e){
-
-    // Use event delegation on specific target to trigger the event listener
-    if(e.target && e.target.id == 'male'){
-        toggleHandler(e, male);
-    } else if (e.target && e.target.id == 'female') {
-        toggleHandler(e, female);
-    } else if (e.target && e.target.id == 'unisex') {
-        toggleHandler(e, unisex);
-        console.log(unisex);
-    }   
-
-});
+male.addEventListener('click', (e) => toggleHandler(e));
+female.addEventListener('click', (e) => toggleHandler(e));
+unisex.addEventListener('click', (e) => toggleHandler(e));
 
 
-
-// if (male === true || female === true || unisex === true) {
-    //     charContainer.insertAdjacentHTML('beforeend', `
-    //         <div class="btn-next-wrapper" id="js--btn-container">
-    //             <button class="btn-nxt" id="btn-gender"><ion-icon name="arrow-forward" class="icon-next"></ion-icon></button>
-    //         </div>` 
-    //     )
-    // } 
-    // // else if (!male === true && !female === true && !unisex === true) {
-    // //     charContainer.insertAdjacentHTML('beforeend', '<div>Please select at least one option</div>');
-    // // }
-
-        
-    // // } else {
-    // //     console.log('no options selected');
-    // // }
-
-
-
+nextButton1.addEventListener('click', () => {
+    genderFilter.classList.remove('visible');
+    genderFilter.classList.add('hidden');
+})

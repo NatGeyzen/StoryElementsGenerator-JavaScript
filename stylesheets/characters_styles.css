@@ -141,33 +141,6 @@
 	color: rgba(0, 0, 0, 0.8);
 }
   
-.button-wrapper {
-	width: 100%;
-	margin: 10vh auto 15vh;
-	display: flex;
-	flex-direction: column;
-	text-align: left;
-}
-  
-.btn-next-wrapper {
-	height: 75px;
-	width: 75px;
-	position: absolute;
-	right: 3%;
-	bottom: 3%;
-}
-  
-.btn-nxt {
-	width: 100px;
-	height: 100px;
-	outline: none;
-	background-color: transparent;
-	border: none;
-	/* border: 1px solid rgb(30, 89, 199);
-	background-color: rgb(30, 89, 199);
-	border-radius: 50%; */
-}
-
 
 /* STYLES SECOND SCREEN 
 --------------------------------------------------------------- */
@@ -224,14 +197,118 @@
 	opacity: 1;
 	
   } */
+
+.button-wrapper {
+	width: 100%;
+	margin: 10vh auto 15vh;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
+
+/* .btn-nxt-wrapper {
+	
+	color: rgba(31, 0, 27, 0.9);
+} */
+
+.btn-next-wrapper.hidden {
+	opacity: 0;
+	animation: vanish 0.4s forwards;
+}
+
+.btn-next-wrapper.visible {
+	cursor: pointer;
+	
+}
   
+.checkmark__circle {
+	stroke-dasharray: 166;
+	stroke-dashoffset: 166;
+	stroke-width: 2;
+	stroke-miterlimit: 10;
+	stroke: rgb(30, 89, 199);
+	fill: none;
+	box-shadow: inset 3px 3px 3px rgb(1, 25, 66);
+	animation: stroke 0.5s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  }
   
-  .genderValidation {
+  .checkmark {
+	position: absolute;
+	bottom: 0;
+	transform: translateY(-50%);
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	display: block;
+	stroke-width: 5;
+	stroke: #fff;
+	stroke-miterlimit: 10;
+	margin: 10% auto;
+	box-shadow: inset 3px 3px 3px rgb(1, 25, 66);
+	animation: fill .3s ease-in-out .3s forwards, scale .2s ease-in-out .7s both;
+  }
+  
+  .checkmark__check {
+	transform-origin: 50% 50%;
+	stroke-dasharray: 48;
+	stroke-dashoffset: 48;
+	animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+  }
+  
+  @keyframes stroke {
+	0% {
+		position: absolute;
+	}
+	100% {
+		stroke-dashoffset: 0;
+	}
+  }
+  @keyframes scale {
+	0%, 100% {
+	  	transform: none;
+	  	position: absolute;
+		left: 50%;
+		bottom: -5%;
+		transform: translateX(-50%);
+	}
+	50% {
+		transform: scale3d(1.1, 1.1, 1);
+		position: absolute;
+		left: 50%;
+		bottom: -5%;
+		transform: translateX(-50%);
+	}
+  }
+  @keyframes fill {
+	0% {
+		position: absolute;
+		left: 50%;
+		bottom: -5%;
+		transform: translateX(-50%);
+	}
+	100% {
+	  	box-shadow: inset 0px 0px 0px 30px rgb(30, 89, 199);
+		transform: translateX(-50%);
+		position: absolute;
+		left: 50%;	
+		bottom: -5%;
+		transform: translateX(-50%);
+	}
+  }
+  @keyframes vanish {
+	  0% {
+		  opacity: 1
+	  }
+	  100% {
+		  opacity: 0
+	  }
+  }
+  /* .genderValidation {
 	width: 250px;
 	height: 100px;
 	border: 1px solid rgba(211, 4, 4, 0.5);
 	background-color: rgba(247, 54, 54, 0.5);
-  }
+  } */
 
 /* ---------------------------------------------------------------------------------------------
    MEDIA QUERIES
@@ -264,7 +341,7 @@
 	#js--text-wrapper           		{ position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); width: 80%;}
 	.character-text             		{ font-size: 1.5em; padding: 0 10px 30px; }
 	.character-text.small       		{ font-size: 1.15em; line-height: 150%; }
-	.btn-wrapper                		{ height: 30vh; }
+	.btn-wrapper                		{ height: 30vh; position: absolute; bottom: 0; border: 1px solid re;}
 	.btn-wrapper button         		{ width: 200px; height: 50px; font-size: 1.5em;}
 	.non-selected, .selected    		{ width: 150px; font-size: 1.2em; margin: 10px 30px; outline: none;}
 
@@ -285,7 +362,7 @@
 	  }
   
 	  .genders-button-wrapper {
-		top: 70%;
+		top: 65%;
 		width: 90vw;
 		position: absolute;
 		left: 0;
