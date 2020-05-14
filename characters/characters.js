@@ -77,15 +77,12 @@ randomBtn.addEventListener('click', () => {
    FILTER 1: GENDER
 ------------------------------------------------------------------------------------------------------- */
 
-
 customizeBtn.addEventListener('click', () => {
     charContainer.classList.remove('visible');
     charContainer.classList.add('hidden');
     genderFilter.classList.remove('hidden');
     genderFilter.classList.add('visible');
 });
-
-
 
 const toggleHandler = (e, genderFilter) => {
     if (e.target.classList.contains('non-selected')) {
