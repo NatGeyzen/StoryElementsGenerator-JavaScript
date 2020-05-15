@@ -18,6 +18,7 @@ const contemporary = document.getElementById('js--contemporary')
 const fantasy = document.getElementById('js--fantasy');
 const historical = document.getElementById('js--historical');
 const scifi = document.getElementById('js--sciencefiction');
+const genreWarningArray = [];
 
 /* ----------------------------------------------------------------------------------------------------
     NAMES OBJECT OF ARRAYS
@@ -82,17 +83,38 @@ randomBtn.addEventListener('click', () => {
     }
 });
 
-
 /* ----------------------------------------------------------------------------------------------------
-   FILTER 1: GENDER
+   BUTTON HANDLERS
 ------------------------------------------------------------------------------------------------------- */
 
-customizeBtn.addEventListener('click', () => {
-    charContainer.classList.remove('visible');
-    charContainer.classList.add('hidden');
-    genderFilter.classList.remove('hidden');
-    genderFilter.classList.add('visible');
-});
+const showNextButton = (button) => {
+    button.classList.remove('hidden');
+    button.classList.add('visible'); 
+}
+
+const hideNextButton = (button) => {
+    button.classList.remove('visible');
+    button.classList.add('hidden');  
+}
+
+const genderCheck = () => {
+    if (male.classList.contains('selected') || female.classList.contains('selected') || unisex.classList.contains('selected')) {
+        showNextButton(nextButton1);
+    } else {
+        hideNextButton(nextButton1);
+    };
+};
+
+const genreWarning = (eventTarget) => {
+    if (eventTarget.id === 'js--contemporary' || eventTarget.id === 'js--fantasy' || eventTarget.id === 'js--historical' || eventTarget.id === 'js--sciencefiction' ) {
+        genreWarningArray.push(eventTarget.id); 
+    }
+    if (genreWarningArray.length > 1) {
+        alert('Sorry, only one option can be selected');
+        eventTarget.classList.remove('selected');
+        eventTarget.classList.add('non-selected');
+    }
+}
 
 const toggleHandler = (e) => {
 
@@ -104,13 +126,9 @@ const toggleHandler = (e) => {
         e.target.classList.add('non-selected');
     }  
     
-    if (male.classList.contains('selected') || female.classList.contains('selected') || unisex.classList.contains('selected')) {
-        nextButton1.classList.remove('hidden');
-        nextButton1.classList.add('visible');
-    } else {
-        nextButton1.classList.remove('visible');
-        nextButton1.classList.add('hidden');
-    }
+    genderCheck();
+
+    genreWarning(e.target);
 
     if (contemporary.classList.contains('selected') || fantasy.classList.contains('selected') || historical.classList.contains('selected') || scifi.classList.contains('selected')) {
         nextButton2.classList.remove('hidden');
@@ -120,6 +138,18 @@ const toggleHandler = (e) => {
         nextButton2.classList.add('hidden');
     }
 };
+/* ----------------------------------------------------------------------------------------------------
+   FILTER 1: GENDER
+------------------------------------------------------------------------------------------------------- */
+
+customizeBtn.addEventListener('click', () => {
+    charContainer.classList.remove('visible');
+    charContainer.classList.add('hidden');
+    genderFilter.classList.remove('hidden');
+    genderFilter.classList.add('visible');
+});
+
+
 
 male.addEventListener('click', (e) => toggleHandler(e));
 female.addEventListener('click', (e) => toggleHandler(e));
@@ -137,7 +167,7 @@ nextButton1.addEventListener('click', () => {
     genreFilter.classList.add('visible');
 });
 
-document.getElementById('js--contemporary').addEventListener('click', (e) => toggleHandler(e));
-document.getElementById('js--fantasy').addEventListener('click', (e) => toggleHandler(e));;
-document.getElementById('js--historical').addEventListener('click', (e) => toggleHandler(e));;
-document.getElementById('js--sciencefiction').addEventListener('click', (e) => toggleHandler(e));
+contemporary.addEventListener('click', (e) => toggleHandler(e));
+fantasy.addEventListener('click', (e) => toggleHandler(e));;
+historical.addEventListener('click', (e) => toggleHandler(e));;
+scifi.addEventListener('click', (e) => toggleHandler(e));
