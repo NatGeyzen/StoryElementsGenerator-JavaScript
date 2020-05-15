@@ -299,26 +299,18 @@
 
 .genre-options-wrapper {
 	position: absolute;
-	bottom: 40vh;
+	bottom: 35vh;
 	left: 50%;
+	width: 60vw;
 	transform: translateX(-50%);
 }
-
-#genre-options {
-	height: 40px;
-	width: 250px;
-	padding-left: 10px;
-	font-variant: small-caps;
-	color: #24ddfa;
-	border: 2px solid #10d8f7;
-	border: 10px;
-	box-shadow: 1px 1px 1px rgb(3, 84, 97),
-				 2px 2px 1px rgb(3, 84, 97);  
-	background-color: rgba(0, 0, 0, 0.5);
-	font-size: 15px;
-	font-weight: bolder;
-	outline: none;
-  }
+.non-selected.genre, .selected.genre {
+	width: 200px;
+	margin: 20px;
+	height: 50px;
+	border-radius: 50px;
+	padding: 40px auto 20px;
+}
 
   .character-text.smaller > span {
 	  font-size: 16px;

@@ -14,7 +14,10 @@ const nextButton1 = document.getElementById('next-button1');
 const genreFilter = document.getElementById('js--genre-filter-wrapper');
 const genreOptions = document.getElementById('genre-options');
 const nextButton2 = document.getElementById('next-button2');
-
+const contemporary = document.getElementById('js--contemporary')
+const fantasy = document.getElementById('js--fantasy');
+const historical = document.getElementById('js--historical');
+const scifi = document.getElementById('js--sciencefiction');
 
 /* ----------------------------------------------------------------------------------------------------
     NAMES OBJECT OF ARRAYS
@@ -108,6 +111,14 @@ const toggleHandler = (e) => {
         nextButton1.classList.remove('visible');
         nextButton1.classList.add('hidden');
     }
+
+    if (contemporary.classList.contains('selected') || fantasy.classList.contains('selected') || historical.classList.contains('selected') || scifi.classList.contains('selected')) {
+        nextButton2.classList.remove('hidden');
+        nextButton2.classList.add('visible');
+    } else {
+        nextButton2.classList.remove('visible');
+        nextButton2.classList.add('hidden');
+    }
 };
 
 male.addEventListener('click', (e) => toggleHandler(e));
@@ -126,9 +137,7 @@ nextButton1.addEventListener('click', () => {
     genreFilter.classList.add('visible');
 });
 
-genreOptions.addEventListener('click', () => {
-    if (genreOptions.value !== 'choose an option') {
-        nextButton2.classList.remove('hidden');
-        nextButton2.classList.add('visible');
-    }
-})
+document.getElementById('js--contemporary').addEventListener('click', (e) => toggleHandler(e));
+document.getElementById('js--fantasy').addEventListener('click', (e) => toggleHandler(e));;
+document.getElementById('js--historical').addEventListener('click', (e) => toggleHandler(e));;
+document.getElementById('js--sciencefiction').addEventListener('click', (e) => toggleHandler(e));
