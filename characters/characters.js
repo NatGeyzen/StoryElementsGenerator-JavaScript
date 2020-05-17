@@ -7,18 +7,12 @@ const customizeBtn = document.getElementById('js--customizeBtn');
 const randomBtn = document.getElementById('js--randomBtn');
 const charContainer = document.getElementById('js--characters-original-screen');
 const genderFilter = document.getElementById('js--gender-filter-wrapper');
-const male = document.getElementById('js--male');
-const female = document.getElementById('js--female');
-const unisex = document.getElementById('js--unisex');
+
 const nextButton1 = document.getElementById('next-button1');
 const genreFilter = document.getElementById('js--genre-filter-wrapper');
 const genreOptions = document.getElementById('genre-options');
 const nextButton2 = document.getElementById('next-button2');
-const contemporary = document.getElementById('js--contemporary')
-const fantasy = document.getElementById('js--fantasy');
-const historical = document.getElementById('js--historical');
-const scifi = document.getElementById('js--sciencefiction');
-const genreWarningArray = [];
+
 
 /* ----------------------------------------------------------------------------------------------------
     NAMES OBJECT OF ARRAYS
@@ -69,13 +63,13 @@ const returnRandomName = (namesList ,num) => {
     // num will be returned from calling returnRandomNum() function
 
 randomBtn.addEventListener('click', () => {
-    const ul = document.createElement('ul');
+    const ul = document.createGenre('ul');
     ul.setAttribute('class','randomResults');
     charContainer.innerHTML = '';
     charContainer.appendChild(ul);
 
     for (i = 0; i < 9; i++) {
-        const li = document.createElement('li');
+        const li = document.createGenre('li');
         ul.appendChild(li);
         if (i < 3) { li.innerHTML = `${returnRandomName(maleHumanList, returnRandomNum(maleHumanLength))}`; } 
         else if (i > 6) { li.innerHTML = `${returnRandomName(femaleHumanList, returnRandomNum(femaleHumanLength))}`; }
@@ -87,6 +81,16 @@ randomBtn.addEventListener('click', () => {
    BUTTON HANDLERS
 ------------------------------------------------------------------------------------------------------- */
 
+const toggleButtonStyle = (eventTarget) => {
+    if (eventTarget.classList.contains('non-selected')) {
+        eventTarget.classList.remove('non-selected');
+        eventTarget.classList.add('selected');
+    } else {
+        eventTarget.classList.remove('selected');
+        eventTarget.classList.add('non-selected');
+    }  
+};
+
 const showNextButton = (button) => {
     button.classList.remove('hidden');
     button.classList.add('visible'); 
@@ -97,46 +101,76 @@ const hideNextButton = (button) => {
     button.classList.add('hidden');  
 }
 
-const genderCheck = () => {
-    if (male.classList.contains('selected') || female.classList.contains('selected') || unisex.classList.contains('selected')) {
-        showNextButton(nextButton1);
-    } else {
-        hideNextButton(nextButton1);
-    };
+/* ----------------------------------------------------------------------------------------------------
+   GENDER FILTER VARIABLES/FUNCTIONS
+------------------------------------------------------------------------------------------------------- */
+
+const male = document.getElementById('male');
+const female = document.getElementById('female');
+const unisex = document.getElementById('unisex');
+const genderOptions = [male, female, unisex];
+const selectedGenders = []; 
+
+const genderCheck = (eventTarget) => {
+    if (eventTarget === male || eventTarget === female || eventTarget === unisex) {
+        if (eventTarget.classList.contains('selected')) { 
+            selectedGenders.push(eventTarget.id);
+            showNextButton(nextButton1);
+        } else if (selectedGenders.includes(eventTarget.id) && eventTarget.classList.contains('non-selected')) {
+            for (let i = 0; i < selectedGenders.length; i++) {
+                if (selectedGenders[i] === eventTarget.id) {
+                    selectedGenders.splice(i, 1);
+                }
+            }
+        }  
+        if (!(male.classList.contains('selected') || 
+              female.classList.contains('selected') || 
+              unisex.classList.contains('selected'))) {
+            
+            hideNextButton(nextButton1);
+
+        }
+    }
+    return selectedGenders;  
 };
 
-const genreWarning = (eventTarget) => {
-    if (eventTarget.id === 'js--contemporary' || eventTarget.id === 'js--fantasy' || eventTarget.id === 'js--historical' || eventTarget.id === 'js--sciencefiction' ) {
-        genreWarningArray.push(eventTarget.id); 
+/* ----------------------------------------------------------------------------------------------------
+   GENRE FILTER VARIABLES/FUNCTIONS
+------------------------------------------------------------------------------------------------------- */
+
+const contemporary = document.getElementById('contemporary')
+const fantasy = document.getElementById('fantasy');
+const historical = document.getElementById('historical');
+const scifi = document.getElementById('sciencefiction');
+
+const genreCheck = (eventTarget) => {
+    let selectedGenre;
+    if (eventTarget === contemporary || eventTarget === fantasy || eventTarget === historical || eventTarget === scifi ) {
+        if (!selectedGenre) {
+           if (eventTarget.classList.contains('selected')) { 
+                selectedGenre = eventTarget.id;
+                showNextButton(nextButton2);
+           }
+        } else if (selectedGenre === eventTarget.id) {
+            hideNextButton(nextButton2);
+            selectedGenre = null;
+        } else if (selectedGenre !== eventTarget.id) {
+            alert('Sorry, only one option can be selected');
+            eventTarget.classList.remove('selected');
+            eventTarget.classList.add('non-selected');
+        }
+        
     }
-    if (genreWarningArray.length > 1) {
-        alert('Sorry, only one option can be selected');
-        eventTarget.classList.remove('selected');
-        eventTarget.classList.add('non-selected');
-    }
+    return selectedGenre;
 }
 
 const toggleHandler = (e) => {
 
-    if (e.target.classList.contains('non-selected')) {
-        e.target.classList.remove('non-selected');
-        e.target.classList.add('selected');
-    } else {
-        e.target.classList.remove('selected');
-        e.target.classList.add('non-selected');
-    }  
+    toggleButtonStyle(e.target);
     
-    genderCheck();
-
-    genreWarning(e.target);
-
-    if (contemporary.classList.contains('selected') || fantasy.classList.contains('selected') || historical.classList.contains('selected') || scifi.classList.contains('selected')) {
-        nextButton2.classList.remove('hidden');
-        nextButton2.classList.add('visible');
-    } else {
-        nextButton2.classList.remove('visible');
-        nextButton2.classList.add('hidden');
-    }
+    const selectedGenders = genderCheck(e.target);
+    const selectedGenre = genreCheck(e.target);
+    return [selectedGenders, selectedGenre];
 };
 /* ----------------------------------------------------------------------------------------------------
    FILTER 1: GENDER
@@ -145,6 +179,7 @@ const toggleHandler = (e) => {
 customizeBtn.addEventListener('click', () => {
     charContainer.classList.remove('visible');
     charContainer.classList.add('hidden');
+
     genderFilter.classList.remove('hidden');
     genderFilter.classList.add('visible');
 });
@@ -154,7 +189,6 @@ customizeBtn.addEventListener('click', () => {
 male.addEventListener('click', (e) => toggleHandler(e));
 female.addEventListener('click', (e) => toggleHandler(e));
 unisex.addEventListener('click', (e) => toggleHandler(e));
-
 
 /* ----------------------------------------------------------------------------------------------------
    FILTER 2: GENRE
@@ -167,7 +201,7 @@ nextButton1.addEventListener('click', () => {
     genreFilter.classList.add('visible');
 });
 
-contemporary.addEventListener('click', (e) => toggleHandler(e));
+contemporary.addEventListener('click', (e) => console.log(toggleHandler(e)));
 fantasy.addEventListener('click', (e) => toggleHandler(e));;
 historical.addEventListener('click', (e) => toggleHandler(e));;
 scifi.addEventListener('click', (e) => toggleHandler(e));
