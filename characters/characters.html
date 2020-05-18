@@ -30,8 +30,9 @@
 
 	<body class="char-body">
 		<div id="characters-background-image"></div>
-		<!-- FIRST SCREEN -->
-			<div id="js--characters-original-screen" class="visible">
+
+			<!-- FIRST SCREEN -->
+			<div id="characters-original-screen" class="visible">
 				<div id="js--text-wrapper">
 					<p class="character-text">
 						This random character name generator has names that fit different types of genders, species and periods in time. 
@@ -41,13 +42,13 @@
 					</p>
 				</div>
 				<div class="btn-wrapper">
-					<button id="js--customizeBtn">Customize</button>
-					<button id="js--randomBtn">Random</button>
+					<button id="customizeBtn">Customize</button>
+					<button id="randomBtn">Random</button>
 				</div>
 			</div>
 
 			<!-- GENDER FILTER SCREEN -->
-			<div id="js--gender-filter-wrapper" class="hidden">
+			<div id="gender-filter-wrapper" class="hidden">
 				<div class="filter-text">
 					<div class="text-wrapper">
 						<p class="character-text">Would you like to filter names based on gender?</p>
@@ -65,7 +66,7 @@
 			</div> 
 
 			<!-- GENRE FILTER SCREEN -->
-			<div id="js--genre-filter-wrapper" class="hidden">
+			<div id="genre-filter-wrapper" class="hidden">
 				<div class="filter-text">
 					<div class="text-wrapper">
 						<p class="character-text">What genre best fits your story?</p>
@@ -73,15 +74,31 @@
 					</div>
 				</div>
 				<div class="genre-options-wrapper">
-					<button id="contemporary" class="non-selected genre">Contemporary</button>
-					<button id="fantasy" class="non-selected genre">Fantasy</button>
-					<button id="historical" class="non-selected genre">Historical</button>
-					<button id="sciencefiction" class="non-selected genre">Science Fiction</button>
+					<button id="contemporary" class="non-selected genre">
+						Contemporary 
+						<ion-icon name="help-circle-outline" class="genre-info"></ion-icon>
+					</button>
+					<button id="fantasy" class="non-selected genre">
+						Fantasy
+						<ion-icon name="help-circle-outline" class="genre-info"></ion-icon>
+					</button>
+					<button id="historical" class="non-selected genre">
+						Historical
+						<ion-icon name="help-circle-outline" class="genre-info"></ion-icon>
+					</button>
+					<button id="sciencefiction" class="non-selected genre">
+						Science Fiction
+						<ion-icon name="help-circle-outline" class="genre-info"></ion-icon>
+					</button>
 				</div> 
 				<div id="next-button2" class="btn-next-wrapper hidden">
 					<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
 				</div>
 			</div> 
+
+			<!-- FANTASY SUBFILTER SCREEN -->
+
+
 		</div>
 
 		<!-- SCRIPTS -->  
