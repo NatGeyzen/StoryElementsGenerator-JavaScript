@@ -19,7 +19,7 @@ const nextButton2   = document.getElementById('next-button2');
 const nextButton3A  = document.getElementById('next-button3A');
 const nextButton3B  = document.getElementById('next-button3B');
 
-
+const toggleButtons = document.getElementsByClassName('js--toggleButton');
 /* ----------------------------------------------------------------------------------------------------
     NAMES OBJECT OF ARRAYS
    ---------------------------------------------------------------------------------------------------- */
@@ -155,10 +155,6 @@ const genderCheck = (eventTarget) => {
     return selectedGenders;  
 };
 
-document.getElementById('male').addEventListener('click', (e) => toggleHandler(e));
-document.getElementById('female').addEventListener('click', (e) => toggleHandler(e));
-document.getElementById('unisex').addEventListener('click', (e) => toggleHandler(e));
-
 /* ----------------------------------------------------------------------------------------------------
    FILTER 2: GENRE
 ------------------------------------------------------------------------------------------------------- */
@@ -190,13 +186,6 @@ const genreCheck = (eventTarget) => {
     return selectedGenre;
 };
 
-document.getElementById('contemporary').addEventListener('click', (e) => toggleHandler(e));
-document.getElementById('fantasy').addEventListener('click', (e) => toggleHandler(e));;
-document.getElementById('historical').addEventListener('click', (e) => toggleHandler(e));;
-document.getElementById('sciencefiction').addEventListener('click', (e) => toggleHandler(e));
-
-
-
 const goToNextFilter = (e) => {
     let nextScreen;
     const selectedValues = toggleHandler(e);
@@ -218,13 +207,6 @@ nextButton2.addEventListener('click', (e) => goToNextScreen(genreFilter, nextScr
 /* ----------------------------------------------------------------------------------------------------
    FILTER 3B: HISTORICAL
 ------------------------------------------------------------------------------------------------------- */
-
-document.getElementById('ancient-greece').addEventListener('click', (e) => console.log(toggleHandler(e)));
-document.getElementById('ancient-rome').addEventListener('click', (e) => toggleHandler(e));
-document.getElementById('ancient-egypt').addEventListener('click', (e) => toggleHandler(e));
-document.getElementById('viking-era').addEventListener('click', (e) => toggleHandler(e));
-document.getElementById('elizabethan-era').addEventListener('click', (e) => toggleHandler(e));
-document.getElementById('victorian-era').addEventListener('click', (e) => toggleHandler(e));
 
 const selectedTimePeriod = [];
 
@@ -264,3 +246,7 @@ const toggleHandler = (e) => {
     console.log(selectedTimePeriod);
     return [selectedGenders, selectedGenre, selectedTimePeriod];
 };
+
+for (let i = 0; i < toggleButtons.length; i++) {
+    toggleButtons[i].addEventListener('click', (e) => toggleHandler(e));
+}
