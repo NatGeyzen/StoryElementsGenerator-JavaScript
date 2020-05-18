@@ -8,12 +8,16 @@ const charContainer = document.getElementById('characters-original-screen');
 const genderFilter  = document.getElementById('gender-filter-wrapper');
 const genreFilter   = document.getElementById('genre-filter-wrapper');
 const genreOptions  = document.getElementById('genre-options');
+const speciesFilter = document.getElementById('species-filter-wrapper');
+const timeFilter    = document.getElementById('timeperiod-filter-wrapper');
 
 
 const randomBtn     = document.getElementById('randomBtn');
 const customizeBtn  = document.getElementById('customizeBtn')
 const nextButton1   = document.getElementById('next-button1');
 const nextButton2   = document.getElementById('next-button2');
+const nextButton3A  = document.getElementById('next-button3A');
+const nextButton3B  = document.getElementById('next-button3B');
 
 
 /* ----------------------------------------------------------------------------------------------------
@@ -111,36 +115,39 @@ const goToNextScreen = (currentScreen, nextScreen) => {
 }
 
 /* ----------------------------------------------------------------------------------------------------
-   CLICK HANDLERS
+   FILTER 1: GENDER 
 ------------------------------------------------------------------------------------------------------- */
 
 customizeBtn.addEventListener('click', () => goToNextScreen(charContainer, genderFilter));
-
-nextButton1.addEventListener('click', () => goToNextScreen(genderFilter, genreFilter));
-
-/* ----------------------------------------------------------------------------------------------------
-   GENDER FILTER VARIABLES/FUNCTIONS
-------------------------------------------------------------------------------------------------------- */
 
 const genderOptions = [male, female, unisex];
 const selectedGenders = []; 
 
 const genderCheck = (eventTarget) => {
-    if (eventTarget.id === 'male' || eventTarget.id === 'female' || eventTarget.id === 'unisex') {
+    // if ANY of the gender options gets clicked
+    if (eventTarget === male || eventTarget === female || eventTarget === unisex) {
+        // if the option got selected (not deselected)
         if (eventTarget.classList.contains('selected')) { 
+            // store the id of the button clicked inside the selectedGenders array
             selectedGenders.push(eventTarget.id);
+            // show the button that goes to the next page
             showNextButton(nextButton1);
+        // if the option got deselected and was stored inside the array,    
         } else if (selectedGenders.includes(eventTarget.id) && eventTarget.classList.contains('non-selected')) {
+            // loop over the array
             for (let i = 0; i < selectedGenders.length; i++) {
+                // if there is a match, 
                 if (selectedGenders[i] === eventTarget.id) {
+                    // remove it from the array
                     selectedGenders.splice(i, 1);
                 }
             }
         }  
+        // if NONE of the options are selected
         if (!(male.classList.contains('selected') || 
               female.classList.contains('selected') || 
               unisex.classList.contains('selected'))) {
-            
+            // hide the button allowing a user to continue to the next filter
             hideNextButton(nextButton1);
 
         }
@@ -148,9 +155,14 @@ const genderCheck = (eventTarget) => {
     return selectedGenders;  
 };
 
+document.getElementById('male').addEventListener('click', (e) => toggleHandler(e));
+document.getElementById('female').addEventListener('click', (e) => toggleHandler(e));
+document.getElementById('unisex').addEventListener('click', (e) => toggleHandler(e));
+
 /* ----------------------------------------------------------------------------------------------------
-   GENRE FILTER VARIABLES/FUNCTIONS
+   FILTER 2: GENRE
 ------------------------------------------------------------------------------------------------------- */
+nextButton1.addEventListener('click', () => goToNextScreen(genderFilter, genreFilter));
 
 const selectedGenre = []; 
 
@@ -178,6 +190,68 @@ const genreCheck = (eventTarget) => {
     return selectedGenre;
 };
 
+document.getElementById('contemporary').addEventListener('click', (e) => toggleHandler(e));
+document.getElementById('fantasy').addEventListener('click', (e) => toggleHandler(e));;
+document.getElementById('historical').addEventListener('click', (e) => toggleHandler(e));;
+document.getElementById('sciencefiction').addEventListener('click', (e) => toggleHandler(e));
+
+
+
+const goToNextFilter = (e) => {
+    let nextScreen;
+    const selectedValues = toggleHandler(e);
+    if (selectedValues[1].includes ('fantasy')) {
+        nextScreen = speciesFilter;
+    }
+    else if (selectedValues[1].includes('historical')) {
+        nextScreen = timeFilter;
+    } 
+    return nextScreen;
+}
+
+const nextScreen = (e) => goToNextFilter(e);
+
+nextButton2.addEventListener('click', (e) => goToNextScreen(genreFilter, nextScreen(e)));
+
+
+
+/* ----------------------------------------------------------------------------------------------------
+   FILTER 3B: HISTORICAL
+------------------------------------------------------------------------------------------------------- */
+
+document.getElementById('ancient-greece').addEventListener('click', (e) => console.log(toggleHandler(e)));
+document.getElementById('ancient-rome').addEventListener('click', (e) => toggleHandler(e));
+document.getElementById('ancient-egypt').addEventListener('click', (e) => toggleHandler(e));
+document.getElementById('viking-era').addEventListener('click', (e) => toggleHandler(e));
+document.getElementById('elizabethan-era').addEventListener('click', (e) => toggleHandler(e));
+document.getElementById('victorian-era').addEventListener('click', (e) => toggleHandler(e));
+
+const selectedTimePeriod = [];
+
+const timeCheck = (eventTarget) => {
+    
+    if (eventTarget.id === 'ancient-greece' || eventTarget.id === 'ancient-rome'    || eventTarget.id === 'ancient-egypt'  || 
+        eventTarget.id === 'viking-era'     || eventTarget.id === 'elizabethan-era' || eventTarget.id === 'victorian-era') {
+            if (eventTarget.classList.contains('selected')) {
+                selectedTimePeriod.push(eventTarget.id);
+                showNextButton(nextButton3);
+            } else if (selectedTimePeriod.includes(eventTarget.id) && eventTarget.classList.contains('non-selected')) {
+                for (let i = 0; i < selectedTimePeriod.length; i++) {
+                    if (selectedTimePeriod[i] === eventTarget.id) {
+                        selectedTimePeriod.splice(i, 1);
+                    }
+                }
+            }
+    }
+    return selectedTimePeriod;
+}
+
+nextButton3B.addEventListener('click', (e) => {
+    const selectedValues = toggleHandler(e);
+    console.log(selectedValues[2]);
+});
+
+
 
 
 const toggleHandler = (e) => {
@@ -186,33 +260,7 @@ const toggleHandler = (e) => {
     
     const selectedGenders = genderCheck(e.target);
     const selectedGenre = genreCheck(e.target);
-    return [selectedGenders, selectedGenre];
+    const selectedTimePeriod = timeCheck(e.target);
+    console.log(selectedTimePeriod);
+    return [selectedGenders, selectedGenre, selectedTimePeriod];
 };
-/* ----------------------------------------------------------------------------------------------------
-   FILTER 1: GENDER
-------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-document.getElementById('male').addEventListener('click', (e) => toggleHandler(e));
-document.getElementById('female').addEventListener('click', (e) => toggleHandler(e));
-document.getElementById('unisex').addEventListener('click', (e) => toggleHandler(e));
-
-
-
-/* ----------------------------------------------------------------------------------------------------
-   FILTER 2: GENRE
-------------------------------------------------------------------------------------------------------- */
-
-document.getElementById('contemporary').addEventListener('click', (e) => toggleHandler(e));
-document.getElementById('fantasy').addEventListener('click', (e) => toggleHandler(e));;
-document.getElementById('historical').addEventListener('click', (e) => toggleHandler(e));;
-document.getElementById('sciencefiction').addEventListener('click', (e) => toggleHandler(e));
-
-nextButton2.addEventListener('click', (e) => {
-    genreFilter.classList.remove('visible');
-    genreFilter.classList.add('hidden');
-});
-
