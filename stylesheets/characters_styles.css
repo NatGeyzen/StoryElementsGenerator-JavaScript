@@ -26,7 +26,8 @@
 #gender-filter-wrapper.hidden,
 #genre-filter-wrapper.hidden,
 #species-filter-wrapper.hidden,
-#timeperiod-filter-wrapper {
+#timeperiod-filter-wrapper.hidden,
+#scifi-filter-wrapper.hidden {
   display: none;
 }
 
@@ -34,14 +35,16 @@
 #gender-filter-wrapper.visible
 #genre-filter-wrapper.visible,
 #species-filter-wrapper.visible,
-#timeperiod-filter-wrapper.visible {
+#timeperiod-filter-wrapper.visible,
+#sci-filter-wrapper.visible {
   display: block;
 }
 
 #gender-filter-wrapper, 
 #genre-filter-wrapper, 
 #species-filter-wrapper,
-#timeperiod-filter-wrapper {
+#timeperiod-filter-wrapper,
+#scifi-filter-wrapper {
 	width: 90vw;
 	height: 95vh;
 	text-align: center;
@@ -312,6 +315,7 @@
 	bottom: 30vh;
 	left: 50%;
 	width: 60vw;
+	height: 30vh;
 	transform: translateX(-50%);
 	
 }
@@ -365,7 +369,6 @@ transform: translateX(-50%); */
 .timeperiod-options-wrapper, .species-options-wrapper {
 	width: auto;
 	max-width: 95vw;
-	height: auto;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -403,7 +406,15 @@ transform: translateX(-50%); */
 	.character-text.small       		{ font-size: 1.05em; }
 	.btn-wrapper                		{ height: 35vh; }
 	.btn-wrapper button         		{ height: 50px; width: 200px; font-size: 1.3em; margin: 10px 30px;}
-	/* .genders-button-wrapper				{ bottom: 25%; } */
+
+	.selected, 
+	.non-selected,
+	.selected.genre, 
+	.non-selected.genre,
+	.selected.species, 
+	.non-selected.species,
+	.selected.time-period,
+	.non-selected.time-period			{ height: 50px; }
 }
 
 @media (max-height: 578px) {
@@ -435,10 +446,16 @@ transform: translateX(-50%); */
 	/* .genre-options-wrapper				{ width: 75vw; } */
 	.non-selected.genre,
 	.selected.genre 					{ width: 200px;  }
-	.non-selected.species,
+
+	.selected,
+	.non-selected,
+	.selected.genre,
+	.non-selected.genre,
 	.selected.species,
-	.non-selected.time-period,
-	.selected.time-period				{ width: 185px; font-size: 14px; height: 50px; font-weight: bold; }
+	.non-selected.species,
+	.selected.time-period,
+	.non-selected.time-period			{ width: 185px; font-size: 14px; height: 40px; font-weight: bold; }
+
 	.timeperiod-options-wrapper, 
 	.species-options-wrapper			{ display: flex;}
 	.non-selected.time-period, 
@@ -496,6 +513,6 @@ transform: translateX(-50%); */
 
 @media (min-width: 1000px) {
 	.genders-button-wrappper			{ bottom: 20%;}
-	.genre-options-wrapper 				{ bottom: 32.5vh; }
+	.genre-options-wrapper 				{ bottom: 32.5vh; width: 40vw; }
 }
 

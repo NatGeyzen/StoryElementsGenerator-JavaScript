@@ -10,6 +10,7 @@ const genreFilter   = document.getElementById('genre-filter-wrapper');
 const genreOptions  = document.getElementById('genre-options');
 const speciesFilter = document.getElementById('species-filter-wrapper');
 const timeFilter    = document.getElementById('timeperiod-filter-wrapper');
+const scifiFilter   = document.getElementById('scifi-filter-wrapper');
 
 
 const randomBtn     = document.getElementById('randomBtn');
@@ -18,6 +19,7 @@ const nextButton1   = document.getElementById('next-button1');
 const nextButton2   = document.getElementById('next-button2');
 const nextButton3A  = document.getElementById('next-button3A');
 const nextButton3B  = document.getElementById('next-button3B');
+const nextButton3D  = document.getElementById('next-button3D');
 
 const toggleButtons = document.getElementsByClassName('js--toggleButton');
 /* ----------------------------------------------------------------------------------------------------
@@ -194,7 +196,9 @@ const goToNextFilter = (e) => {
     }
     else if (selectedValues[1].includes('historical')) {
         nextScreen = timeFilter;
-    } 
+    } else if (selectedValues[1].includes('sciencefiction')) {
+        nextScreen = scifiFilter;
+    }
     return nextScreen;
 }
 
