@@ -49,6 +49,9 @@
 	top: 10vh;
 	left: 5vw;
 }
+#timeperiod-filter-wrapper {
+	top: 7vh;
+}
 
 
 /* STYLES FIRST SCREEN 
@@ -245,8 +248,8 @@
 	position: absolute;
 	bottom: 0;
 	transform: translateY(-50%);
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 	border-radius: 50%;
 	display: block;
 	stroke-width: 5;
@@ -306,7 +309,7 @@
 
 .genre-options-wrapper, .timeperiod-options-wrapper {
 	position: absolute;
-	bottom: 40vh;
+	bottom: 30vh;
 	left: 50%;
 	width: 60vw;
 	transform: translateX(-50%);
@@ -327,9 +330,9 @@ width: 60vw;
 transform: translateX(-50%); */
 
 .non-selected.genre, .selected.genre {
-	width: 175px;
+	width: 170px;
 	margin: 10px;
-	height: 40px;
+	height: 35px;
 	border-radius: 50px;
 	padding: 40px auto 20px;
 	text-align: center;
@@ -361,14 +364,16 @@ transform: translateX(-50%); */
 
 .timeperiod-options-wrapper, .species-options-wrapper {
 	width: auto;
-	max-width: 90vw;
+	max-width: 95vw;
+	height: auto;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
 
-.species-options-wrapper > .options-column {
+.species-options-wrapper > .options-column,
+.timeperiod-options-wrapper > .options-column {
 	display: flex;
 }
 
@@ -381,9 +386,9 @@ transform: translateX(-50%); */
 }
 
 .non-selected.time-period, .selected.time-period {
-	font-size: 16px;
-	width: 180px;
-	margin: 10px 0;
+	font-size: 14px;
+	width: 140px;
+	margin: 8px 10px;
 }
 
 
@@ -406,8 +411,9 @@ transform: translateX(-50%); */
 	.character-text             		{ font-size: 1em; padding: 0 10px 10px; }
 	.btn-wrapper button         		{ height: 30px; width: 140px; font-size: 1em; }
 	.genders-button-wrapper				{ bottom: 23%; }
-	.non-selected, .selected			{ width: 100px; height: 35px; font-size: 1em; }
+	.non-selected, .selected			{ width: 100px; height: 35px; font-size: 0.9em; }
 	.text-wrapper						{ top: 10%; }
+	.genre-options-wrapper				{ bottom: 27.5%; }
 
 }
 
@@ -430,11 +436,17 @@ transform: translateX(-50%); */
 	.non-selected.genre,
 	.selected.genre 					{ width: 200px;  }
 	.non-selected.species,
-	.selected.species 					{ width: 185px; font-size: 14px; height: 50px; font-weight: bold; }
+	.selected.species,
+	.non-selected.time-period,
+	.selected.time-period				{ width: 185px; font-size: 14px; height: 50px; font-weight: bold; }
 	.timeperiod-options-wrapper, 
 	.species-options-wrapper			{ display: flex;}
 	.non-selected.time-period, 
-	.selected.time-period 				{ font-size: 14px; width: 180px; margin: 10px 0; }
+	.selected.time-period 				{ font-size: 14px; width: 180px; margin: 10px; }
+	.species-options-wrapper > 
+		.options-column,
+	.timeperiod-options-wrapper >
+		.options-column					{ flex-direction: column; }
 	
 
 	  .character-text.filter {
