@@ -1,5 +1,6 @@
-/* GENERAL STYLING
---------------------------------------------------------------- */
+/* ---------------------------------------------------------------
+ 	GENERAL STYLING
+   --------------------------------------------------------------- */
 
 .char-body {
   	font-family: 'Bellota Text', cursive;
@@ -18,33 +19,29 @@
   	background-position: center;
 }
 
+/* ---------------------------------------------------------------
+ 	RECURRING STYLES
+   --------------------------------------------------------------- */
 
-/* RECURRING STYLES
---------------------------------------------------------------- */
-
-#characters-original-screen.hidden,
-#gender-filter-wrapper.hidden,
-#genre-filter-wrapper.hidden,
-#species-filter-wrapper.hidden,
-#timeperiod-filter-wrapper.hidden,
+#characters-original-screen.hidden, #gender-filter-wrapper.hidden, #genre-filter-wrapper.hidden,
+#modern-filter-wrapper.hidden, #fantasy-filter-wrapper.hidden, #timeperiod-filter-wrapper.hidden, 
 #scifi-filter-wrapper.hidden {
-  display: none;
+  	display: none;
 }
 
-#characters-original-screen.visible,
-#gender-filter-wrapper.visible
-#genre-filter-wrapper.visible,
-#species-filter-wrapper.visible,
-#timeperiod-filter-wrapper.visible,
+#characters-original-screen.visible, #gender-filter-wrapper.visible, #genre-filter-wrapper.visible,
+#modern-filter-wrapper.visible, #fantasy-filter-wrapper.visible, #timeperiod-filter-wrapper.visible,
 #sci-filter-wrapper.visible {
-  display: block;
+  	display: block;
 }
 
-#gender-filter-wrapper, 
-#genre-filter-wrapper, 
-#species-filter-wrapper,
-#timeperiod-filter-wrapper,
-#scifi-filter-wrapper {
+#characters-original-screen, .filter-text, .button-wrapper,
+.fantasy-options-wrapper > .options-column, .timeperiod-options-wrapper > .options-column {
+	display: flex;
+}
+
+#gender-filter-wrapper, #genre-filter-wrapper, #modern-filter-wrapper, 
+#fantasy-filter-wrapper, #timeperiod-filter-wrapper, #scifi-filter-wrapper {
 	width: 90vw;
 	height: 95vh;
 	text-align: center;
@@ -52,33 +49,35 @@
 	top: 10vh;
 	left: 5vw;
 }
-#timeperiod-filter-wrapper {
-	top: 7vh;
-}
 
-
-/* STYLES FIRST SCREEN 
---------------------------------------------------------------- */
-  
-#characters-original-screen {
-	height: 100vh;
-	width: 100vw;
-	margin: auto;
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	z-index: 5;
+#characters-original-screen, .btn-wrapper, .text-wrapper, .genders-button-wrapper,
+.checkmark, .modern-options-wrapper, .genre-options-wrapper, .timeperiod-options-wrapper,
+.timeperiod-options-wrapper, .fantasy-filter-wrapper, .scifi-options-wrapper {
 	position: absolute;
-	top: 60%;
+}
+
+.modern-options-wrapper, .genre-options-wrapper, .timeperiod-options-wrapper {
+	top: 35vh;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	width: auto;
+	height: auto;
+	transform: translateX(-50%);
+	text-align: center;
 }
-  
-#js--text-wrapper {
-	width: 90vw;
-	margin: 7.5vh auto 0;
-}
-  
+
+/* ---------------------------------------------------------------
+ 	ALL SCREENS STYLING
+   --------------------------------------------------------------- */
+
+.character-text > span 				{font-weight: bold; font-size: 1.2em;}
+.character-text.small 				{font-size: 0.95em;}
+.character-text.smaller > span		{font-size: 16px;}
+.character-text.filter 				{border-bottom: 1px dashed black;}
+.text-wrapper 						{ width: 85vw; top: 7vh;}
+.filter-text 						{ flex-direction: column; align-items: center; left: 0; }
+.btn-next-wrapper.hidden 			{ opacity: 0; animation: vanish 0.4s forwards; }
+.btn-next-wrapper.visible 			{ cursor: pointer; }
+
 .character-text {
 	font-size: 1.15em;
 	letter-spacing: 2px;
@@ -91,15 +90,6 @@
 				 2px 2px 1px rgb(3, 84, 97);
 	margin: 0;
 }
-  
-.character-text.small {
-	 font-size: 0.95em;
-}
-  
-.character-text.filter {
-	 border-bottom: 1px dashed black;
-}
-  
 .character-text.smaller {
 	font-size: 0.8em;
 	margin-top: -1vh;
@@ -107,16 +97,97 @@
 	font-weight: bold;
 	font-style: italic;
 }
-  
 .btn-wrapper {
 	justify-content: center;
 	margin: 3em auto 0;
 	width: 100%;
 	height: 32.5vh;
-	position: absolute;
 	bottom: 0;
 }
+.checkmark__circle {
+	stroke-dasharray: 166;
+	stroke-dashoffset: 166;
+	stroke-width: 2;
+	stroke-miterlimit: 10;
+	stroke: rgb(30, 89, 199);
+	fill: none;
+	box-shadow: inset 3px 3px 3px rgb(1, 25, 66);
+	animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+.checkmark {
+	bottom: 0;
+	transform: translateY(-50%);
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: block;
+	stroke-width: 5;
+	stroke: #fff;
+	stroke-miterlimit: 10;
+	margin: 0 auto 2%;
+	box-shadow: inset 3px 3px 3px rgb(1, 25, 66);
+	animation: fill .4s ease-in-out .4s forwards, scale .4s ease-in-out .8s both;
+}
+.checkmark__check {
+	transform-origin: 50% 50%;
+	stroke-dasharray: 48;
+	stroke-dashoffset: 48;
+	animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+@keyframes stroke {
+	0% {
+		position: absolute;
+	}
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+@keyframes scale {
+	0%, 100% {
+	  	transform: none;
+	  	position: absolute;
+		left: 50%;
+		bottom: 10%;
+		transform: translateX(-50%);
+	}
+	50% {
+		transform: scale3d(1.1, 1.1, 1);
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+@keyframes fill {
+	100% {
+	  	box-shadow: inset 0px 0px 0px 30px rgb(30, 89, 199);
+		transform: translateX(-50%);
+		position: absolute;
+		left: 50%;	
+	}
+}
+
+
+/* ---------------------------------------------------------------
+ 	ORIGINAL SCREEN STYLING
+   --------------------------------------------------------------- */
+
+#characters-original-screen {
+	height: 100vh;
+	width: 100vw;
+	margin: auto;
+	flex-direction: column;
+	text-align: center;
+	z-index: 5;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
   
+#js--text-wrapper {
+	width: 95vw;
+	margin: 7.5vh auto 0;
+}
+
 .btn-wrapper button, .non-selected {
 	width: 130px;
 	height: 40px;
@@ -132,8 +203,6 @@
 	font-variant: small-caps;
 	outline: none;
 	cursor: pointer;
-
-	/* animation: btnRandomIn 0.5s; */
 }
 
 .btn-wrapper button:first-child, .selected {
@@ -152,10 +221,10 @@
 	border-radius: 50px;
 	box-shadow: 1px 1px 1px rgb(3, 84, 97),
 				 2px 2px 1px rgb(3, 84, 97);  
-	margin: 10px 30px;
+	margin: 1.1em;
 	font-size: 1em;
 	font-weight: bold;
-
+	display: block;
 }
 .non-selected {
 	color: #10d8f7;
@@ -170,172 +239,28 @@
 }
   
 
-/* STYLES SECOND SCREEN 
---------------------------------------------------------------- */
-
-.text-wrapper {
-	width: 80vw;
-	position: absolute;
-	top: 7vh;
-}
-.filter-text {
-	/* height: 80vh; */
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	left: 0;
-}
+/* ---------------------------------------------------------------
+ 	GENDER FILTER SCREEN STYLING
+   --------------------------------------------------------------- */
 
 .genders-button-wrapper {
-	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 60vw;
-  }
-  
-  /* .selected {
-	background-color: rgb(30, 89, 199); 
-	box-shadow: 1px 1px 1px rgb(3, 56, 155),
-				2px 2px 1px rgb(3, 56, 155),
-				-1px -1px 1px rgb(55, 119, 240);
-	color: white;
-	font-variant: small-caps;
-  } */
-  
-  .icon-next {
-	font-size: 50px;
-	color:	rgb(30, 89, 199);
-  }
-  
-  /* .icon-next-visible {
-	opacity: 1;
-	
-  } */
-
-.button-wrapper {
-	width: 100%;
-	margin: 10vh auto 15vh;
-	display: flex;
-	flex-direction: column;
-	text-align: left;
+	justify-content: center;
 }
 
-/* .btn-nxt-wrapper {
-	
-	color: rgba(31, 0, 27, 0.9);
-} */
 
-.btn-next-wrapper.hidden {
-	opacity: 0;
-	animation: vanish 0.4s forwards;
+/* ---------------------------------------------------------------
+ 	GENRE FILTER SCREEN STYLING
+   --------------------------------------------------------------- */
+
+.genre-options-wrapper {
+	top: 30vh;
 }
-
-.btn-next-wrapper.visible {
-	cursor: pointer;
-	
-}
-  
-.checkmark__circle {
-	stroke-dasharray: 166;
-	stroke-dashoffset: 166;
-	stroke-width: 2;
-	stroke-miterlimit: 10;
-	stroke: rgb(30, 89, 199);
-	fill: none;
-	box-shadow: inset 3px 3px 3px rgb(1, 25, 66);
-	animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-  }
-  
-  .checkmark {
-	position: absolute;
-	bottom: 0;
-	transform: translateY(-50%);
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	display: block;
-	stroke-width: 5;
-	stroke: #fff;
-	stroke-miterlimit: 10;
-	margin: 5% auto;
-	box-shadow: inset 3px 3px 3px rgb(1, 25, 66);
-	animation: fill .4s ease-in-out .4s forwards, scale .4s ease-in-out .8s both;
-  }
-  
-  .checkmark__check {
-	transform-origin: 50% 50%;
-	stroke-dasharray: 48;
-	stroke-dashoffset: 48;
-	animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
-  }
-  
-  @keyframes stroke {
-	0% {
-		position: absolute;
-	}
-	100% {
-		stroke-dashoffset: 0;
-	}
-  }
-  @keyframes scale {
-	0%, 100% {
-	  	transform: none;
-	  	position: absolute;
-		left: 50%;
-		bottom: 10%;
-		transform: translateX(-50%);
-	}
-	50% {
-		transform: scale3d(1.1, 1.1, 1);
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-	}
-  }
-  @keyframes fill {
-	100% {
-	  	box-shadow: inset 0px 0px 0px 30px rgb(30, 89, 199);
-		transform: translateX(-50%);
-		position: absolute;
-		left: 50%;	
-	}
-  }
-  /* @keyframes vanish {
-	  0% {
-		  opacity: 1
-	  }
-	  100% {
-		  opacity: 0
-	  }
-  } */
-
-.genre-options-wrapper, .timeperiod-options-wrapper {
-	position: absolute;
-	bottom: 30vh;
-	left: 50%;
-	width: 60vw;
-	height: 30vh;
-	transform: translateX(-50%);
-	
-}
-
-ion-icon.genre-info {
-	font-size: 23px;
-	position: relative;
-	right: -2px;
-	color: rgb(40, 109, 238);
-}
-
-/* position: absolute;
-bottom: 35vh;
-left: 50%;
-width: 60vw;
-transform: translateX(-50%); */
-
 .non-selected.genre, .selected.genre {
 	width: 170px;
-	margin: 10px;
+	margin: 1em auto;
 	height: 35px;
 	border-radius: 50px;
 	padding: 40px auto 20px;
@@ -343,176 +268,157 @@ transform: translateX(-50%); */
 	padding-left: 15px;
 }
 
-/* width: 200px;
-	margin: 20px;
-	height: 50px;
-	border-radius: 50px;
-	padding: 40px auto 20px; */
+/* ---------------------------------------------------------------
+ 	OTHER FILTER SCREEN STYLING
+   --------------------------------------------------------------- */
+.non-selected.modern, .selected.modern, .non-selected.scifi, .selected.scifi,
+.non-selected.fantasy, .selected.fantasy, .non-selected.time-period, .selected.time-period {
+	width: 175px;
+}
 
-  .character-text.smaller > span {
-	  font-size: 16px;
-  }
-
-
-  /* width: 130px;
-	height: 35px;
-	margin: 10px 30px;
-	
-	font-size: 1.1em;
-	color: rgb(86, 145, 253);
-	border-radius: 30px;
-	font-variant: small-caps;
-	outline: none;
-	cursor: pointer; */
-
-
-.timeperiod-options-wrapper, .species-options-wrapper {
+.timeperiod-options-wrapper {
 	width: auto;
 	max-width: 95vw;
+	top: 55%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.fantasy-options-wrapper {
 	position: absolute;
+	top: 35%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.non-selected.fantasy, .selected.fantasy,
+.non-selected.time-period, .selected.time-period {
+	height: 46px;
+	width: 130px;
+	margin: 0.75em;
+	font-size: 0.95em;
+	font-weight: bold;
+	padding: 0 15px;
+}
+
+.scifi-options-wrapper {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
 
-.species-options-wrapper > .options-column,
-.timeperiod-options-wrapper > .options-column {
-	display: flex;
+#timeperiod-filter-wrapper {
+	top: 7vh;
 }
-
-.non-selected.species, .selected.species {
-	height: 40px;
-	width: 140px;
-	margin: 10px;
-	font-size: 14px;
-	font-weight: bold;
-}
-
-.non-selected.time-period, .selected.time-period {
-	font-size: 14px;
-	width: 140px;
-	margin: 8px 10px;
-}
-
-
-
-
 /* ---------------------------------------------------------------------------------------------
    MEDIA QUERIES
    --------------------------------------------------------------------------------------------- */
 @media (min-width: 400px) {
 	#js--text-wrapper           		{ width: 90vw; position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);}
+	.text-wrapper						{ width: 80vw; }
 	.character-text             		{ font-size: 1.4em; padding: 0 10px 20px; }
 	.character-text.small       		{ font-size: 1.05em; }
 	.btn-wrapper                		{ height: 35vh; }
 	.btn-wrapper button         		{ height: 50px; width: 200px; font-size: 1.3em; margin: 10px 30px;}
+	.genre-options-wrapper				{ top: 30vh; }
 
 	.selected, 
 	.non-selected,
 	.selected.genre, 
-	.non-selected.genre,
-	.selected.species, 
-	.non-selected.species,
-	.selected.time-period,
-	.non-selected.time-period			{ height: 50px; }
+	.non-selected.genre					{ height: 40px; width: 150px; margin: 1em; }
+	.non-selected.fantasy, 
+	.selected.fantasy,
+	.non-selected.time-period, 
+	.selected.time-period 				{ height: 45px;}
+
 }
 
 @media (max-height: 578px) {
-	#js--text-wrapper           		{ width: 80vw; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);}
-	.character-text             		{ font-size: 1em; padding: 0 10px 10px; }
+	#js--text-wrapper           		{ width: 90vw; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);}
+	.character-text             		{ font-size: 1em; padding: 0 10px 1em; }
+	.character-text.small				{ font-size: 0.85em;}
 	.btn-wrapper button         		{ height: 30px; width: 140px; font-size: 1em; }
-	.genders-button-wrapper				{ bottom: 23%; }
-	.non-selected, .selected			{ width: 100px; height: 35px; font-size: 0.9em; }
-	.text-wrapper						{ top: 10%; }
-	.genre-options-wrapper				{ bottom: 27.5%; }
+	.non-selected, .selected			{ width: 100px; height: 35px; font-size: 0.9em; margin: 0.5em auto;}
+	.text-wrapper						{ top: 10%; width: 80vw; }
+
+	.genders-button-wrapper,
+	.genre-options-wrapper				{ display: flex; flex-direction: column; justify-content: center; align-items: center; width: 60vw; }
+	.genre-options-wrapper				{ top: 37%; }
+	.non-selected.modern,
+	.selected.modern,
+	.non-selected.scifi,
+	.selected.scifi						{ margin: 1em 0;}
+	.non-selected.genre,
+	.selected.genre						{ margin: 0 0 1em 0; }
+	.non-selected.fantasy,
+	.selected.fantasy,
+	.non-selected.time-period,
+	.selected.time-period				{ font-size: 0.9em; width: 120px; margin: 0.5em 0.6em; }
 
 }
 
 @media (min-height: 800px) {
 	#js--text-wrapper           		{ width: 85vw; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);}
+	.text-wrapper						{ top: 15%; width: 75vw; }
 	.character-text             		{ font-size: 1.3em; padding: 0 10px 40px; }
 	.character-text.small       		{ font-size: 1.05em; }
 	.btn-wrapper                		{ height: 35vh; }
 	.btn-wrapper button         		{ height: 50px; width: 175px; font-size: 1.2em; }
+	.genders-button-wrapper				{ top: 55%; }
+	.genre-options-wrapper				{ top: 40%; }
+	.modern-options-wrapper				{ top: 42%; }
+	.non-selected,
+	.selected,
+	.non-selected.genre,
+	.selected.genre						{ height: 40px; }
+	.fantasy-options-wrapper			{ top: 40%; }
+
 }
 
 @media (min-width: 767px) {
-	#js--text-wrapper           		{ position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); width: 80%;}
+	#js--text-wrapper           		{ position: absolute; top: 10%; left: 50%; transform: translate(-50%, 0); width: 80%;}
 	.character-text             		{ font-size: 1.5em; padding: 0 10px 30px; }
 	.character-text.small       		{ font-size: 1.15em; line-height: 150%; }
 	.btn-wrapper                		{ height: 30vh; position: absolute; bottom: 0; border: 1px solid re;}
 	.btn-wrapper button         		{ width: 200px; height: 50px; font-size: 1.5em;}
-	.non-selected, .selected    		{ width: 150px; font-size: 1.2em; margin: 10px 30px; outline: none;}
-	/* .genre-options-wrapper				{ width: 75vw; } */
+	.non-selected, .selected    		{ width: 140px; font-size: 1.2em;  outline: none; margin: 0 1.5em;}
+	.options-row						{ display: flex; }
 	.non-selected.genre,
-	.selected.genre 					{ width: 200px;  }
+	.selected.genre 					{ width: 200px; margin: 1em 1.5em;}
+	.genders-button-wrapper				{ width: 80vw; flex-direction: row; }
+	.modern-options-wrapper,
+	.scifi-options-wrapper				{ display: flex; }
+	.filter-text 						{ width: 90vw; }
+	.character-text.filter 				{ margin-top: 10vh; border-bottom: 1px dashed black;}
+	.gender-filter-wrapper 				{ position: absolute; left: 0; width: 100vw; height: 100vh; }
 
 	.selected,
 	.non-selected,
 	.selected.genre,
 	.non-selected.genre,
-	.selected.species,
-	.non-selected.species,
+	.selected.fantasy,
+	.non-selected.fantasy,
 	.selected.time-period,
-	.non-selected.time-period			{ width: 185px; font-size: 14px; height: 40px; font-weight: bold; }
+	.non-selected.time-period			{ width: 175px; font-size: 14px; height: 40px; font-weight: bold; margin: 1em 1.5em;}
 
+	.genders-button-wrapper,
 	.timeperiod-options-wrapper, 
-	.species-options-wrapper			{ display: flex;}
+	.fantasy-options-wrapper			{ display: flex;}
 	.non-selected.time-period, 
 	.selected.time-period 				{ font-size: 14px; width: 180px; margin: 10px; }
-	.species-options-wrapper > 
+	.fantasy-options-wrapper > 
 		.options-column,
 	.timeperiod-options-wrapper >
-		.options-column					{ flex-direction: column; }
-	
-
-	  .character-text.filter {
-		margin-top: 10vh;
-		border-bottom: 1px dashed black;
-	 }
-
-	 .gender-filter-wrapper {
-		position: absolute;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-	  }
-	  
-	  .filter-text {
-		width: 90vw;
-	  }
-  
-	  .genders-button-wrapper {
-		width: 90vw;
-	  }
-	  
-  
-	  /* .genders-button-wrapper > button {
-		margin: 5em 1em;
-		height: 50px;
-		width: 10vw;
-		cursor: pointer;
-		font-size: 1.3em;
-		display: inline-block;
-	  } */
-	  
-	  /* .btn-wrapper button {
-		
-		height: 40px;
-		margin: 10px 30px;
-		border: 2px solid rgb(30, 89, 199);
-		box-shadow: 1px 1px 1px rgb(3, 56, 155),
-				2px 2px 1px rgb(3, 56, 155);
-		font-size: 1.3em;
-		color: rgb(86, 145, 253);
-		font-variant: small-caps;
-		font-weight: bold;
-		text-shadow: 1px 1px 1px rgb(4, 73, 202);
-		/* animation: btnRandomIn 0.5s; */
+		.options-column					{ flex-direction: column; width: auto; justify-content: center; align-items: center; }
+	.modern-options-wrapper				{ top: 45%; }
+	.non-selected.modern,		
+	.selected.modern,
+	.non-selected.scifi,
+	.selected.scifi						{ margin: 0 1em; }	  
 }
 
 @media (min-width: 1000px) {
 	.genders-button-wrappper			{ bottom: 20%;}
-	.genre-options-wrapper 				{ bottom: 32.5vh; width: 40vw; }
+	.genre-options-wrapper				{ top: 45%; width: 40vw; }
+	.modern-options-wrapper 			{ width: 80vw; top: 50%; justify-content: center;}
 }
-

@@ -8,7 +8,8 @@ const charContainer = document.getElementById('characters-original-screen');
 const genderFilter  = document.getElementById('gender-filter-wrapper');
 const genreFilter   = document.getElementById('genre-filter-wrapper');
 const genreOptions  = document.getElementById('genre-options');
-const speciesFilter = document.getElementById('species-filter-wrapper');
+const modernFilter  = document.getElementById('modern-filter-wrapper');
+const fantasyFilter = document.getElementById('fantasy-filter-wrapper');
 const timeFilter    = document.getElementById('timeperiod-filter-wrapper');
 const scifiFilter   = document.getElementById('scifi-filter-wrapper');
 
@@ -19,6 +20,7 @@ const nextButton1   = document.getElementById('next-button1');
 const nextButton2   = document.getElementById('next-button2');
 const nextButton3A  = document.getElementById('next-button3A');
 const nextButton3B  = document.getElementById('next-button3B');
+const nextButton3C  = document.getElementById('next-button3C')
 const nextButton3D  = document.getElementById('next-button3D');
 
 const toggleButtons = document.getElementsByClassName('js--toggleButton');
@@ -191,8 +193,12 @@ const genreCheck = (eventTarget) => {
 const goToNextFilter = (e) => {
     let nextScreen;
     const selectedValues = toggleHandler(e);
-    if (selectedValues[1].includes ('fantasy')) {
-        nextScreen = speciesFilter;
+    if (selectedValues[1].includes('contemporary')) {
+        nextScreen = modernFilter;
+    }
+    else if (selectedValues[1].includes ('fantasy')) {
+        nextScreen = fantasyFilter;
+;
     }
     else if (selectedValues[1].includes('historical')) {
         nextScreen = timeFilter;
