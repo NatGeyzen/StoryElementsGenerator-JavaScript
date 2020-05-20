@@ -13,17 +13,16 @@ const fantasyFilter = document.getElementById('fantasy-filter-wrapper');
 const timeFilter    = document.getElementById('timeperiod-filter-wrapper');
 const scifiFilter   = document.getElementById('scifi-filter-wrapper');
 
-
 const randomBtn     = document.getElementById('randomBtn');
-const customizeBtn  = document.getElementById('customizeBtn')
+const customizeBtn  = document.getElementById('customizeBtn');
+
 const nextButton1   = document.getElementById('next-button1');
 const nextButton2   = document.getElementById('next-button2');
-const nextButton3A  = document.getElementById('next-button3A');
-const nextButton3B  = document.getElementById('next-button3B');
-const nextButton3C  = document.getElementById('next-button3C')
-const nextButton3D  = document.getElementById('next-button3D');
+const nextButton3A   = document.getElementById('next-button3A');
 
+const nextButtons   = document.getElementsByClassName('js--nextButton');
 const toggleButtons = document.getElementsByClassName('js--toggleButton');
+
 /* ----------------------------------------------------------------------------------------------------
     NAMES OBJECT OF ARRAYS
    ---------------------------------------------------------------------------------------------------- */
@@ -88,7 +87,7 @@ randomBtn.addEventListener('click', () => {
 });
 
 /* ----------------------------------------------------------------------------------------------------
-   GENERIC FUNCTIONS
+   TOGGLE STYLING FUNCTIONS
 ------------------------------------------------------------------------------------------------------- */
 
 const toggleButtonStyle = (eventTarget) => {
@@ -119,6 +118,57 @@ const goToNextScreen = (currentScreen, nextScreen) => {
 }
 
 /* ----------------------------------------------------------------------------------------------------
+   TOGGLE STYLING FUNCTIONS
+------------------------------------------------------------------------------------------------------- */
+
+const selectedGenre = []; 
+const selectedNameType = [];
+const selectedSpeciesFantasy = [];
+const selectedTimePeriod = [];
+const selectedSpeciesScifi = [];
+
+const oneOptionOnlyHandler = (selection, button, eventTarget) => {
+    if (selection.length === 0) {
+            selection.push(eventTarget.id);
+            showNextButton(button);
+        } 
+        else if (selection.length === 1) {
+            if (selection.includes(eventTarget.id) && eventTarget.classList.contains('non-selected')) {
+                selection.pop();
+                hideNextButton(button);
+            }
+            else if (!selection.includes(eventTarget.id) && eventTarget.classList.contains('selected')) {
+                alert('Sorry, only one option can be selected');
+                eventTarget.classList.remove('selected');
+                eventTarget.classList.add('non-selected'); 
+            }
+        }
+    return selection;
+}
+
+const filterHandler = (eventTarget) => {
+
+    if (eventTarget.id === 'contemporary' || eventTarget.id === 'fantasy' || eventTarget.id === 'historical' || eventTarget.id === 'sciencefiction') {
+        oneOptionOnlyHandler(selectedGenre, document.getElementById('next-button2'), eventTarget);
+    } 
+    else if (eventTarget.id === 'popular' || eventTarget.id === 'unique' || eventTarget.id === 'surprise' ) {
+        oneOptionOnlyHandler(selectedNameType, document.getElementById('next-button3A'), eventTarget);
+    }
+    else if (eventTarget.id === 'human' || eventTarget.id === 'elf' || eventTarget.id === 'angel' || eventTarget.id === 'demon' || eventTarget.id === 'mythological' || eventTarget.id === 'shifter' ) {
+        oneOptionOnlyHandler(selectedSpeciesFantasy, document.getElementById('next-button3B'), eventTarget);
+    }  
+    else if (eventTarget.id === 'ancient-greece' || eventTarget.id === 'ancient-rome' || eventTarget.id === 'ancient-egypt' || eventTarget.id === 'viking-era' || eventTarget.id === 'elizabethan-era' || eventTarget.id === 'victorian-era' ) {
+        oneOptionOnlyHandler(selectedTimePeriod, document.getElementById('next-button3C'), eventTarget);
+    }  
+    else if (eventTarget.id === 'human-scifi' || eventTarget.id === 'humanoid' || eventTarget.id === 'non-humanoid' ) {
+        oneOptionOnlyHandler(selectedSpeciesScifi, document.getElementById('next-button3D'), eventTarget);
+    }
+
+    return [selectedGenre, selectedNameType, selectedSpeciesFantasy, selectedTimePeriod, selectedSpeciesScifi];
+}
+
+
+/* ----------------------------------------------------------------------------------------------------
    FILTER 1: GENDER 
 ------------------------------------------------------------------------------------------------------- */
 
@@ -128,30 +178,20 @@ const genderOptions = [male, female, unisex];
 const selectedGenders = []; 
 
 const genderCheck = (eventTarget) => {
-    // if ANY of the gender options gets clicked
     if (eventTarget === male || eventTarget === female || eventTarget === unisex) {
-        // if the option got selected (not deselected)
         if (eventTarget.classList.contains('selected')) { 
-            // store the id of the button clicked inside the selectedGenders array
             selectedGenders.push(eventTarget.id);
-            // show the button that goes to the next page
-            showNextButton(nextButton1);
-        // if the option got deselected and was stored inside the array,    
+            showNextButton(nextButton1); 
         } else if (selectedGenders.includes(eventTarget.id) && eventTarget.classList.contains('non-selected')) {
-            // loop over the array
             for (let i = 0; i < selectedGenders.length; i++) {
-                // if there is a match, 
                 if (selectedGenders[i] === eventTarget.id) {
-                    // remove it from the array
                     selectedGenders.splice(i, 1);
                 }
             }
         }  
-        // if NONE of the options are selected
         if (!(male.classList.contains('selected') || 
               female.classList.contains('selected') || 
               unisex.classList.contains('selected'))) {
-            // hide the button allowing a user to continue to the next filter
             hideNextButton(nextButton1);
 
         }
@@ -160,103 +200,61 @@ const genderCheck = (eventTarget) => {
 };
 
 /* ----------------------------------------------------------------------------------------------------
-   FILTER 2: GENRE
+   OTHER
 ------------------------------------------------------------------------------------------------------- */
-nextButton1.addEventListener('click', () => goToNextScreen(genderFilter, genreFilter));
 
-const selectedGenre = []; 
+let activeScreen = 1;
+let currentScreen;
+let nextScreen;
 
-const genreCheck = (eventTarget) => {
-
-    if (eventTarget.id === 'contemporary' || eventTarget.id === 'fantasy' || eventTarget.id === 'historical' || eventTarget.id === 'sciencefiction' ) {
-
-        switch(selectedGenre.length) {
-            case 0:
-                selectedGenre.push(eventTarget.id);
-                showNextButton(nextButton2);
+for (let i = 0; i < nextButtons.length; i++) {
+    nextButtons[i].addEventListener('click', (e) => {
+        const selectedValues = toggleHandler(e);
+        switch (activeScreen) {
+            case 1: 
+                currentScreen = genderFilter;
+                nextScreen = genreFilter;
                 break;
-            case 1:
-                if (eventTarget.classList.contains ('non-selected')) {
-                    selectedGenre.pop();
-                    hideNextButton(nextButton2);
-                } else {
-                    alert('Sorry, only one option can be selected');
-                    eventTarget.classList.remove('selected');
-                    eventTarget.classList.add('non-selected'); 
-                }
+            case 2: 
+                currentScreen = genreFilter;
+                if (selectedValues[1].includes('contemporary')) { nextScreen = modernFilter; } 
+                else if (selectedValues[1].includes ('fantasy')) {nextScreen = fantasyFilter; }
+                else if (selectedValues[1].includes('historical')) {nextScreen = timeFilter; } 
+                else if (selectedValues[1].includes('sciencefiction')) {nextScreen = scifiFilter; }
                 break;
         }
-    }
-    return selectedGenre;
+        goToNextScreen(currentScreen, nextScreen);
+        activeScreen += 1;
+    });
 };
-
-const goToNextFilter = (e) => {
-    let nextScreen;
-    const selectedValues = toggleHandler(e);
-    if (selectedValues[1].includes('contemporary')) {
-        nextScreen = modernFilter;
-    }
-    else if (selectedValues[1].includes ('fantasy')) {
-        nextScreen = fantasyFilter;
-;
-    }
-    else if (selectedValues[1].includes('historical')) {
-        nextScreen = timeFilter;
-    } else if (selectedValues[1].includes('sciencefiction')) {
-        nextScreen = scifiFilter;
-    }
-    return nextScreen;
-}
-
-const nextScreen = (e) => goToNextFilter(e);
-
-nextButton2.addEventListener('click', (e) => goToNextScreen(genreFilter, nextScreen(e)));
-
-
-
-/* ----------------------------------------------------------------------------------------------------
-   FILTER 3B: HISTORICAL
-------------------------------------------------------------------------------------------------------- */
-
-const selectedTimePeriod = [];
-
-const timeCheck = (eventTarget) => {
-    
-    if (eventTarget.id === 'ancient-greece' || eventTarget.id === 'ancient-rome'    || eventTarget.id === 'ancient-egypt'  || 
-        eventTarget.id === 'viking-era'     || eventTarget.id === 'elizabethan-era' || eventTarget.id === 'victorian-era') {
-            if (eventTarget.classList.contains('selected')) {
-                selectedTimePeriod.push(eventTarget.id);
-                showNextButton(nextButton3);
-            } else if (selectedTimePeriod.includes(eventTarget.id) && eventTarget.classList.contains('non-selected')) {
-                for (let i = 0; i < selectedTimePeriod.length; i++) {
-                    if (selectedTimePeriod[i] === eventTarget.id) {
-                        selectedTimePeriod.splice(i, 1);
-                    }
-                }
-            }
-    }
-    return selectedTimePeriod;
-}
-
-nextButton3B.addEventListener('click', (e) => {
-    const selectedValues = toggleHandler(e);
-    console.log(selectedValues[2]);
-});
-
-
-
 
 const toggleHandler = (e) => {
 
     toggleButtonStyle(e.target);
-    
-    const selectedGenders = genderCheck(e.target);
-    const selectedGenre = genreCheck(e.target);
-    const selectedTimePeriod = timeCheck(e.target);
-    console.log(selectedTimePeriod);
-    return [selectedGenders, selectedGenre, selectedTimePeriod];
+
+    const genders =  genderCheck(e.target);
+    const oneOptionFilters = filterHandler(e.target);
+    const genre = oneOptionFilters[0];
+    const contemporary = oneOptionFilters[1];
+    const fantasy = oneOptionFilters[2];
+    const historical = oneOptionFilters[3];
+    const scifi = oneOptionFilters[4];
+
+    let lastFilter;
+
+    if (contemporary.length === 1) {
+        lastFilter = contemporary;
+    } else if (fantasy.length === 1) {
+        lastFilter = fantasy;
+    } else if (historical.length === 1) {
+        lastFilter = historical;
+    } else if (scifi.length === 1) {
+        lastFilter = scifi;
+    }
+
+    return [genders, genre, lastFilter];
 };
 
-for (let i = 0; i < toggleButtons.length; i++) {
-    toggleButtons[i].addEventListener('click', (e) => toggleHandler(e));
-}
+for (let j = 0; j < toggleButtons.length; j++) {
+    toggleButtons[j].addEventListener('click', (e) => toggleHandler(e));
+};

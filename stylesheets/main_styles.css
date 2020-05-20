@@ -12,7 +12,7 @@ body {
 html {
   text-align: center;
 }
-header {
+#main-header {
   height: 100vh;
   background-color: #fff8d4;
   background-image: linear-gradient(to bottom right, rgba(16, 212, 212, 0.6), rgba(16, 166, 212, 0.6) , rgba(1, 58, 133, 0.5)), url("../images/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg");
