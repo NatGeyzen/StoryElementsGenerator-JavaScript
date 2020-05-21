@@ -15,10 +15,7 @@ const scifiFilter   = document.getElementById('scifi-filter-wrapper');
 
 const randomBtn     = document.getElementById('randomBtn');
 const customizeBtn  = document.getElementById('customizeBtn');
-
 const nextButton1   = document.getElementById('next-button1');
-const nextButton2   = document.getElementById('next-button2');
-const nextButton3A   = document.getElementById('next-button3A');
 
 const nextButtons   = document.getElementsByClassName('js--nextButton');
 const toggleButtons = document.getElementsByClassName('js--toggleButton');
@@ -27,23 +24,7 @@ const toggleButtons = document.getElementsByClassName('js--toggleButton');
     NAMES OBJECT OF ARRAYS
    ---------------------------------------------------------------------------------------------------- */
 
-const names = {
-    male: {
-        human: {
-            list: ['Liam', 'Noah', 'William', 'James', 'Logan', 'Benjamin', 'Mason', 'Elija', 'Oliver', 'Jacob']
-        }
-    },
-    female: {
-        human: {
-            list: ['Emma', 'Olivia', 'Ava', 'Isabella', 'Sophia', 'Mia', 'Charlotte', 'Amelia', 'Evelyn', 'Madison']
-        }
-    },
-    unisex: {
-        human: {
-            list: ['Sam', 'Alex', 'Spencer', 'Phoenix', 'Avery', 'Dallas', 'Morgan', 'Quinn', 'Parker', 'Payton']
-        }
-    }
-}
+
 
 
 // return a number between 0 and the max amount of items in each name array
@@ -151,7 +132,7 @@ const filterHandler = (eventTarget) => {
     if (eventTarget.id === 'contemporary' || eventTarget.id === 'fantasy' || eventTarget.id === 'historical' || eventTarget.id === 'sciencefiction') {
         oneOptionOnlyHandler(selectedGenre, document.getElementById('next-button2'), eventTarget);
     } 
-    else if (eventTarget.id === 'popular' || eventTarget.id === 'unique' || eventTarget.id === 'surprise' ) {
+    else if (eventTarget.id === 'common' || eventTarget.id === 'unique' || eventTarget.id === 'surprise' ) {
         oneOptionOnlyHandler(selectedNameType, document.getElementById('next-button3A'), eventTarget);
     }
     else if (eventTarget.id === 'human' || eventTarget.id === 'elf' || eventTarget.id === 'angel' || eventTarget.id === 'demon' || eventTarget.id === 'mythological' || eventTarget.id === 'shifter' ) {
