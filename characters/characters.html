@@ -6,9 +6,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap">
+		<link rel="stylesheet" href="../stylesheets/effects.css"> 
 		<link rel="stylesheet" href="../stylesheets/characters_styles.css">   
 		<link rel="stylesheet" href="../stylesheets/main_styles.css">    
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
 		<script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
@@ -47,142 +49,73 @@
 				</div>
 			</section>
 
-			<!-- GENDER FILTER SCREEN -->
-			<section id="gender-filter-wrapper" class="hidden">
-				<header class="filter-text">
-					<div class="text-wrapper">
-						<p class="character-text">Would you like to filter names based on <span>gender</span>?</p>
-						<p class="character-text smaller">Multiple options can be selected</p>
-					</div>
-				</header>
-				<div class="genders-button-wrapper">
-					<button id="male" class="non-selected js--toggleButton">Male</button>
-					<button id="female" class="non-selected js--toggleButton">Female</button>
-					<button id="unisex" class="non-selected js--toggleButton">Unisex</button>
-				</div> 
-				<div id="next-button1" class="btn-next-wrapper hidden js--nextButton">
-					<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
-				</div>
-			</section> 
-
-			<!-- GENRE FILTER SCREEN -->
-			<section id="genre-filter-wrapper" class="hidden">
-				<header class="filter-text">
-					<div class="text-wrapper">
-						<p class="character-text">What genre best fits your story?</p>
-						<p class="character-text smaller">Only <span>one</span> option can be selected</p>
-					</div>
-				</header>
-				<div class="genre-options-wrapper">
-					<div class="options-row">
-						<button id="contemporary" class="non-selected genre js--toggleButton">Contemporary</button>
-						<button id="fantasy" class="non-selected genre js--toggleButton">Fantasy</button>
-					</div>
-					<div class="options-row">
-						<button id="historical" class="non-selected genre js--toggleButton">Historical</button>
-						<button id="sciencefiction" class="non-selected genre js--toggleButton">Science Fiction</button>	
-					</div>
-				</div> 
-				<div id="next-button2" class="btn-next-wrapper hidden js--nextButton">
-					<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
-				</div>
-			</section> 
-
-			<!-- CONTEMPORARY SUBFILTER SCREEN -->
-			<section id="modern-filter-wrapper" class="hidden">
-				<header class="filter-text">
-					<div class="text-wrapper">
-						<p class="character-text">How common should the name be?</p>
-						<p class="character-text smaller">Only <span>one</span> option can be selected</p>
-					</div>
-				</header>
-				<div class="modern-options-wrapper">
-					<button id="common" class="non-selected modern js--toggleButton">Common</button>
-					<button id="unique" class="non-selected modern js--toggleButton">Unique</button>
-					<button id="surprise" class="non-selected modern  js--toggleButton">Surprise me</button>	
-
-				</div>
-				<div id="next-button3A" class="btn-next-wrapper hidden js--nextButton">
-					<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
-				</div>
-			</section> 
-
-			<!-- FANTASY SUBFILTER SCREEN -->
-			<section id="fantasy-filter-wrapper" class="hidden">
-				<header class="filter-text">
-					<div class="text-wrapper">
-						<p class="character-text">What species is your character?</p>
-						<p class="character-text smaller">Only <span>one</span> option can be selected</p>
-					</div>
-				</header>
-				<div class="fantasy-options-wrapper">
-					<div class="options-column">
-						<button id="human" class="non-selected fantasy js--toggleButton">Human</button>
-						<button id="elf" class="non-selected fantasy js--toggleButton">Elf</button>
-					</div>
-					<div class="options-column">
-						<button id="angel" class="non-selected fantasy js--toggleButton">Angel</button>	
-						<button id="demon" class="non-selected fantasy js--toggleButton">Demon</button>	
-					</div>
-					<div class="options-column">
-						<button id="mythological" class="non-selected fantasy js--toggleButton">(Demi) God(dess)</button>
-						<button id="shifter" class="non-selected fantasy js--toggleButton">Shifter</button>	
-					</div>
-				</div> 
-				<div id="next-button3B" class="btn-next-wrapper hidden js--nextButton">
-					<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
-				</div>
-			</section> 
-
-			<!-- HISTORICAL SUBFILTER SCREEN -->
-			<section id="timeperiod-filter-wrapper" class="hidden">
-				<header class="filter-text">
-					<div class="text-wrapper">
-						<p class="character-text">What time period does your story take place in?</p>
-						<p class="character-text smaller">Only <span>one</span> option can be selected.</p>
-					</div>
-				</header>
-				<div class="timeperiod-options-wrapper">
-					<div class="options-column">
-						<button id="ancient-greece" class="non-selected time-period js--toggleButton">Ancient Greece</button>	
-						<button id="ancient-rome" class="non-selected time-period js--toggleButton">Ancient Rome</button>
-					</div>
-					<div class="options-column">
-						<button id="ancient-egypt" class="non-selected time-period js--toggleButton">Ancient Egypt</button>	
-						<button id="viking-era" class="non-selected time-period js--toggleButton">Viking Era</button>
-					</div>
-					<div class="options-column">
-						<button id="elizabethan-era" class="non-selected time-period js--toggleButton">Elizabethan Era</button>	
-						<button id="victorian-era" class="non-selected time-period js--toggleButton">Victorian Era</button>
-					</div>
-				</div> 
-				<div id="next-button3C" class="btn-next-wrapper hidden js--nextButton">
-					<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+			<section id="filter" class="filter-wrapper hidden">
+				<div class="filter-text">
+					<div class="text white">
+						<div id="name-filter-1">
+							<p class="sentence highlight">My character is from </p>
+							<div class="options-collapsed" id="time">
+								<button class="time-option placeholder" id="time-value">time</button>
+								<!-- 
+								<ul 
+									id="time-selections"
+									class="time-selections hidden">
+									<li class="option js--time" id="past">the past</li>
+									<li class="option js--time" id="present">the present(-ish)</li>
+									<li class="option js--time" id="future">the future</li>	
+							</ul> -->
+							</div>
+						</div>
+						<div id="name-filter-2">
+							<p class="sentence no-highlight js--no-highlight">and lives</p>
+							<div class="options-collapsed no-highlight js--no-highlight" id="setting">
+								<button class="setting-option placeholder no-highlight js--no-highlight" id="setting-value">setting</button>
+								<ul 
+									id="history-selections"
+									class="history-selections hidden">
+									<li class="option js--history" id="greece">in Ancient Greece</li>
+									<li class="option js--history" id="rome">in Ancient Rome</li>
+									<li class="option js--history" id="egypt">in Ancient Egypt</li>	
+									<li class="option js--history" id="viking">in the Viking Era</li>
+									<li class="option js--history" id="victorian">in the Victorian Era</li>		
+								</ul>
+							</div>
+						</div>
+						<div id="name-filter-3">
+							<div class="flex row">
+								<div class="options-collapsed no-highlight js--no-highlight" id="gender">
+									<button class="gender-option placeholder no-highlight js--no-highlight" id="gender-value" disabled>gender</button>
+									<ul 
+										id="gender-selections"
+										class="gender-selections hidden">
+										<li class="option js--gender" id="male">He</li>
+										<li class="option js--gender" id="female">She</li>
+										<li class="option js--gender" id="unisex">(S)he</li>	
+									</ul>
+								</div>
+								<p class="sentence no-highlight js--no-highlight" id="positioned">is a</p>
+							</div>
+							<div class="options-collapsed no-highlight  js--no-highlight" id="species">
+								<button class="species-option placeholder no-highlight  js--no-highlight" id="species-value" disabled>species</button>
+								<ul 
+									id="species-selections"
+									class="species-selections hidden">
+									<li class="option js--species" id="human">human</li>	
+								</ul>
+							</div>
+						</div>
+						<!-- <div id="name-filter-4">
+							
+						</div> -->
+						
+					</div>		
 				</div>
 			</section>
-			
-			<!-- SCIENCE FICTION SUBFILTER SCREEN -->
-			<div id="scifi-filter-wrapper" class="hidden">
-				<header class="filter-text">
-					<div class="text-wrapper">
-						<p class="character-text">What species is your character?</p>
-						<p class="character-text smaller">Only <span>one</span> option can be selected</p>
-					</div>
-				</header>
-				<div class="scifi-options-wrapper">
-					<button id="human-scifi" class="non-selected scifi js--toggleButton">Human</button>
-					<button id="humanoid" class="non-selected scifi js--toggleButton">Humanoid</button>
-					<button id="non-humanoid" class="non-selected scifi js--toggleButton">Non-Humanoid</button>	
-				</div>
-				<div id="next-button3D" class="btn-next-wrapper hidden js--nextButton">
-					<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
-				</div>
-			</section> 
-
 		</div>
 
 		<!-- SCRIPTS -->  
 		<script src="../jqueryScripts.js"></script> 
 		<script src="characters.js"></script> 
+		<script src="../name_filter.js"></script> 
 	</body>
 </html>

@@ -138,11 +138,10 @@ const names = {
     },
 
 
-    
-        scifi: {
-            human: [],
-            humanoid: [],
-            nonHumanoid: []
-        }
-    },
+
+    scifi: {
+        human: [],
+        humanoid: [],
+        nonHumanoid: []
+    }
 }

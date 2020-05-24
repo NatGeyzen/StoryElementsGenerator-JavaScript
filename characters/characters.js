@@ -1,5 +1,48 @@
+const genreImages = [
+    document.getElementById('history-img'), 
+    document.getElementById('fantasy-img'),
+    document.getElementById('scifi-img'),
+    document.getElementById('contemporary-img')
+];
+
+const genreSpans = [
+    document.getElementById('history-span'), 
+    document.getElementById('fantasy-span'),
+    document.getElementById('scifi-span'),
+    document.getElementById('contemporary-span') 
+]
+
+// for (let i = 0; i < genreImages.length; i++) {
+//     genreImages[i].addEventListener('mouseover', () => showLabel(genreSpans[i]));
+//     genreImages[i].addEventListener('mouseleave', () => hideLabel(genreSpans[i]));
+// }
+
+const showLabel = (element) => {
+    element.classList.remove('no-hover');
+    element.classList.add('on-hover');
+}
+
+const hideLabel = (element) => {
+    element.classList.remove('on-hover');
+    element.classList.add('no-hover');  
+}
+
+// document.getElementById('history-img').addEventListener('mouseover', () => {
+//     document.getElementById('history-span').classList.remove('no-hover');
+//     document.getElementById('history-span').classList.add('on-hover');
+// });
+// document.getElementById('history-img').addEventListener('mouseleave', () => {
+//     document.getElementById('history-span').classList.remove('on-hover');
+//     document.getElementById('history-span').classList.add('no-hover');
+// })
+
+
 /* ----------------------------------------------------------------------------------------------------
-    CONSTANTS / QUERY SELECTORS
+    CONSTANTS / QUERY SELECdocument.getElementById('history-img').addEventListener('mouseover', () => {
+    document.getElementById('history-span').classList.remove('no-hover');
+    document.getElementById('history-span').classList.add('on-hover');
+})
+TORS
    ---------------------------------------------------------------------------------------------------- */
 
 const textContainer = document.getElementById('js--text-wrapper');
@@ -33,13 +76,13 @@ const returnRandomNum = (arrayLength) => {
 };
 
 // store each array of names and their lengths in seperate variables for use in functions below
-const maleHumanList = [...names.male.human.list];
-const femaleHumanList = [...names.female.human.list];
-const unisexHumanList = [...names.unisex.human.list];
+// const maleHumanList = [...names.male.human.list];
+// const femaleHumanList = [...names.female.human.list];
+// const unisexHumanList = [...names.unisex.human.list];
 
-const maleHumanLength = names.male.human.list.length;
-const femaleHumanLength = names.female.human.list.length;
-const unisexHumanLength = names.unisex.human.list.length;
+// const maleHumanLength = names.male.human.list.length;
+// const femaleHumanLength = names.female.human.list.length;
+// const unisexHumanLength = names.unisex.human.list.length;
 
 
 /* ----------------------------------------------------------------------------------------------------
@@ -153,7 +196,7 @@ const filterHandler = (eventTarget) => {
    FILTER 1: GENDER 
 ------------------------------------------------------------------------------------------------------- */
 
-customizeBtn.addEventListener('click', () => goToNextScreen(charContainer, genderFilter));
+customizeBtn.addEventListener('click', () => goToNextScreen(charContainer, document.getElementById('filter')));
 
 const genderOptions = [male, female, unisex];
 const selectedGenders = []; 

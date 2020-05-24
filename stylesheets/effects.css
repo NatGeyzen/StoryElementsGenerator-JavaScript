@@ -1,0 +1,83 @@
+.time-selections.hidden,
+.history-selections.hidden,
+.species-selections.hidden,
+.gender-selections.hidden  {
+	opacity: 0;
+}
+.time-selections.visible,
+.history-selections.visible,
+.species-selections.visible,
+.gender-selections.visible  {
+	opacity: 1;
+	transition: opacity 0.5s ease-out;
+	margin: 10px 5px;
+	width: 50vw;	
+	display: inline-block;
+}
+
+.complete {
+	border-bottom: 2px solid var(--lima); 
+	transition: all 0.4s;
+	width: 50vw
+}
+.selection {
+	width: 40vw;
+	transition: all 0.3s;
+	border-bottom: 2px solid var(--blue); 
+	cursor: not-allowed;
+}
+.placeholder {
+	/* width: 100%;  */
+	border-bottom: 2px solid var(--maroon); 
+	transition: all 0.3s; 
+};
+
+
+
+.no-hover {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.on-hover {
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+}
+
+
+#history-span.no-hover, #historyl-span.on-hover,
+#contemporary-span.no-hover, #contemporary-span.on-hover {
+    position: absolute;
+} 
+#history-span.no-hover {
+    right: 200px;
+    bottom: 70px;
+    transition: all 0.3s ease-out;
+}
+#history-span.on-hover {
+    right: 260px;
+    bottom: 70px;
+    transition: all 0.3s ease-out;
+}
+#contemporary-span.no-hover {
+    right: 200px;
+    bottom: 70px;
+    transition: all 0.3s ease-out;
+}
+#contemporary-span.on-hover {
+    right: 260px;
+    bottom: 70px;
+    transition: all 0.3s ease-out;
+}
+
+/* #contemporary-span.on-hover {
+    left: 10%;
+} */
+
+@media (min-width: 767px) {
+    /* .placeholder {
+        width: 100%;
+    } */
+}
+
+
