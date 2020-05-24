@@ -74,7 +74,7 @@ button {outline: none;}
 	left: 0;
 	top: 5px;
 	display: inline-block;
-	height: 160px;
+	height: 110px;
 }
 
 .options.collapsed {
@@ -107,7 +107,7 @@ button {outline: none;}
 	font-size: 0.8em;
 	font-style: italic;
 	padding: 0 10px;
-	cursor: pointer; 
+	/* cursor: pointer;  */
 	background-color: transparent;
 	border-top: none;
 	border-right: none;
@@ -115,12 +115,11 @@ button {outline: none;}
 	color: var(--off-white);
 	font-family: 'Montserrat', sans-serif;
 	text-align: left;
-	/* border: 1px solid purple; */
 }
 
-.time-option.selection, .setting-option.selection, .species-option.selection, .gender-option.selection {
-	font-size: 0.7em;
-}
+
+
+
 .setting-option.placeholder.no-highlight,
 .species-option.placeholder.no-highlight,
 .gender-option.placeholder.no-highlight {

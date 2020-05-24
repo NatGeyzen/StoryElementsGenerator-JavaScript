@@ -3,17 +3,17 @@
 --------------------------------------------------------*/
 #name-filter-1.list-closed, #name-filter-2.list-closed, #name-filter-3.list-closed, #name-filter-4.list-closed {
     height: 80px;
-    transition: height 0.2s;
+    transition: height 0.1s;
 }
 #name-filter-1.list-open, #name-filter-2.list-open, #name-filter-3.list-open, #name-filter-4.list-open {
-    height: 45%;
+    height: 35%;
     transition: height 0.4s;
 }
 
 /* WIDTH & BORDER TRANSITION (FILTER BUTTONS) 
 ---------------------------------------------- */
 .placeholder {
-    width: 75px;
+    width: 90px;
 	border-bottom: 2px solid var(--maroon); 
 	transition: all 0.5s; 
 }
@@ -31,9 +31,13 @@
 
 /* MEDIA QUERIES 
 ---------------------------------------------- */
-
+@media (max-height: 577px) {
+    #name-filter-1.list-open, #name-filter-2.list-open, #name-filter-3.list-open, #name-filter-4.list-open {
+        height: 43%;
+    }
+}
+}
 @media (max-width: 766px) {
-
     .selection {
         width: 150px;
     }
@@ -41,18 +45,7 @@
         width: 200px;
     }
 }
-@media (min-width: 767px) and (max-width: 999px) {
-    .placeholder {
-        width: 125px;
-    }
-    .selection {
-        width: 225px;
-    }
-    .complete {
-        width: 275px;
-    }
-}
-@media (min-width: 1000px) {
+@media (min-width: 767px) {
     .placeholder {
         width: 125px;
     }
@@ -63,6 +56,11 @@
         width: 300px;
     }
 }
+/* @media (min-width: 1000px) {
+    #name-filter-1.list-open, #name-filter-2.list-open, #name-filter-3.list-open, #name-filter-4.list-open {
+        height: 20%;
+    }
+} */
 
 
 

@@ -25,6 +25,7 @@ const closeList = (filter, button) => {
 }
 
 const returnValue = (eventTarget, button, filter) => {
+
     if (eventTarget === time_options[0] || eventTarget === time_options[1] || eventTarget === time_options[2]) {
         time_selection.push(eventTarget.id);
         if (time_selection.includes('past')) {
@@ -34,8 +35,12 @@ const returnValue = (eventTarget, button, filter) => {
         } else if (time_selection.includes('future')) {
             button.textContent = 'the future';
         }
+        const nextFilter = Array.from(document.getElementsByClassName('no-highlight')).slice(0, 3);
+        nextFilter.forEach(element => toggleClass(element, 'no-highlight', 'highlight'));
     }
-    closeList(filter, button)
+
+    closeList(filter, button);
+    return [time_selection];
 }
 
 time_button.addEventListener('click', () => openList(name_filter_1, time_button, time_selection)); 

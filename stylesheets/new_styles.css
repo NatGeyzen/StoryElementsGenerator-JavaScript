@@ -6,6 +6,23 @@
     align-items: flex-start; */
 }
 
+.time-option.selection, .setting-option.selection, .species-option.selection, .gender-option.selection {
+	font-size: 0.7em;
+	cursor: not-allowed;
+}
+.time-option.placeholder, .setting-option.placeholder.highlight, .species-option.placeholder.highlight, .gender-option.placeholder.highlight,
+.time-option.complete, .setting-option.complete, .species-option.selection, .species-option.complete, .gender-option.selection, .gender-option.complete {
+	cursor: pointer;
+}
+.setting-option.placeholder.no-highlight, .species-option.placeholder.no-highlight, .gender-option.placeholder.no-highlight {
+    cursor: not-allowed;
+}
+
+
+/* .setting-option.selection.no-highlight, .species-option.selection.no-highlight, .gender-option.selection.no-higlight {
+	cursor: not-allowed;
+} */
+
 
 
 ul {
