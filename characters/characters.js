@@ -198,7 +198,7 @@ const filterHandler = (eventTarget) => {
 
 customizeBtn.addEventListener('click', () => goToNextScreen(charContainer, document.getElementById('filter')));
 
-const genderOptions = [male, female, unisex];
+// const genderOptions = [male, female, unisex];
 const selectedGenders = []; 
 
 const genderCheck = (eventTarget) => {

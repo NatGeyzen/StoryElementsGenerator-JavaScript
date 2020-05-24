@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap">
 		<link rel="stylesheet" href="../stylesheets/effects.css"> 
+		<link rel="stylesheet" href="../stylesheets/new_styles.css">  
 		<link rel="stylesheet" href="../stylesheets/characters_styles.css">   
 		<link rel="stylesheet" href="../stylesheets/main_styles.css">    
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
@@ -50,25 +51,21 @@
 			</section>
 
 			<section id="filter" class="filter-wrapper hidden">
-				<div class="filter-text">
-					<div class="text white">
-						<div id="name-filter-1">
-							<p class="sentence highlight">My character is from </p>
-							<div class="options-collapsed" id="time">
-								<button class="time-option placeholder" id="time-value">time</button>
-								<!-- 
-								<ul 
-									id="time-selections"
-									class="time-selections hidden">
-									<li class="option js--time" id="past">the past</li>
-									<li class="option js--time" id="present">the present(-ish)</li>
-									<li class="option js--time" id="future">the future</li>	
-							</ul> -->
-							</div>
+				<div class="filter-text text white">
+					<div id="name-filter-1" class="list-closed">
+						<p class="sentence highlight">My character is from </p>
+						<div class="options" id="time">
+							<button class="time-option placeholder" id="time-value">time</button>
+							<ul id="time-selections" class="time-selections">
+								<li class="option js--time" id="past">the past</li>
+								<li class="option js--time" id="present">the present(-ish)</li>
+								<li class="option js--time" id="future">the future</li>	
+							</ul>
 						</div>
+					</div>
 						<div id="name-filter-2">
 							<p class="sentence no-highlight js--no-highlight">and lives</p>
-							<div class="options-collapsed no-highlight js--no-highlight" id="setting">
+							<div class="options collapsed no-highlight js--no-highlight" id="setting">
 								<button class="setting-option placeholder no-highlight js--no-highlight" id="setting-value">setting</button>
 								<ul 
 									id="history-selections"
@@ -81,9 +78,9 @@
 								</ul>
 							</div>
 						</div>
-						<div id="name-filter-3">
+						<!-- <div id="name-filter-3">
 							<div class="flex row">
-								<div class="options-collapsed no-highlight js--no-highlight" id="gender">
+								<div class="options collapsed no-highlight js--no-highlight" id="gender">
 									<button class="gender-option placeholder no-highlight js--no-highlight" id="gender-value" disabled>gender</button>
 									<ul 
 										id="gender-selections"
@@ -95,7 +92,7 @@
 								</div>
 								<p class="sentence no-highlight js--no-highlight" id="positioned">is a</p>
 							</div>
-							<div class="options-collapsed no-highlight  js--no-highlight" id="species">
+							<div class="options collapsed no-highlight  js--no-highlight" id="species">
 								<button class="species-option placeholder no-highlight  js--no-highlight" id="species-value" disabled>species</button>
 								<ul 
 									id="species-selections"
@@ -103,12 +100,10 @@
 									<li class="option js--species" id="human">human</li>	
 								</ul>
 							</div>
-						</div>
+						</div> -->
 						<!-- <div id="name-filter-4">
 							
-						</div> -->
-						
-					</div>		
+						</div> -->		
 				</div>
 			</section>
 		</div>

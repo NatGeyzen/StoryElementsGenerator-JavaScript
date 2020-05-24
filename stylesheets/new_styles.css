@@ -1,0 +1,34 @@
+#name-filter-1, #name-filter-2, #name-filter-3, #name-filter-4 {
+	margin: 2vh;
+    overflow: hidden;
+    /* display: flex;
+    flex-direction: column;
+    align-items: flex-start; */
+}
+
+
+
+ul {
+    list-style: none;
+    margin: 0;
+}
+
+.sentence {
+    margin: 0.5em 0;
+}
+
+@media (min-width: 767px) {
+    #name-filter-1.list-closed, #name-filter-2.list-closed, #name-filter-3.list-closed, #name-filter-4.list-closed {
+        height: 50px;
+    }
+    .time-option.placeholder, .setting-option.placeholder, .gender-option.placeholder, .species-option.placeholder,
+    .time-option.selection, .setting-option.selection, .gender-option.selection, .species-option.selection,
+    .time-option.complete, .setting-option.complete, .gender-option.complete, .species-option.complete {
+	    position: absolute;
+	    top: 0;
+	    left: 1em;
+    }
+    ul {
+        margin: 1em 0 0 1em;
+    }
+}
