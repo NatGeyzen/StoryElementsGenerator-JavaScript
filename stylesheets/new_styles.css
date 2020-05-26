@@ -1,14 +1,83 @@
 #name-filter-1, #name-filter-2, #name-filter-3, #name-filter-4 {
-	margin: 2vh;
     overflow: hidden;
-    /* display: flex;
-    flex-direction: column;
-    align-items: flex-start; */
+}
+#name-filter-1, #name-filter-2 {
+    margin: 2vh;
+}
+#name-filter-3 {
+    margin: 2vh 0 0 2vh;
+}
+#name-filter-4 {
+    margin: 0 0 1vh 2vh;
+}
+#name-filter-2 {
+    margin-bottom: 1em;
 }
 
+/* #name-filter-3 {
+    border: 1px solid red; 
+    display: flex;
+    align-items: center;
+} */
+
+
+
+#history-setting-selections {
+    width: 300px;
+}
+
+.history-setting-selections.hidden, .present-setting-selections.hidden, .future-setting-selections.hidden,
+.fantasy-species-selections.hidden, .space-species-selections.hidden, .techworld-species-selections.hidden, .postapoc-species-selections.hidden {
+    display: none;
+}
+.history-setting-selections.visible, .present-setting-selections.visible, .future-setting-selections.visible,
+.fantasy-species-selections.visible, .space-species-selections.visible, .techworld-species-selections.visible, .postapoc-species-selections.visible {
+    display: block;
+}
+
+.time-selections, 
+.history-setting-selections, 
+.present-setting-selections, 
+.future-setting-selections, 
+.gender-selections, 
+.fantasy-species-selections,
+.space-species-selections,
+.techworld-species-selections, 
+.postapoc-species-selections {
+	padding: 10px 5px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sentence {
+    margin: 0.3em 0;
+}
+
+.time-option.placeholder, .time-option.selection, .time-option.complete,
+.setting-option.placeholder, .setting-option.selection, .setting-option.complete,
+.species-option.placeholder, .species-option.selection, .species-option.complete,
+.gender-option.placeholder, .gender-option.selection, .gender-option.complete {
+	font-style: italic;
+	padding: 0 10px;
+	background-color: transparent;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	color: var(--off-white);
+	font-family: 'Montserrat', sans-serif;
+	text-align: left;
+}
 .time-option.selection, .setting-option.selection, .species-option.selection, .gender-option.selection {
 	font-size: 0.7em;
 	cursor: not-allowed;
+}
+.time-option.placeholder, .setting-option.placeholder, .species-option.placeholder, .gender-option.placeholder,
+.time-option.complete, .setting-option.complete, .species-option.complete, .gender-option.complete {
+    font-size: 0.8em;
 }
 .time-option.placeholder, .setting-option.placeholder.highlight, .species-option.placeholder.highlight, .gender-option.placeholder.highlight,
 .time-option.complete, .setting-option.complete, .species-option.selection, .species-option.complete, .gender-option.selection, .gender-option.complete {
@@ -18,20 +87,27 @@
     cursor: not-allowed;
 }
 
-
-/* .setting-option.selection.no-highlight, .species-option.selection.no-highlight, .gender-option.selection.no-higlight {
-	cursor: not-allowed;
-} */
-
-
-
-ul {
-    list-style: none;
-    margin: 0;
+.present-selection.visible {
+    width: 200px;
 }
 
-.sentence {
-    margin: 0.5em 0;
+#getResultsBtn.filter-not-complete {
+    display: none;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#getResultsBtn.filter-complete {
+    display: block;
+}
+
+.btn-wrapper.get-names {
+    height: 10vh;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 @media (min-width: 767px) {

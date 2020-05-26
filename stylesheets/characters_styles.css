@@ -30,7 +30,10 @@ button {outline: none;}
 	align-items: flex-start;
 	justify-content: spece-between;
 }
-#positioned { margin: 15px 0 0 1.5em;}
+#positioned { 
+	position: absolute;
+	right: 85px;
+}
 #gender {display: inline-block; margin: auto 0 auto 0;}
 /* #species {    display: inline-block;
     margin: auto 1.5em auto 0; } */
@@ -51,7 +54,7 @@ button {outline: none;}
 }
 .filter-wrapper.visible { 
 	display: block; 
-	height: 60%;
+	height: 80%;
 	width: 80%;
 	position: absolute; 
 	top: 20%; 
@@ -74,6 +77,15 @@ button {outline: none;}
 	left: 0;
 	top: 5px;
 	display: inline-block;
+}
+
+#time.options {
+	height: 110px;
+}
+#setting.options {
+	height: 160px;
+}
+#gender.options {
 	height: 110px;
 }
 
@@ -83,7 +95,7 @@ button {outline: none;}
 }
 .options.full {
 	height: 300px;
-	width: 50%;
+	width: 200px;
 	z-index: 99;
 	border: 1px solid orange;
 }
@@ -100,25 +112,6 @@ button {outline: none;}
 #time {
 	text-align: left;
 }
-.time-option.placeholder, .time-option.selection, .time-option.complete,
-.setting-option.placeholder, .setting-option.selection, .setting-option.complete,
-.species-option.placeholder, .species-option.selection, .species-option.complete,
-.gender-option.placeholder, .gender-option.selection, .gender-option.complete {
-	font-size: 0.8em;
-	font-style: italic;
-	padding: 0 10px;
-	/* cursor: pointer;  */
-	background-color: transparent;
-	border-top: none;
-	border-right: none;
-	border-left: none;
-	color: var(--off-white);
-	font-family: 'Montserrat', sans-serif;
-	text-align: left;
-}
-
-
-
 
 .setting-option.placeholder.no-highlight,
 .species-option.placeholder.no-highlight,
@@ -127,9 +120,7 @@ button {outline: none;}
 	border-bottom: 1px solid var(--darker-grey);
 }
 
-.time-selections {
-	padding: 10px 5px;
-}
+
 
 .options-visible {
 	text-align: center;
@@ -645,17 +636,14 @@ button {outline: none;}
 	}
 	#name-filter-3 {
 		flex-direction: row;
+		
 	}
 	.flex.row {position: relative; left: 0; width: 50%; margin: 0;}
 	#positioned {margin: 0; position: relative; left: 2em;}
 	#species {margin: 0 0 0 1em;}
 
-	.time-selections.visible,
-	.history-selections.visible {
-		position: absolute;
-		top: 10vh;
-		left: 20%;
-	}
+	
+	
 	
 	
 	.sentence {
