@@ -25,7 +25,7 @@ const present_setting_options = Array.from(document.getElementsByClassName('js--
 const future_setting_options = Array.from(document.getElementsByClassName('js--future-setting'));
 const fantasy_species_options = Array.from(document.getElementsByClassName('js--fantasy-species'));
 const space_species_options = Array.from(document.getElementsByClassName('js--space-species'));
-const techworld_species_options = Array.from(document.getElementsByClassName('js--techworld-species'));
+const techworld_species_options = Array.from(document.getElementsByClassName('js--tech-species'));
 const postapoc_species_options = Array.from(document.getElementsByClassName('js--postapoc-species'));
 
 // ----- options containers (ul) ------
@@ -55,19 +55,28 @@ const toggleClass = (element, oldClass, newClass) => {
 };
 
 // ----- open a list of filter options ------
-const openList = (filter, button) => {
+const openList = (filter, button, option) => {
     toggleClass(filter, 'list-closed', 'list-open');
     if (button.classList.contains('placeholder')) {
         toggleClass(button, 'placeholder', 'selection');
     } else if (button.classList.contains('complete')) {
         toggleClass(button, 'complete', 'selection');  
     }
+    // fadeOutAndDisableNextFilter(option);   
 };
 
 // ----- close a list of filter options ------
 const closeList = (filter, button) => {
     toggleClass(filter, 'list-open', 'list-closed');
     toggleClass(button, 'selection', 'complete');
+    
+    if (filter === name_filter_1) {
+        scaleInNextFilter(name_filter_2);
+    } else if (filter === name_filter_2) {
+        scaleInNextFilter(name_filter_3);
+    } else if (filter === name_filter_3) {
+        scaleInNextFilter(name_filter_4);
+    }
 };
 
 // ----- store selected value and display inside button  ------
@@ -88,7 +97,7 @@ const autoSetSpeciesToHuman = () => {
     species_selection.push('human');
     species_button.textContent = 'human';
     species_button.setAttribute('disabled', true);
-    toggleClass(species_button, 'no-highlight', 'highlight');
+    toggleClass(species_button, 'no-highlight', 'scale-bounce-in');
     toggleClass(species_button, 'placeholder', 'complete');
 };
 
@@ -118,14 +127,26 @@ const settingHandler = () => {
     }
 };
 
+// // ----- when a filter list is opened, hide the next filter (making it 'inactive') ------
+// const fadeOutAndDisableNextFilter = (option) => {
+//     const nextFilter = Array.from(document.getElementsByClassName('no-highlight')).slice(0, 3);  
+//     nextFilter.forEach(element => {
+//         toggleClass(element, 'no-highlight', 'faded-out');
+//         if (element.classList.contains(option)) {
+//             element.setAttribute('disabled', true);
+//         }
+//     });
+// };
+
 // ----- when a filter is marked complete, highlight the next filter (making it 'active') ------
-const highlightNextFilter = () => {
-    const nextFilter = Array.from(document.getElementsByClassName('no-highlight')).slice(0, 3);   
-    nextFilter.forEach(element => toggleClass(element, 'no-highlight', 'highlight'));
-}
+const scaleInNextFilter = (nextFilter) => {
+    if (nextFilter !== null) {
+        toggleClass(nextFilter, 'scaled-out', 'scale-bounce-in');    
+    }
+};
 
 // ----- generic function handling the return of the selected value independent of filter ------
-const returnValue = (selection, eventTarget, button, filterHandler) => {
+const returnValue = (selection, eventTarget, button, filterHandler, nextFilter) => {
     if (selection.length === 0) {
         buttonHandler(selection, eventTarget, button);
         filterHandler();
@@ -135,33 +156,33 @@ const returnValue = (selection, eventTarget, button, filterHandler) => {
         filterHandler(); 
         buttonHandler(selection, eventTarget, button);
     }
-    highlightNextFilter();
+    scaleInNextFilter(nextFilter);
 }
 
 // ----- function handling the return of the selected 'TIME' value ------
 const returnTimeValue = (eventTarget) => {
-    returnValue(time_selection, eventTarget, time_button, timeHandler);
+    returnValue(time_selection, eventTarget, time_button, timeHandler, name_filter_2);
     closeList(name_filter_1, time_button);
     return [ time_selection ];
 };
 
 // ----- function handling the return of the selected 'SETTING' value ------
 const returnSettingValue = (eventTarget) => {
-    returnValue(setting_selection, eventTarget, setting_button, settingHandler);
+    returnValue(setting_selection, eventTarget, setting_button, settingHandler, name_filter_3);
     closeList(name_filter_2, setting_button);
     return [ setting_selection ];
 };
 
 // ----- function handling the return of the selected 'GENDER' value ------
 const returnGenderValue = (eventTarget) => {
-    returnValue(gender_selection, eventTarget, gender_button, () => {});
+    returnValue(gender_selection, eventTarget, gender_button, () => {}, name_filter_4);
     closeList(name_filter_3, gender_button);
     return [ gender_selection ];
 };
 
 // ----- function handling the return of the selected 'SPECIES' value ------
 const returnSpeciesValue = (eventTarget) => {
-    returnValue(species_selection, eventTarget, species_button, () => {});
+    returnValue(species_selection, eventTarget, species_button, () => {}, null);
     closeList(name_filter_4, species_button);
     return [ species_selection ];
 };
@@ -171,7 +192,7 @@ const nameFilterHandler = (eventTarget) => {
 
     if 
     (eventTarget ===  time_options[0] || eventTarget ===  time_options[1] || eventTarget ===  time_options[2]) {
-        returnTimeValue(eventTarget);
+        returnTimeValue(eventTarget);   
     }
     else if 
     (eventTarget ===  history_setting_options[0] || eventTarget ===  history_setting_options[1] || eventTarget ===  history_setting_options[2] || eventTarget ===  history_setting_options[3] || eventTarget ===  history_setting_options[4] || 
@@ -205,10 +226,10 @@ const nameFilterHandler = (eventTarget) => {
 ------------------------------------------------------------------------------------------------------ */
 
 // ----- filter buttons ------
-time_button.addEventListener('click', () => openList(name_filter_1, time_button)); 
-setting_button.addEventListener('click', () => openList(name_filter_2, setting_button)); 
-gender_button.addEventListener('click', () => openList(name_filter_3, gender_button));
-species_button.addEventListener('click', () => openList(name_filter_4, species_button));
+time_button.addEventListener('click', () => openList(name_filter_1, time_button, 'setting-option')); 
+setting_button.addEventListener('click', () => openList(name_filter_2, setting_button, 'gender-option')); 
+gender_button.addEventListener('click', () => openList(name_filter_3, gender_button, 'species-option'));
+species_button.addEventListener('click', () => openList(name_filter_4, species_button, null));
 
 // ----- filter options ------
 time_options.forEach(option => option.addEventListener('click', (e) => nameFilterHandler(e.target)));

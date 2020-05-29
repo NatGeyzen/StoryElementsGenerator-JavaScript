@@ -39,8 +39,8 @@
 			<section id="filter" class="filter-wrapper hidden">
 				<div class="filter-text text white">
 					<!-- filter 1 -->
-					<div id="name-filter-1" class="list-closed">
-						<p class="sentence highlight">My character is from </p>
+					<div id="name-filter-1" class="scale-bounce-in list-closed">
+						<p class="sentence">My character is from </p>
 						<div class="options" id="time">
 							<button class="time-option placeholder" id="time-value">time</button>
 							<ul id="time-selections" class="time-selections">
@@ -51,10 +51,10 @@
 						</div>
 					</div>
 					<!-- filter 2 -->
-					<div id="name-filter-2" class="list-closed">
-						<p class="sentence no-highlight js--no-highlight">and lives</p>
-						<div class="options no-highlight js--no-highlight" id="setting">
-							<button class="setting-option placeholder no-highlight js--no-highlight" id="setting-value">setting</button>
+					<div id="name-filter-2" class="scaled-out list-closed">
+						<p class="sentence">and lives</p>
+						<div class="options" id="setting">
+							<button class="setting-option placeholder" id="setting-value">setting</button>
 							<!-- if user chose 'past' in filter 1, then show these filter 2 options -->
 							<ul id="history-setting-selections" class="history-setting-selections hidden">
 								<li class="option js--history-setting" id="greece">in Ancient Greece</li>
@@ -77,59 +77,59 @@
 							</ul>
 						</div>
 					</div>
-					<!-- filter 3 -->
-					<div id="name-filter-3" class="list-closed">
-						<div class="flex row">
-							<div class="options no-highlight js--no-highlight" id="gender">
-								<button class="gender-option placeholder no-highlight js--no-highlight" id="gender-value">sex</button>
-								<ul id="gender-selections" class="gender-selections hidden">
-									<li class="option js--gender" id="male">He</li>
-									<li class="option js--gender" id="female">She</li>
-									<li class="option js--gender" id="unisex">(S)he</li>	
-								</ul>
+					<div class="flex container">
+						<!-- filter 3 -->
+						<div id="name-filter-3" class="scaled-out list-closed">
+							<div class="flex row">
+								<div class="options" id="gender">
+									<button class="gender-option placeholder" id="gender-value">sex</button>
+									<ul id="gender-selections" class="gender-selections hidden">
+										<li class="option js--gender" id="male">He</li>
+										<li class="option js--gender" id="female">She</li>
+										<li class="option js--gender" id="unisex">(S)he</li>	
+									</ul>
+								</div>
+								<p class="sentence" id="positioned">is a(n)</p>
 							</div>
-							<p class="sentence no-highlight js--no-highlight" id="positioned">is a(n)</p>
+						</div>
+						<!-- filter 4 -->
+						<div id="name-filter-4" class="scaled-out list-closed">
+							<div class="options" id="species">
+								<button class="species-option placeholder" id="species-value">species</button>
+								<!-- if user chose 'fantasy Earth/realm' in the filter 2, show these filter 4 options -->
+								<ul id="fantasy-species-selections" class="fantasy-species-selections hidden">
+									<li class="option js--fantasy-species" id="fantasy-human">human</li>
+									<li class="option js--fantasy-species" id="fantasy-elf">elf</li>
+									<li class="option js--fantasy-species" id="fantasy-angel">angel</li>
+									<li class="option js--fantasy-species" id="fantasy-demon">demon</li>
+									<li class="option js--fantasy-species" id="fantasy-god">(demi) God(dess)</li>
+									<li class="option js--fantasy-species" id="fantasy-human">shifter</li>
+								</ul>
+								<!-- if user chose 'space' in the filter 2, show these filter 4 options -->
+								<ul id="space-species-selections" class="space-species-selections hidden">
+									<li class="option js--space-species" id="space-human">human</li>
+									<li class="option js--space-species" id="space-humanoid">humanoid</li>	
+									<li class="option js--space-species" id="space-nonhumanoid">non-humanoid</li>		
+								</ul>
+								<!-- if user chose 'post-apocalyptic Earth' in the filter 2, show these filter 4 options -->
+								<ul id="postapoc-species-selections" class="postapoc-species-selections hidden">
+									<li class="option js--postapoc-species" id="postapoc-human">human</li>
+									<li class="option js--postapoc-species" id="postapoc-zombie">zombie</li>			
+								</ul>
+								<!-- if user chose 'highly advanced Earth' in the filter 2, show these filter 4 options -->
+								<ul id="techworld-species-selections" class="techworld-species-selections hidden">
+									<li class="option js--tech-species" id="tech-human">human</li>
+									<li class="option js--tech-species" id="tech-ai">AI</li>			
+								</ul>
+							</div>	
 						</div>
 					</div>
-					<!-- filter 4 -->
-					<div id="name-filter-4" class="list-closed">
-						<div class="options no-highlight  js--no-highlight" id="species">
-							<button class="species-option placeholder no-highlight  js--no-highlight" id="species-value">species</button>
-							<!-- if user chose 'fantasy Earth/realm' in the filter 2, show these filter 4 options -->
-							<ul id="fantasy-species-selections" class="fantasy-species-selections hidden">
-								<li class="option js--fantasy-species" id="fantasy-human">human</li>
-								<li class="option js--fantasy-species" id="fantasy-elf">elf</li>
-								<li class="option js--fantasy-species" id="fantasy-angel">angel</li>
-								<li class="option js--fantasy-species" id="fantasy-demon">demon</li>
-								<li class="option js--fantasy-species" id="fantasy-god">(demi) God(dess)</li>
-								<li class="option js--fantasy-species" id="fantasy-human">shifter</li>
-							</ul>
-							<!-- if user chose 'space' in the filter 2, show these filter 4 options -->
-							<ul id="space-species-selections" class="space-species-selections hidden">
-								<li class="option js--space-species" id="space-human">human</li>
-								<li class="option js--space-species" id="space-humanoid">humanoid</li>	
-								<li class="option js--space-species" id="space-nonhumanoid">non-humanoid</li>		
-							</ul>
-							<!-- if user chose 'post-apocalyptic Earth' in the filter 2, show these filter 4 options -->
-							<ul id="postapoc-species-selections" class="postapoc-species-selections hidden">
-								<li class="option js--postapoc-species" id="postapoc-human">human</li>
-								<li class="option js--postapoc-species" id="postapoc-zombie">zombie</li>			
-							</ul>
-							<!-- if user chose 'highly advanced Earth' in the filter 2, show these filter 4 options -->
-							<ul id="techworld-species-selections" class="techworld-species-selections hidden">
-								<li class="option js--tech-species" id="tech-human">human</li>
-								<li class="option js--tech-species" id="tech-ai">AI</li>			
-							</ul>
-						</div>	
-					</div>		
 				</div>
 				<!-- button to results page, appears when all filters are marked 'complete' -->
 			</section>
 			<div class="btn-wrapper get-names"></div>
 				<button id="getResultsBtn" class="filter-not-complete">
-					<div class="getResultsIcons">
-						<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
-					</div>
+					<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
 				</button>
 			</div>
 		</div>
