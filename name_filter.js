@@ -38,11 +38,16 @@ const space_species_selections = document.getElementById('space-species-selectio
 const techworld_species_selections = document.getElementById('techworld-species-selections');
 const postapoc_species_selections = document.getElementById('postapoc-species-selections');
 
+// ----- array containing any filters when complete ------
+const complete_array = Array.from(document.getElementsByClassName('complete'));
+
 // ----- arrays for each filter selection value ------
 const time_selection = [];
 const setting_selection = [];
 const gender_selection = [];
 const species_selection = [];
+
+
 
 /* ------------------------------------------------------------------------------------------------------
     FUNCTIONS
@@ -81,9 +86,15 @@ const closeList = (filter, button) => {
 
 // ----- store selected value and display inside button  ------
 const buttonHandler = (selection, eventTarget, button) => {
-    selection.push(eventTarget.textContent);
-    button.textContent = selection[0];
-}
+    if (selection.length === 0) {
+        selection.push(eventTarget.textContent);    
+        button.textContent = selection[0];
+    } else if (selection.length !== 0 && eventTarget.textContent !== selection[0]) {
+        selection.pop();
+        selection.push(eventTarget.textContent);
+        button.textContent = selection[0];
+    };
+};
 
 // ----- guarantee that filters with multiple possible lists only display the correct list ------
 const showOnlyOneSettingList = (selection, other1, other2) => {
