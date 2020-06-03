@@ -551,7 +551,7 @@ button {outline: none;}
 }
 
 @media (min-width: 767px) {
-	.option {font-size: 0.8em; }
+	.option {font-size: 0.5em; line-height: 140%; }
 
 	.options.collapsed {width: 200px;}
 	.filter-text  {display: flex; justify-content: flex-start; align-items: flex-start; font-size: 2em; width: 100%;}

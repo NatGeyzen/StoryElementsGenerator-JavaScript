@@ -9,12 +9,12 @@
     height: 75px;
 }
 #name-filter-3.list-closed {
-    height: 43px;
+    height: 40px;
     transition: height 0.1s;
 }
 
 #name-filter-4.list-closed  {
-    height: 45px;
+    height: 40px;
 }
 #name-filter-1.list-open, #name-filter-2.list-open,  #name-filter-4.list-open {
     height: 35%;
@@ -36,7 +36,7 @@
 
 /* WIDTH & BORDER TRANSITION (FILTER BUTTONS) 
 --------------------------------------------------------------------------------------------------------------*/ */
-.placeholder, .selection, .complete {
+.placeholder, .selection, .complete, .auto-complete {
 	font-style: italic;
 	padding: 0 10px;
 	background-color: transparent;
@@ -74,13 +74,14 @@
 .species-option.selection       { width: 150px; }
 .gender-option.selection        { width: 75px; }
 
-.complete {
+.complete, .auto-complete {
 	border-bottom: 2px solid var(--lima); 
     transition: all 0.4s;
 }
 
 .time-option.complete,
-.species-option.complete        { width: 200px; }
+.species-option.complete,
+.species-option.auto-complete   { width: 200px; }
 .setting-option.complete        { width: 275px; }
 .gender-option.complete         { width: 100px; }
 
@@ -111,7 +112,8 @@
 	stroke-miterlimit: 10;
 	margin: 0 auto 2%;
 	box-shadow: inset 3px 3px 3px rgb(1, 25, 66);
-    animation: fill 0.3s ease-in-out 0.3s forwards, scale 0.3s ease-in-out 0.5s both;
+	animation: fill 0.3s ease-in-out 0.3s forwards, scale 0.3s ease-in-out 0.5s both;
+	cursor: pointer;
     /* animation: expand 0.2s ease-out 0.5s forwards; */
 }
 .checkmark__check {
@@ -159,9 +161,9 @@
 } */
 
 /* ------------------------------------------------------------------------------------------------------
-    TYPE-IN ANIMATION ON TEXT
+    FILTER SCALE/BOUNCE IN ANIMATIONS
 ------------------------------------------------------------------------------------------------------ */
-.scaled-out, .scale-bounce-in {
+.scaled-out, .scale-bounce-in, .fade-in {
 	position: absolute;
 	left: 5%;
 	width: 300px;    
@@ -172,8 +174,8 @@
 .scale-bounce-in {
 	word-wrap: none;
 	animation: scale-bounce-in 0.5s forwards;
+	opacity: 1;
 }
-
 
 @keyframes scale-bounce-in {
 	0% 		{ transform: scale(0); }
@@ -181,6 +183,21 @@
 	100% 	{ transform: scale(1); }
 }
 
+/* ------------------------------------------------------------------------------------------------------
+    FADE TRANSITION ON FILTERS
+------------------------------------------------------------------------------------------------------ */
+.fade-out {
+	opacity: 0;
+	transform: translateX(100%);
+	cursor: default;
+	transition: all 0.3s;
+}
+
+.fade-in {
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity 0.2s;
+}
 
 /* MEDIA QUERIES 
 --------------------------------------------------------------------------------------------------------------*/ 
@@ -198,17 +215,19 @@
 	#name-filter-2						{top: 15%;}
 	#name-filter-3						{top: 30%;}
 	#name-filter-4						{top: 0; left: 40%;}
+	#name-filter-3.list-open 			{height: 40%;}
 	#name-filter-3.list-closed 			{height: 45px;}
     .time-option.placeholder            {width: 100px;}
-    .time-option.selection              {width: 150px;}
+    .time-option.selection              {width: 190px;}
 	.time-option.complete               {width: 250px;}
 	.setting-option.placeholder         {width: 150px;}
     .setting-option.selection           {width: 300px;}
 	.setting-option.complete            {width: 450px;}
 	.gender-option.placeholder     		{width: 100px;}
-	.gender-option.placeholder			{margin-top: -10px;}
+	/* .gender-option.placeholder			{margin-top: -10px;} */
 	#name-filter-4						{display: inline-block; }
-	.scaled-out, .scale-bounce-in 		{position: absolute; left: 7%; width: 700px;}
+	.scaled-out, .scale-bounce-in,
+	.fade-in					 		{position: absolute; left: 7%; width: 700px;}
 
 	#name-filter-1.list-closed, 
 	#name-filter-2.list-closed 			{height: 50px;}

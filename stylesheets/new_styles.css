@@ -2,13 +2,13 @@
 #name-filter-1, #name-filter-2, 
 #name-filter-3, #name-filter-4          { overflow: hidden; width: 100%; }   
 #name-filter-1, #name-filter-2          { margin: 2vh; }
-#name-filter-1                          { position: absolute; top: 5%;  /* border: 1px solid red; */}
+#name-filter-1                          { position: absolute; top: 0;  /* border: 1px solid red; */}
 #name-filter-2                          { margin-bottom: 1em;  position: absolute; top: 25%; /* border: 1px solid blue; */ }
-#name-filter-3                          { margin: 2vh 0 0 2vh; position: absolute; top: 45%;  /* border: 1px solid green; */}
-#name-filter-4                          { margin: 0 0 1vh 2vh;  position: absolute; top: 55%;   }
+#name-filter-3                          { margin: 2vh 0 0 2vh; position: absolute; top: 50%;  /* border: 1px solid green; */}
+#name-filter-4                          { margin: 2vh 0 0 2vh;  position: absolute; top: 60%;   }
 
 /* ---------- filter (placeholder) buttons ----------- */
-.placeholder, .selection, .complete {
+.placeholder, .selection, .complete, .auto-complete {
 	font-style: italic;
 	padding: 0 10px;
 	background-color: transparent;
@@ -26,6 +26,9 @@
 #time-selections, #history-setting-selections, #present-setting-selections, #future-setting-selections {
     padding-left: 0.5em;
 }
+
+#time-selections        {z-index: 5;}
+#setting-selections     {z-index: 3;}
 
 
 
@@ -62,7 +65,7 @@ ul {
 }
 
 .sentence {
-    margin: 0.3em 0;
+    margin: 0.5em 0;
 }
 
 
@@ -71,7 +74,7 @@ ul {
 	cursor: not-allowed;
 }
 .time-option.placeholder, .setting-option.placeholder, .species-option.placeholder, .gender-option.placeholder,
-.time-option.complete, .setting-option.complete, .species-option.complete, .gender-option.complete {
+.time-option.complete, .setting-option.complete, .species-option.complete, .species-option.auto-complete, .gender-option.complete  {
     font-size: 0.8em;
 }
 .time-option.placeholder, .setting-option.placeholder, 
@@ -79,21 +82,24 @@ ul {
 .time-option.complete, .setting-option.complete, .species-option.selection, .species-option.complete, .gender-option.selection, .gender-option.complete {
 	cursor: pointer;
 }
-.setting-option.placeholder.no-highlight, .species-option.placeholder.no-highlight, .gender-option.placeholder.no-highlight {
+ 
+#species-value.not-allowed {
     cursor: not-allowed;
+}
+.setting-option.complete.fade-out {
+    cursor: default;
 }
 
 .present-selection.visible {
     width: 200px;
 }
 
-#getResultsBtn.filter-not-complete {
+.filter-not-complete {
     display: none;
     position: absolute;
-    
     transform: translateX(-50%);
 }
-#getResultsBtn.filter-complete {
+.filter-complete {
     display: flex;
     height: 50px;
     width: 200px;
@@ -107,7 +113,6 @@ ul {
     border: none;
     box-shadow: transparent;
     outline: none;
-    /* border: 1px solid blue; */
 }
 
 .btn-wrapper.get-names {
@@ -124,7 +129,9 @@ ul {
 }
 
 @media (min-width: 400px) {
-    #name-filter-4                          { top: 54%; }
+    #name-filter-1                          { top: 5%; }
+    #name-filter-3                          { top: 45%; }
+    #name-filter-4                          { top: 52.5%; }
 }
 
 @media (min-width: 767px) {
@@ -133,19 +140,23 @@ ul {
 }
 
 @media (min-width: 767px) and (max-height: 578px) {
-    #name-filter-1                          { top: -3%; }
-    #name-filter-2                          { top: 15%; /* border: 1px solid blue; */  }
-    #name-filter-3                          { top: 35%; /* border: 1px solid green; */ }
-    #name-filter-4                          { top: 35%; /* border: 1px solid orange; */ }
+    #name-filter-1                          { top: 0; }
+    #name-filter-2                          { top: 20%; /* border: 1px solid blue; */  }
+    #name-filter-3                          { top: 40%; /* border: 1px solid green; */ }
+    #name-filter-4                          { top: 40%; /* border: 1px solid orange; */ }
     #name-filter-1.list-closed, #name-filter-2.list-closed, #name-filter-3.list-closed, #name-filter-4.list-closed {
         height: 40px;
     }
     .time-option.placeholder, .setting-option.placeholder, .gender-option.placeholder, .species-option.placeholder,
     .time-option.selection, .setting-option.selection, .gender-option.selection, .species-option.selection,
-    .time-option.complete, .setting-option.complete, .gender-option.complete, .species-option.complete {
+    .time-option.complete, .setting-option.complete, .gender-option.complete, .species-option.complete, .species-option.auto-complete {
 	    position: absolute;
-	    top: 0;
-	    left: 1em;
+	    top: 10px;
+        left: 1em;
+        font-size: 0.6em;
+    }
+    #time-selections, #history-setting-selections, #present-setting-selections, #future-setting-selections {
+        padding-left: 0;
     }
     .gender-option.placeholder, .gender-option.selection, .gender-option.comlplete {
         left: 0.75em;
@@ -156,6 +167,7 @@ ul {
 
     #time-selections {
         margin-top: 1em;
+        z-index: 5;
     }
 }
 
