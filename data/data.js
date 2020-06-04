@@ -1,3 +1,92 @@
+const ancient_greek_names = {
+    male: [
+        'Aegeus', 'Callias', 'Dareios', 'Epiktetos', 'Galenos', 'Herakleios', 'Isocrates', 'Kosmas', 'Leonidas', 'Myron',
+        'Neophythos', 'Olympos', 'Pericles', 'Stephanos', 'Timaios', 'Xanthos', 'Zephyros', 'Achilles', 'Hercules', 'Alxios',
+        'Androcles', 'Aristotle', 'Cassandar', 'Chariton', 'Democritus', 'Dion', 'Dionysius', 'Euclid', 'Evaristus', 'Hermes',
+        'Homeros', 'Kallistos', 'Kyros', 'Lycus', 'Melanthios', 'Nikandros', 'Pantaleon', 'Nereus', 'Origenes', 'Phaedrus',
+        'Orpheus', 'Perseus', 'Xenon', 'Theron', 'Theodosios', 'Thales', 'Sophocles', 'Socrates', 'Pythagoras', 'Plato',
+    ],
+    female: [
+        'Agape', 'Ambrosia', 'Artemisia', 'Berenice', 'Chrysanthe', 'Corinna', 'Demetria', 'Euphrasia', 'Gaiana', 'Helena', 
+        'Irene', 'Kallisto', 'Kassandra', 'Lysandra', 'Melissa', 'Myrto', 'Nymphodora', 'Olympias', 'Phoibe', 'Roxana', 
+        'Photina', 'Theokleia', 'Ptolemais', 'Eunike', 'Isodora', 'Nike', 'Sappho', 'Xanthippe', 'Xenia', 'Sophia', 
+        'Myrrhine', 'Hypatia', 'Tryphosa', 'Heroidias', 'Glaphyra', 'Metrodora', 'Rhode', 'Theodora', 'Zoe', 'Thais', 
+        'Kallistrate', 'Eutychia', 'Xanthe', 'Lysistrata', 'Elpis', 'Ligeia', 'Pelagia', 'Syntyche', 'Zenobia', 'Timothea', 
+    ]
+};
+
+const ancient_roman_names = {
+    male: [
+        'Aetius', 'Albus', 'Antonius', 'Augustus', 'Brutus', 'Blasius', 'Caesar', 'Caius', 'Cicero', 'Cornelius',
+        'Decimus', 'Domitius', 'Egnatius', 'Felix', 'Flavianus', 'Gaius', 'Glaucia', 'Horatius', 'Julius', 'Iovita',
+        'Faustus', 'Tullus', 'Titus', 'Severinus', 'Salvius', 'Quintilius', 'Paulinus', 'Nero', 'Marcellus', 'Laurentinus',
+        'Gnaeus', 'Crispus', 'Valentinus', 'Silvanus', 'Saturninus', 'Quintius', 'Petronius', 'Nerva', 'Marcus', 'Lucanus',
+        'Jovian', 'Drusus', 'Vitus', 'Terentius', 'Seneca', 'Regulus', 'Pontius', 'Octavius', 'Maximilianus', 'Lucius',
+    ],
+    female: [
+        'Aemilia', 'Camilla', 'Hadriana', 'Marcia', 'Rufina', 'Valentina', 'Augusta', 'Flavia', 'Lucia', 'Nona',
+        'Aquila', 'Cassia', 'Julia', 'Martina', 'Maximiliana', 'Quintina', 'Valeriana', 'Caesonia', 'Galla', 'Ovidia',
+        'Aurelia', 'Domitia', 'Laelia', 'Octavia', 'Saturnina', 'Verginia', 'Claudia', 'Germana', 'Paulina', 'Sabina',
+        'Balbina', 'Fabiana', 'Liviana', 'Petronia', 'Tatiana', 'Agrippa', 'Drusilla', 'Hilaria', 'Severina', 'Vita',
+        'Caelia', 'Floriana', 'Lucilla', 'Priscilla', 'Tullia', 'Alba', 'Fabiola', 'Herminia', 'Junia', 'Laurentina',
+    ]
+};
+
+const ancient_egyptian_names = {
+    male: [
+        'Amenemhet', 'Hakor', 'Nebmakhet', 'Wenamon', 'Sen-nefer', 'Patenemheb', 'Irsu', 'Ibebi', 'Huy', 'Hardedef',
+        'Anen', 'Khamet', 'Sarenpet', 'Nekure', 'Userhat', 'Nibamon', 'Ankhkhaf', 'Banefre', 'Djedefhor', 'Hepzefa',
+        'Amosis', 'Merenre', 'Ptahshepses', 'Thethi', 'Rekhmire', 'Kenamon', 'Anubis', 'Khafra', 'Menkaura', 'Narmer',
+        'Imhotep', 'Merkha', 'Re\'emkuy', 'Tchanun', 'Rahotep', 'Badru', 'Chatuluka', 'Khentimentiu', 'Psamtic', 'Senusnet',
+        'Djedefre', 'Nebamun', 'Zezemonekh', 'Simontu', 'Ramose', 'Horemheb', 'Horus', 'Ramses', 'Sobk', 'Tehuti'
+    ],
+    female: [
+        'Ahmes', 'Gararai', 'Anippe', 'Bahiti', 'Maat', 'Heqet', 'Tetisheri', 'Menhet', 'Ahmose ', 'Baketamon',
+        'Ahura', 'Nefertari', 'Hehet', 'Nephthys', 'Naunet', 'Meskhenet', 'Dedyet', 'Kentetenka', 'Henutsekhemu', 'Khenthap',
+        'Ariuru', 'Bintanath', 'Sekhet', 'Chione', 'Nefertiti', 'Merneith', 'Merit', 'Nebetah', 'Nitocris', 'Nofret',
+        'Ankhsen', 'Betrest', 'Renenet', 'Isis', 'Acenath', 'Raia', 'Ptahneferu', 'Satiah', 'Tentamun', 'Werenro',
+        'Bast', 'Hatshepsut', 'Dakhamunzu', 'Keket', 'Amunet', 'Sitamun', 'Sherhiryotes', 'Renesres', 'Nubemweskhet', 'Nakhtneith'
+    ]
+};
+
+const viking_names = {
+    male: [
+        'SAXI', 'ǪLVIR', 'MISTIVIR', 'IÓAN', 'HEGVALDR', 'GINNAR', 'ERECK', 'DIÚRVÉR', 'BIARNHEÐINN', 'ALEINN',
+        'SIGRÍKR', 'OVDEN', 'NÆFI', 'KIARTAN', 'HILDINGR', 'GRAMR', 'FÁFNIR', 'DÁINN', 'BIFLINDI', 'ALFRIGG',
+        'TARR', 'PÉTR', 'NIKULAS', 'KOFRI', 'HǪÐR', 'GYLFI', 'FJALARR', 'DRAGMÁLL', 'BLÁINN', 'ÁNARR',
+        'ULFARR', 'RAGGI', 'NÝR', 'LEIFI', 'HREINN', 'HAMAR', 'FRØYBIǪRN', 'DURINN', 'BǪLVERKR', 'BÆGLIR',
+        'VANDILL', 'RØKIA', 'OLLAUFF', 'LIÓTR', 'IARL', 'HARIWOLFAR', 'GAGARR', 'EILÍFR', 'BYX', 'BELWAR'
+    ],
+    female: [
+        'DÝRFINNA', 'YRSA', 'TÓRA', 'SKǪGUL', 'ÓTAMA', 'MÁR', 'IRPA', 'HÆRA', 'ELÍNA', 'ÆSA',
+        'EYJA', 'ÁGÁTA', 'UNNA', 'STEINA', 'RAGNVǪR', 'MARGRÉTA', 'JÓRA', 'HALLGRÍMA', 'FREYDÍS', 'ASTRITH',
+        'FJǪLVǪR', 'AURBOÐA', 'VALKA', 'SVALA', 'RANKA', 'MÝRÚN', 'KALDA', 'HERDÍS', 'FINNA', 'BORGA',
+        'GÆIRVǪR', 'BEKKHILDR', 'VÉDÍS', 'SYN', 'SEFA', 'NÁL', 'LÍFA', 'HYNDLA', 'GLYRNA', 'BRÍGIÐA',
+        'HETHA', 'BRANA', 'VÓR', 'TANNGNIÐR', 'SALGERÐR', 'ODINE', 'MÆVA', 'INGIBORG', 'GLYRNA', 'EISTLA'
+    ]
+};
+
+const victorian_names = {
+    male: [
+        'John', 'William', 'James', 'George', 'Charles', 'Frank', 'Joseph', 'Henry', 'Robert', 'Thomas',
+        'Edward', 'Harry', 'Walter', 'Arthur', 'Fred', 'Albert', 'Samuel', 'Clarence', 'Louis', 'David',
+        'Joe', 'Charlie', 'Richard', 'Ernest', 'Roy', 'Will', 'Andrew', 'Jesse', 'Oscar', 'Willie',
+        'Daniel', 'Benjamin', 'Carl', 'Sam', 'Alfred', 'Earl', 'Peter', 'Elmer', 'Frederick', 'Howard',
+        'Lewis', 'Ralph', 'Herbert', 'Paul', 'Lee', 'Tom', 'Herman', 'Martin', 'Jacob', 'Michael'
+
+    ],
+    female: [
+        'Mary', 'Anna', 'Emma', 'Elizabeth', 'Margaret', 'Minnie', 'Ida', 'Bertha', 'Clara', 'Alice',
+        'Annie', 'Florence', 'Bessie', 'Grace', 'Ethel', 'Sarah', 'Ella', 'Martha', 'Nellie', 'Mabel',
+        'Laura', 'Carrie', 'Cora', 'Helen', 'Maude', 'Lillian', 'Gertrude', 'Rose', 'Edna', 'Pearl',
+        'Edith', 'Jennie', 'Hattie', 'Mattie', 'Eva', 'Julia', 'Myrtle', 'Louise', 'Lillie', 'Jessie',
+        'Frances', 'Catherine', 'Lula', 'Lena', 'Marie', 'Ada', 'Josephine', 'Fannie', 'Lucy', 'Dora'
+    ]
+};
+
+
+
+
 const names = {
     
     contemporary: {
