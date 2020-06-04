@@ -84,42 +84,37 @@ const victorian_names = {
     ]
 };
 
+const current_names = {
+    male: [
+        'Liam', 'Noah', 'William', 'James', 'Logan', 'Benjamin', 'Mason', 'Elija', 'Oliver', 'Jacob',
+        'Lucas', 'Alexander', 'Ethan', 'Daniel', 'Henry', 'Jackson', 'Aiden', 'Owen', 'Wyatt', 'Dylan',
+        'Ajax', 'Benoit', 'Cillian', 'Daemyn', 'Gates', 'Kaz', 'Link', 'Malone', 'Nero', 'Penn',
+        'Olson', 'Ranger', 'Roan', 'Teague', 'Valerian', 'Xanthus', 'Wolf', 'Jaegar', 'Finnian', 'Kiernan',
+        'Sebastian', 'Matthew', 'Samuel', 'David', 'Carter', 'Grayson', 'Isaac', 'Julian', 'Joshua', 'Asher'
+
+    ],
+    female: [
+        'Emma', 'Olivia', 'Ava', 'Isabella', 'Sophia', 'Mia', 'Charlotte', 'Amelia', 'Evelyn', 'Madison',
+        'Harper', 'Emily', 'Ella', 'Victoria', 'Chloe', 'Nora', 'Lily', 'Hannah', 'Zoe', 'Elizabeth',
+        'Aeryn', 'Cambree', 'Danya', 'Evania', 'Genna', 'Isaura', 'Jordana', 'Kalista', 'Leighanna', 'Manon',
+        'Melora', 'Nyx', 'Odelia', 'Ranae', 'Rhoswen', 'Silvana', 'Thora', 'Valora', 'Zahrah', 'Zephyra',
+        'Abigail', 'Mila', 'Aria', 'Scarlett', 'Grace', 'Zoey', 'Aubrey', 'Hazel', 'Savannah', 'Maya'
+
+    ],
+    unisex: [
+        'Sam', 'Alex', 'Spencer', 'Phoenix', 'Avery', 'Dallas', 'Morgan', 'Quinn', 'Parker', 'Payton',
+        'Charlie', 'Riley', 'Sawyer', 'Blake', 'Hayden', 'River', 'Finley', 'Denver', 'Dakota', 'Hollis',
+        'Auren', 'Bronx', 'Calypso', 'Danelea', 'Keani', 'Locke', 'Madigan', 'Neo', 'October', 'Pax', 
+        'Rain', 'Sailor', 'Silver', 'Troian', 'Vail', 'Wynn', 'Zephyr', 'Kenadie', 'Havana', 'Cheyne',
+        'Alexis', 'Eden', 'Emmerson', 'Jordan', 'Karter', 'London', 'Peyton', 'Rowan', 'Taylor', 'Elliott'
+    ]
+}
 
 
 
 const names = {
     
-    contemporary: {
-        common: {
-            male: [
-                'Liam', 'Noah', 'William', 'James', 'Logan', 'Benjamin', 'Mason', 'Elija', 'Oliver', 'Jacob',
-                'Lucas', 'Alexander', 'Ethan', 'Daniel', 'Henry', 'Jackson', 'Aiden', 'Owen', 'Wyatt', 'Dylan'
-            ],
-            female: [
-                'Emma', 'Olivia', 'Ava', 'Isabella', 'Sophia', 'Mia', 'Charlotte', 'Amelia', 'Evelyn', 'Madison',
-                'Harper', 'Emily', 'Ella', 'Victoria', 'Chloe', 'Nora', 'Lily', 'Hannah', 'Zoe', 'Elizabeth'  
-            ],
-            unisex: [
-                'Sam', 'Alex', 'Spencer', 'Phoenix', 'Avery', 'Dallas', 'Morgan', 'Quinn', 'Parker', 'Payton',
-                'Charlie', 'Riley', 'Sawyer', 'Blake', 'Hayden', 'River', 'Finley', 'Denver', 'Dakota', 'Hollis'
-            ]
-        },
-        unique: {
-            male: [
-                'Ajax', 'Benoit', 'Cillian', 'Daemyn', 'Gates', 'Kaz', 'Link', 'Malone', 'Nero', 'Penn',
-                'Olson', 'Ranger', 'Roan', 'Teague', 'Valerian', 'Xanthus', 'Wolf', 'Jaegar', 'Finnian', 'Kiernan'
-            ],
-            female: [
-                'Aeryn', 'Cambree', 'Danya', 'Evania', 'Genna', 'Isaura', 'Jordana', 'Kalista', 'Leighanna', 'Manon',
-                'Melora', 'Nyx', 'Odelia', 'Ranae', 'Rhoswen', 'Silvana', 'Thora', 'Valora', 'Zahrah', 'Zephyra'
-            ],
-            unisex: [
-                'Auren', 'Bronx', 'Calypso', 'Danelea', 'Keani', 'Locke', 'Madigan', 'Neo', 'October', 'Pax', 
-                'Rain', 'Sailor', 'Silver', 'Troian', 'Vail', 'Wynn', 'Zephyr', 'Kenadie', 'Havana', 'Cheyne'
-            ]
-        }
-    },
-    /* ---------------------------------------------------------------------------------------------------------------------------- */
+    
     fantasy: {
         human: [],
         elf: {
