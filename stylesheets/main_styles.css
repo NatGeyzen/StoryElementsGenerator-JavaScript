@@ -194,6 +194,7 @@ footer {
       margin-right: 3em;
       transform: none;
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
     }
   

@@ -235,6 +235,9 @@ ul {
         left: 1em;
         font-size: 0.6em;
     }
+    .species-option.placeholder, .species-option.selection, .species-option.complete, .species-option.auto-complete {
+        left: 2.5em;
+    }
     #time-selections, #history-setting-selections, #present-setting-selections, #future-setting-selections {
         padding-left: 0;
     }
