@@ -4,7 +4,7 @@ const ancient_greek_names = {
         'Neophythos', 'Olympos', 'Pericles', 'Stephanos', 'Timaios', 'Xanthos', 'Zephyros', 'Achilles', 'Hercules', 'Alxios',
         'Androcles', 'Aristotle', 'Cassandar', 'Chariton', 'Democritus', 'Dion', 'Dionysius', 'Euclid', 'Evaristus', 'Hermes',
         'Homeros', 'Kallistos', 'Kyros', 'Lycus', 'Melanthios', 'Nikandros', 'Pantaleon', 'Nereus', 'Origenes', 'Phaedrus',
-        'Orpheus', 'Perseus', 'Xenon', 'Theron', 'Theodosios', 'Thales', 'Sophocles', 'Socrates', 'Pythagoras', 'Plato',
+        'Orpheus', 'Perseus', 'Xenon', 'Theron', 'Theodosios', 'Thales', 'Sophocles', 'Socrates', 'Pythagoras', 'Plato'
     ],
     female: [
         'Agape', 'Ambrosia', 'Artemisia', 'Berenice', 'Chrysanthe', 'Corinna', 'Demetria', 'Euphrasia', 'Gaiana', 'Helena', 
@@ -90,7 +90,7 @@ const current_names = {
         'Lucas', 'Alexander', 'Ethan', 'Daniel', 'Henry', 'Jackson', 'Aiden', 'Owen', 'Wyatt', 'Dylan',
         'Ajax', 'Benoit', 'Cillian', 'Daemyn', 'Gates', 'Kaz', 'Link', 'Malone', 'Nero', 'Penn',
         'Olson', 'Ranger', 'Roan', 'Teague', 'Valerian', 'Xanthus', 'Wolf', 'Jaegar', 'Finnian', 'Kiernan',
-        'Sebastian', 'Matthew', 'Samuel', 'David', 'Carter', 'Grayson', 'Isaac', 'Julian', 'Joshua', 'Asher'
+        'Sebastian', 'Matthew', 'Samuel', 'David', 'Carter', 'Grayson', 'Isaac', 'Julian', 'Joshua', 'Asher',
 
     ],
     female: [
@@ -181,18 +181,6 @@ const demon_names = {
         'Thadna', 'Sothra', 'Anzara', 'Lorru', 'Xyo', 'Dhidansa', 'Demumva', 'Calebo', 'Ynaranin', 'Dazulnus'
     ]
 };
-// ----------------------------
-// COMPLETED ABOVE 
-//-------------------------------
-
-
-
-
-// ------------------------------- 
-// TO COMPLETE BELOW 
-// -------------------------------
-
-
 
 const godlike_names = {
     male: [
@@ -216,7 +204,57 @@ const godlike_names = {
         'Nova', 'Echo', 'Endellion', 'Averill', 'Onyx', 'Nashtyn', 'Storm', 'Adone', 'Weylyn', 'Detris', 
         'Zoien', 'Rialdin', 'Lexdis', 'Orion', 'Misha', 'Grae', 'Dian', 'Zephyr', 'Tarian', 'Romilly'
     ]
+};
+
+
+
+// ----------------------------
+// COMPLETED ABOVE 
+//-------------------------------
+
+const all_names = {
+    male: [
+        ...ancient_greek_names.male, 
+        ...ancient_roman_names.male, 
+        ...ancient_egyptian_names.male, 
+        ...viking_names.male,
+        ...victorian_names.male,
+        ...current_names.male,
+        ...elf_names.male,
+        ...angel_names.male,
+        ...demon_names.male,
+        ...godlike_names.male
+    ],
+    female: [
+        ...ancient_greek_names.female, 
+        ...ancient_roman_names.female, 
+        ...ancient_egyptian_names.female, 
+        ...viking_names.female,
+        ...victorian_names.female,
+        ...current_names.female,
+        ...elf_names.female,
+        ...angel_names.female,
+        ...demon_names.female,
+        ...godlike_names.female
+    ],
+    unisex: [
+        ...current_names.male,
+        ...elf_names.unisex,
+        ...angel_names.unisex,
+        ...demon_names.unisex,
+        ...godlike_names.unisex
+    ]
 }
+
+
+
+// ------------------------------- 
+// TO COMPLETE BELOW 
+// -------------------------------
+
+
+
+
 
 const shifter_names = {
     male: [

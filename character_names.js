@@ -1,6 +1,14 @@
-/* ------------------------------------------------------------------------------------------------------
+/* --------------------------------------------------------------------------------------------------------------------
     VARIABLES
------------------------------------------------------------------------------------------------------- */
+-------------------------------------------------------------------------------------------------------------------- */
+
+const originalScreen = document.getElementById('characters-original-screen');
+const filterScreen = document.getElementById('filter');
+const generatedNamesScreen = document.getElementById('generated-names-container');
+
+// ----- buttons character names generator start screen ------
+const randomBtn     = document.getElementById('randomBtn');
+const customizeBtn  = document.getElementById('customizeBtn');
 
 // ----- filter containers ------
 const name_filter_1 = document.getElementById('name-filter-1');
@@ -47,11 +55,41 @@ const setting_selection = [];
 const gender_selection = [];
 const species_selection = [];
 
+// ----- filters completed/get generated names button ------
 const checkmark_button = document.getElementById('checkmark');
 
-/* ------------------------------------------------------------------------------------------------------
+// ----- string variables to ensure error on typos ------
+const past = 'the past';
+const present = 'the present(-ish)';
+
+const ancient_greece = 'in Ancient Greece';
+const ancient_rome = 'in Ancient Rome';
+const ancient_egypt = 'in Ancient Egypt';
+const viking_era = 'in the Viking Era';
+const victorian_era = 'in the Victorian Era';
+const contemporary = 'on Earth as we know it';
+const fantasy = 'in a fantasy Earth/realm';
+
+const he = 'He';
+const she = 'She';
+const uni = '(S)he';
+
+const new_filtered_names_button = document.getElementById('newFilteredResultsBtn');
+const new_random_names_button = document.getElementById('newRandomResultsBtn');
+
+const generatedNamesList = document.getElementById('generated-names-list');
+
+/* --------------------------------------------------------------------------------------------------------------------
     FUNCTIONS
------------------------------------------------------------------------------------------------------- */
+-------------------------------------------------------------------------------------------------------------------- */
+
+// ----- go from start screen to filter page and results page ------
+const goToNextScreen = (currentScreen, nextScreen) => {
+    currentScreen.classList.remove('visible');
+    currentScreen.classList.add('hidden');
+    nextScreen.classList.remove('hidden');
+    nextScreen.classList.add('visible');
+}
 
 // ----- remove/add class from/to element ------
 const toggleClass = (element, oldClass, newClass) => {
@@ -168,7 +206,6 @@ const autoSetSpeciesToHuman = () => {
     species_button.textContent = 'human';
     species_button.classList.add('not-allowed');
     toggleClass(species_button, 'placeholder', 'auto-complete');
-    console.log('bang!')
 };
 
 // ----- time filter logic ------
@@ -194,7 +231,7 @@ const settingHandler = () => {
             break;  
         case 'in a fantasy Earth/realm':    
             toggleClass(fantasy_species_selections, 'hidden', 'visible');   
-            showOnlyOneSettingList(fantasy_species_selections, space_species_selections, postapoc_species_selections, techworld_species_selections);
+            // showOnlyOneSettingList(fantasy_species_selections, space_species_selections, postapoc_species_selections, techworld_species_selections);
             break;      
         case 'in space somewhere':          
             toggleClass(space_species_selections, 'hidden', 'visible');   
@@ -278,10 +315,6 @@ const nameFilterHandler = (eventTarget) => {
      eventTarget === techworld_species_options[0] || eventTarget === techworld_species_options[1]) &&  !species_button.classList.contains('not-allowed')) {
         returnSpeciesValue(eventTarget);
     }
-    else if (eventTarget === checkmark_button) {
-        console.log(time_selection, setting_selection, gender_selection, species_selection)
-    }
-
     if (time_selection.length !== 0 && setting_selection.length !== 0 && gender_selection.length !== 0 && species_selection.length !== 0) {
         toggleClass(document.getElementById('getResultsBtn'), 'filter-not-complete', 'filter-complete');
     } 
@@ -293,17 +326,191 @@ const nameFilterHandler = (eventTarget) => {
  
 }
 
-/* ------------------------------------------------------------------------------------------------------
-    EVENT HANDLERS
------------------------------------------------------------------------------------------------------- */
+// ----- return index number between 0 and array length ------
+const returnRandomIndex = (arrayLength) => {
+    return Math.floor(Math.random() * arrayLength);
+};
 
-// ----- filter buttons ------
+// ----- return name from specified array at the specified index  ------
+const returnNameAtRandomIndex = (namesList, num) => {
+    return namesList[num];
+} 
+
+// ----- return 10 names, using two previous functions to generate index numbers and retrieve names ------
+const returnListOfNames = (array, gender) => {
+    const names_array = [];
+    while (names_array.length !== 10) {
+        const name = returnNameAtRandomIndex(array, returnRandomIndex(array.length));
+        if (!names_array.includes(name)) {
+            names_array.push(name);
+        } else {
+            returnNameAtRandomIndex(array, returnRandomIndex(array.length))
+        }
+    }
+    names_array.forEach(name => {
+        const li = document.createElement('li'); 
+        li.classList.add('generated-name'); 
+        if (gender === 'male') {
+            li.classList.add('male');
+        } else if (gender === 'female') {
+            li.classList.add('female');
+        } else if (gender === 'unisex') {
+            li.classList.add('unisex');
+        }
+        li.textContent = name;
+        generatedNamesList.appendChild(li);
+    })
+};
+
+// ----- return a list of names, based on chosen filters, using two previous functions ------
+const returnFilteredNames = (eventTarget) => {
+    const selected_filters = nameFilterHandler(eventTarget);
+
+    if (selected_filters[0].includes(past)) {
+        if (selected_filters[1].includes(ancient_greece)) {
+            if (selected_filters[2].includes(he)) {
+                returnListOfNames(ancient_greek_names.male, 'male');
+            } else if (selected_filters[2].includes(she)) {
+                returnListOfNames(ancient_greek_names.female, 'female');
+            }
+        } else if (selected_filters[1].includes(ancient_rome)) {
+            if (selected_filters[2].includes(he)) {
+                returnListOfNames(ancient_roman_names.male, 'male');
+            } else if (selected_filters[2].includes(she)) {
+                returnListOfNames(ancient_roman_names.female, 'female');
+            }
+        } else if (selected_filters[1].includes(ancient_egypt)) {
+            if (selected_filters[2].includes(he)) {
+                returnListOfNames(ancient_egyptian_names.male, 'male');
+            } else if (selected_filters[2].includes(she)) {
+                returnListOfNames(ancient_egyptian_names.female, 'female');
+            }
+        } else if (selected_filters[1].includes(viking_era)) {
+            if (selected_filters[2].includes(he)) {
+                returnListOfNames(viking_names.male, 'male');
+            } else if (selected_filters[2].includes(she)) {
+                returnListOfNames(viking_names.female, 'female');
+            }
+        } else if (selected_filters[1].includes(victorian_era)) {
+            if (selected_filters[2].includes(he)) {
+                returnListOfNames(victorian_names.male, 'male');
+            } else if (selected_filters[2].includes(she)) {
+                returnListOfNames(victorian_names.female, 'female');
+            }
+        }
+    }
+
+    else if (selected_filters[0].includes(present)) {
+        if (selected_filters[1].includes(contemporary)) {
+            if (selected_filters[2].includes(he)) {
+                returnListOfNames(current_names.male, 'male');
+            } else if (selected_filters[2].includes(she)) {
+                returnListOfNames(current_names.female, 'female');
+            } else if (selected_filters[2].includes(uni)) {
+                returnListOfNames(current_names.unisex, 'unisex');
+            }
+        } else if (selected_filters[1].includes(fantasy)) {
+            if (selected_filters[2].includes(he) && selected_filters[3].includes('human')) {
+                returnListOfNames(current_names.male, 'male');
+            } 
+            if (selected_filters[2].includes(she) && selected_filters[3].includes('human')) {
+                returnListOfNames(current_names.female, 'female');
+            } 
+            if (selected_filters[2].includes(uni) && selected_filters[3].includes('human')) {
+                returnListOfNames(current_names.unisex, 'unisex');
+            }
+            if (selected_filters[2].includes(he) && selected_filters[3].includes('elf')) {
+                returnListOfNames(elf_names.male, 'male');
+            } 
+            if (selected_filters[2].includes(she) && selected_filters[3].includes('elf')) {
+                returnListOfNames(elf_names.female, 'female');
+            } 
+            if (selected_filters[2].includes(uni) && selected_filters[3].includes('elf')) {
+                returnListOfNames(elf_names.unisex, 'unisex');
+            }
+            if (selected_filters[2].includes(he) && selected_filters[3].includes('angel')) {
+                returnListOfNames(angel_names.male, 'male');
+            } 
+            if (selected_filters[2].includes(she) && selected_filters[3].includes('angel')) {
+                returnListOfNames(angel_names.female, 'female');
+            } 
+            if (selected_filters[2].includes(uni) && selected_filters[3].includes('angel')) {
+                returnListOfNames(angel_names.unisex, 'unisex');
+            }
+            if (selected_filters[2].includes(he) && selected_filters[3].includes('demon')) {
+                returnListOfNames(demon_names.male, 'male');
+            } 
+            if (selected_filters[2].includes(she) && selected_filters[3].includes('demon')) {
+                returnListOfNames(demon_names.female, 'female');
+            } 
+            if (selected_filters[2].includes(uni) && selected_filters[3].includes('demon')) {
+                returnListOfNames(demon_names.unisex, 'unisex');
+            }
+            if (selected_filters[2].includes(he) && selected_filters[3].includes('(demi) God(dess)')) {
+                returnListOfNames(godlike_names.male, 'male');
+            } 
+            if (selected_filters[2].includes(she) && selected_filters[3].includes('(demi) God(dess)')) {
+                returnListOfNames(godlike_names.female, 'female');
+            } 
+            if (selected_filters[2].includes(uni) && selected_filters[3].includes('(demi) God(dess)')) {
+                returnListOfNames(godlike_names.unisex, 'unisex');
+            }
+        }
+    }
+}
+
+const returnRandomNames = () => {
+    const random_male_names = [];
+    const random_female_names = [];
+    const random_unisex_names = [];
+    while (random_male_names.length !== 4) {
+        const male_name = returnNameAtRandomIndex(all_names.male, returnRandomIndex(all_names.male.length));
+        random_male_names.push(male_name);
+    }
+    while (random_female_names.length !== 4) {
+        const female_name = returnNameAtRandomIndex(all_names.female, returnRandomIndex(all_names.female.length));
+        random_female_names.push(female_name);
+    }
+    while (random_unisex_names.length !== 2) {
+        const unisex_name = returnNameAtRandomIndex(all_names.unisex, returnRandomIndex(all_names.unisex.length));
+        random_unisex_names.push(unisex_name);
+    }
+    const random_names = [...random_male_names, ...random_female_names, ...random_unisex_names];
+
+    for (let i = 0; i < 10; i++) {
+        const li = document.createElement('li');
+        li.classList.add('generated-name'); 
+        if (i < 4) {
+            li.classList.add('male'); 
+        } else if (i >= 4 && i < 8) {
+            li.classList.add('female'); 
+        } else {
+            li.classList.add('unisex');  
+        }
+        li.textContent = random_names[i];
+        generatedNamesList.appendChild(li);
+    }
+}
+
+/* --------------------------------------------------------------------------------------------------------------------
+    EVENT HANDLERS
+-------------------------------------------------------------------------------------------------------------------- */
+
+// ----- PAGE 1 buttons ------
+customizeBtn.addEventListener('click', () => goToNextScreen(originalScreen, filterScreen));
+randomBtn.addEventListener('click', () => {
+    goToNextScreen(originalScreen, generatedNamesScreen);
+    new_random_names_button.classList.remove('hidden');
+    returnRandomNames();
+});
+
+// ----- PAGE 2A filter buttons ------
 time_button.addEventListener('click', () => openList(name_filter_1, time_button, time_selection)); 
 setting_button.addEventListener('click', () => openList(name_filter_2, setting_button, setting_selection)); 
 gender_button.addEventListener('click', () => openList(name_filter_3, gender_button, gender_selection));
 species_button.addEventListener('click', () => openList(name_filter_4, species_button, species_selection));
 
-// ----- filter options ------
+// ----- PAGE 2A filter options ------
 time_options.forEach(option => option.addEventListener('click', (e) => nameFilterHandler(e.target)));
 history_setting_options.forEach(option => option.addEventListener('click', (e) => nameFilterHandler(e.target)));
 present_setting_options.forEach(option => option.addEventListener('click', (e) => nameFilterHandler(e.target)));
@@ -314,4 +521,23 @@ space_species_options.forEach(option => option.addEventListener('click', (e) => 
 techworld_species_options.forEach(option => option.addEventListener('click', (e) => nameFilterHandler(e.target)));
 postapoc_species_options.forEach(option => option.addEventListener('click', (e) => nameFilterHandler(e.target)));
 
-checkmark_button.addEventListener('click', (e) => nameFilterHandler(e.target))
+// ----- PAGE 2A get filtered names button ------
+checkmark_button.addEventListener('click', (e) => {
+    goToNextScreen(filterScreen, generatedNamesScreen);
+    toggleClass(checkmark_button, 'filter-complete', 'filter-not-complete');
+    new_filtered_names_button.classList.remove('hidden');
+    returnFilteredNames(e.target);
+});
+
+
+new_filtered_names_button.addEventListener('click', (e) => {
+    generatedNamesList.textContent = '';
+    returnFilteredNames(e.target);
+    
+});
+
+new_random_names_button.addEventListener('click', () => {
+    generatedNamesList.textContent = '';
+    returnRandomNames();
+});
+

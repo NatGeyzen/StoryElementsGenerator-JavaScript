@@ -46,7 +46,7 @@
 							<ul id="time-selections" class="time-selections">
 								<li class="option js--time" id="past">the past</li>
 								<li class="option js--time" id="present">the present(-ish)</li>
-								<li class="option js--time" id="future">the future</li>	
+								<!-- <li class="option js--time" id="future">the future</li>	 -->
 							</ul>
 						</div>
 					</div>
@@ -67,13 +67,13 @@
 							<ul id="present-setting-selections" class="present-setting-selections hidden">
 								<li class="option js--present-setting" id="present-earth">on Earth as we know it</li>
 								<li class="option js--present-setting" id="present-magic">in a fantasy Earth/realm</li>
-								<li class="option js--present-setting" id="present-space">in space somewhere</li>	
+								<!-- <li class="option js--present-setting" id="present-space">in space somewhere</li>	 -->
 							</ul>
 							<!-- if user chose 'future' in filter 1, then show these filter 2 options -->
 							<ul id="future-setting-selections" class="future-setting-selections hidden">
-								<li class="option js--future-setting" id="postap-earth">on a post-apocalyptic Earth</li>
-								<li class="option js--future-setting" id="tech-earth">on a highly advanced Earth</li></li>	
-								<li class="option js--future-setting" id="future-space">in space somewhere</li>	
+								<!-- <li class="option js--future-setting" id="postap-earth">on a post-apocalyptic Earth</li> -->
+								<!-- <li class="option js--future-setting" id="tech-earth">on a highly advanced Earth</li></li>	 -->
+								<!-- <li class="option js--future-setting" id="future-space">in space somewhere</li>	 -->
 							</ul>
 						</div>
 					</div>
@@ -103,24 +103,24 @@
 									<li class="option js--fantasy-species" id="fantasy-angel">angel</li>
 									<li class="option js--fantasy-species" id="fantasy-demon">demon</li>
 									<li class="option js--fantasy-species" id="fantasy-god">(demi) God(dess)</li>
-									<li class="option js--fantasy-species" id="fantasy-human">shifter</li>
+									<!-- <li class="option js--fantasy-species" id="fantasy-human">shifter</li> -->
 								</ul>
 								<!-- if user chose 'space' in the filter 2, show these filter 4 options -->
-								<ul id="space-species-selections" class="space-species-selections hidden">
+								<!-- <ul id="space-species-selections" class="space-species-selections hidden">
 									<li class="option js--space-species" id="space-human">human</li>
 									<li class="option js--space-species" id="space-humanoid">humanoid</li>	
 									<li class="option js--space-species" id="space-nonhumanoid">non-humanoid</li>		
-								</ul>
+								</ul> -->
 								<!-- if user chose 'post-apocalyptic Earth' in the filter 2, show these filter 4 options -->
-								<ul id="postapoc-species-selections" class="postapoc-species-selections hidden">
+								<!-- <ul id="postapoc-species-selections" class="postapoc-species-selections hidden">
 									<li class="option js--postapoc-species" id="postapoc-human">human</li>
 									<li class="option js--postapoc-species" id="postapoc-zombie">zombie</li>			
-								</ul>
+								</ul> -->
 								<!-- if user chose 'highly advanced Earth' in the filter 2, show these filter 4 options -->
-								<ul id="techworld-species-selections" class="techworld-species-selections hidden">
+								<!-- <ul id="techworld-species-selections" class="techworld-species-selections hidden">
 									<li class="option js--tech-species" id="tech-human">human</li>
 									<li class="option js--tech-species" id="tech-ai">AI</li>			
-								</ul>
+								</ul> -->
 							</div>	
 						</div>
 					</div>
@@ -132,11 +132,20 @@
 					<svg id="checkmark" class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
 				</button>
 			</div>
+
+			<!-- GENERATED NAMES -->
+			<section id="generated-names-container" class="hidden">
+				<ul id="generated-names-list" class="generated-names">
+
+				</ul>
+				<button id="newFilteredResultsBtn" class="hidden">New customized names</button>
+				<button id="newRandomResultsBtn" class="hidden">New random names</button>
+			</section>
 		</div>
 
 		<!-- SCRIPTS -->  
 		<script src="../jqueryScripts.js"></script> 
-		<script src="characters.js"></script> 
-		<script src="../name_filter.js"></script> 
+		<script src="../character_names.js"></script> 
+		<script src="../data/data.js"></script>
 	</body>
 </html>
