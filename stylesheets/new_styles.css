@@ -238,6 +238,7 @@ ul {
     .species-option.placeholder, .species-option.selection, .species-option.complete, .species-option.auto-complete {
         left: 2.5em;
     }
+    
     #time-selections, #history-setting-selections, #present-setting-selections, #future-setting-selections {
         padding-left: 0;
     }
@@ -246,6 +247,12 @@ ul {
     }
     ul {
         margin: 1em 0 0 1em;
+    }
+    #fantasy-species-selections, #space-species-selections, #postapoc-species-selections, #techworld-species-selections  {
+        margin: 1em 0 0 1.6em; 
+    }
+    #gender-selections {
+        margin: 1em 0 0 0.6em; 
     }
 
     #time-selections {
