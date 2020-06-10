@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<title>Characters</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap">
+		<link rel="stylesheet" href="../stylesheets/effects.css"> 
+		<link rel="stylesheet" href="../stylesheets/new_styles.css"> 
+		<link rel="stylesheet" href="../stylesheets/characters_styles.css"> 
+		<link rel="stylesheet" href="../stylesheets/main_styles.css"> 
+		
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+		<script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+		<script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script> 
+	</head>
+
+	<body class="char-body">
+
+		<!-- NAVIGATION-->
+		<nav>
+			<div id="nav-icon-container">
+			  <ion-icon name="menu"></ion-icon>
+			</div>
+			<div id="nav-link-container" class="non-active">
+				<a href="../index.html"> <h3>Home</h3> </a>
+				<a href=""> <h3>Setting</h3> </a>
+				<a href=""> <h3>Plot</h3> </a>
+				<a href=""> <h3>Conflict</h3> </a>
+				<a href=""> <h3>Resolution</h3> </a>
+			</div>	  
+		</nav>
+
+
+		<div id="characters-background-image"></div>
+
+			<!-- CUSTOM VS RANDOM SCREEN -->
+			<div id="characters-original-screen" class="visible">
+				<header id="js--text-wrapper">
+					<p class="character-text"> This random character name generator has names that fit different types of genders, species and periods in time. </p>
+					<p class="character-text small"> Would you like to filter through them to get suggestions that are more customized to your type of character? </p>
+				</header>
+				<div class="btn-wrapper">
+					<button id="customizeBtn">Customize</button>
+					<button id="randomBtn">Random</button>
+				</div>
+			</div>
+
+			<!-- CUSTOM FILTER SCREEN -->
+			<div id="filter" class="filter-wrapper hidden">
+				<div class="filter-text">
+					<!-- filter 1 -->
+					<div id="name-filter-1" class="scale-bounce-in list-closed">
+						<p class="sentence">My character is from </p>
+						<div class="options" id="time">
+							<button class="time-option placeholder" id="time-value">time</button>
+							<ul id="time-selections" class="time-selections">
+								<li class="option js--time" id="past">the past</li>
+								<li class="option js--time" id="present">the present(-ish)</li>
+								<!-- <li class="option js--time" id="future">the future</li>	 -->
+							</ul>
+						</div>
+					</div>
+					<!-- filter 2 -->
+					<div id="name-filter-2" class="scaled-out list-closed">
+						<p class="sentence">and lives</p>
+						<div class="options" id="setting">
+							<button class="setting-option placeholder" id="setting-value">setting</button>
+							<!-- if user chose 'past' in filter 1, then show these filter 2 options -->
+							<ul id="history-setting-selections" class="history-setting-selections hidden">
+								<li class="option js--history-setting" id="greece">in Ancient Greece</li>
+								<li class="option js--history-setting" id="rome">in Ancient Rome</li>
+								<li class="option js--history-setting" id="egypt">in Ancient Egypt</li>	
+								<li class="option js--history-setting" id="viking">in the Viking Era</li>
+								<li class="option js--history-setting" id="victorian">in the Victorian Era</li>		
+							</ul>
+							<!-- if user chose 'present' in filter 1, then show these filter 2 options -->
+							<ul id="present-setting-selections" class="present-setting-selections hidden">
+								<li class="option js--present-setting" id="present-earth">on Earth as we know it</li>
+								<li class="option js--present-setting" id="present-magic">in a fantasy Earth/realm</li>
+								<!-- <li class="option js--present-setting" id="present-space">in space somewhere</li>	 -->
+							</ul>
+							<!-- if user chose 'future' in filter 1, then show these filter 2 options -->
+							<ul id="future-setting-selections" class="future-setting-selections hidden">
+								<!-- <li class="option js--future-setting" id="postap-earth">on a post-apocalyptic Earth</li> -->
+								<!-- <li class="option js--future-setting" id="tech-earth">on a highly advanced Earth</li></li>	 -->
+								<!-- <li class="option js--future-setting" id="future-space">in space somewhere</li>	 -->
+							</ul>
+						</div>
+					</div>
+					<div class="flex container">
+						<!-- filter 3 -->
+						<div id="name-filter-3" class="scaled-out list-closed">
+							<div class="flex row">
+								<div class="options" id="gender">
+									<button class="gender-option placeholder" id="gender-value">sex</button>
+									<ul id="gender-selections" class="gender-selections hidden">
+										<li class="option js--gender" id="male">He</li>
+										<li class="option js--gender" id="female">She</li>
+										<li class="option js--gender" id="unisex">(S)he</li>	
+									</ul>
+								</div>
+								<p class="sentence" id="positioned">is a(n)</p>
+							</div>
+						</div>
+						<!-- filter 4 -->
+						<div id="name-filter-4" class="scaled-out list-closed">
+							<div class="options" id="species">
+								<button class="species-option placeholder" id="species-value">species</button>
+								<!-- if user chose 'fantasy Earth/realm' in the filter 2, show these filter 4 options -->
+								<ul id="fantasy-species-selections" class="fantasy-species-selections hidden">
+									<li class="option js--fantasy-species" id="fantasy-human">human</li>
+									<li class="option js--fantasy-species" id="fantasy-elf">elf</li>
+									<li class="option js--fantasy-species" id="fantasy-angel">angel</li>
+									<li class="option js--fantasy-species" id="fantasy-demon">demon</li>
+									<li class="option js--fantasy-species" id="fantasy-god">(demi) God(dess)</li>
+									<!-- <li class="option js--fantasy-species" id="fantasy-human">shifter</li> -->
+								</ul>
+								<!-- if user chose 'space' in the filter 2, show these filter 4 options -->
+								<!-- <ul id="space-species-selections" class="space-species-selections hidden">
+									<li class="option js--space-species" id="space-human">human</li>
+									<li class="option js--space-species" id="space-humanoid">humanoid</li>	
+									<li class="option js--space-species" id="space-nonhumanoid">non-humanoid</li>		
+								</ul> -->
+								<!-- if user chose 'post-apocalyptic Earth' in the filter 2, show these filter 4 options -->
+								<!-- <ul id="postapoc-species-selections" class="postapoc-species-selections hidden">
+									<li class="option js--postapoc-species" id="postapoc-human">human</li>
+									<li class="option js--postapoc-species" id="postapoc-zombie">zombie</li>			
+								</ul> -->
+								<!-- if user chose 'highly advanced Earth' in the filter 2, show these filter 4 options -->
+								<!-- <ul id="techworld-species-selections" class="techworld-species-selections hidden">
+									<li class="option js--tech-species" id="tech-human">human</li>
+									<li class="option js--tech-species" id="tech-ai">AI</li>			
+								</ul> -->
+							</div>	
+						</div>
+					</div>
+				</div>
+				<!-- button to results page, appears when all filters are marked 'complete' -->
+			</div>
+			<div class="get-names">
+				<button id="getResultsBtn" class="filter-not-complete">
+					<svg id="checkmark" class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+				</button>
+			</div>
+
+			<!-- GENERATED NAMES -->
+			<div id="generated-names-container" class="hidden">
+				<ul id="generated-names-list" class="generated-names"></ul>
+				<button id="newFilteredResultsBtn" class="hidden">New customized names</button>
+				<button id="newRandomResultsBtn" class="hidden">New random names</button>
+			</div>
+		
+		<footer>
+			<div class="footer">&copy; 2020 Nat Geyzen</div>
+		</footer>
+		
+		<!-- SCRIPTS -->  
+		<script src="../UI/toggleNav.js"></script> 
+		<script src="../character_names/character_names.js"></script> 
+		<script src="../data/data.js"></script>
+	</body>
+</html>
