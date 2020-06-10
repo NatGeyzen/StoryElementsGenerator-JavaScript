@@ -54,7 +54,7 @@ footer {
 #main-header {
 	height: 100vh;
 	background-color: #fff8d4;
-	background-image: linear-gradient(to bottom right, rgba(16, 212, 212, 0.6), rgba(16, 166, 212, 0.6) , rgba(1, 58, 133, 0.5)), url("../images/patrick-tomasso-Oaqk7qqNh_c-unsplash-min-min.jpg");
+	background-image: linear-gradient(to bottom right, rgba(16, 212, 212, 0.6), rgba(16, 166, 212, 0.6) , rgba(1, 58, 133, 0.5)), url("../images/Webp.net-resizeimage.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	display: flex;
@@ -166,7 +166,7 @@ h2 {
 }
 
 @media (min-width: 767px) and (max-height: 577px) {
-	#header-text-container-top				{ width: 80vw; margin: 25vh auto; }
+	#header-text-container-top				{ width: 70vw; margin: 25vh auto; }
 	h1 										{ font-size: 3.75em; }
 	#header-text-container-bottom 			{ bottom: 15%; }
 	h2 										{ font-size: 1.5em; }
