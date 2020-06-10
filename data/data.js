@@ -238,7 +238,7 @@ const all_names = {
         ...godlike_names.female
     ],
     unisex: [
-        ...current_names.male,
+        ...current_names.unisex,
         ...elf_names.unisex,
         ...angel_names.unisex,
         ...demon_names.unisex,

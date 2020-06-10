@@ -52,8 +52,6 @@
 	border-bottom: 2px solid var(--maroon); 
 	transition: all 0.5s; 
 }
-
-
 .time-option.placeholder        
     { width: 80px; }
 .setting-option.placeholder     
@@ -114,7 +112,6 @@
 	box-shadow: inset 3px 3px 3px rgb(1, 25, 66);
 	animation: fill 0.3s ease-in-out 0.3s forwards, scale 0.3s ease-in-out 0.5s both;
 	cursor: pointer;
-    /* animation: expand 0.2s ease-out 0.5s forwards; */
 }
 .checkmark__check {
 	transform-origin: 50% 50%;
@@ -133,32 +130,17 @@
 @keyframes scale {
 	0%, 100% {
 	  	transform: none;
-	  	/* position: absolute;
-		left: 50%; */
-		/* bottom: 7.5%; */
-		/* transform: translateX(-50%); */
 	}
 	50% {
 		transform: scale3d(1.1, 1.1, 1);
-		/* position: absolute;
-		left: 50%;
-		transform: translateX(-50%); */
 	}
 }
 @keyframes fill {
 	100% {
 	  	box-shadow: inset 0px 0px 0px 30px rgb(30, 89, 199);
-		/* transform: translateX(-50%);
-		position: absolute;
-		left: 50%;	 */
 	}
 }
 
-/* @keyframes expand {
-    100% {
-        width: 200px;
-    }
-} */
 
 /* ------------------------------------------------------------------------------------------------------
     FILTER SCALE/BOUNCE IN ANIMATIONS
@@ -205,11 +187,7 @@
     #name-filter-1.list-open            {height: 45%; }
 }
 
-/* @media (max-width: 766px) {
-    .time-option.selection              {width: 100px;}
-    .time-option.complete               {width: 175px;}
-    /* .history-option.selection           {} 
-} */
+
 @media (min-width: 767px) {
 	#name-filter-1						{top: 0;}
 	#name-filter-2						{top: 15%;}
@@ -224,23 +202,22 @@
     .setting-option.selection           {width: 300px;}
 	.setting-option.complete            {width: 450px;}
 	.gender-option.placeholder     		{width: 100px;}
-	/* .gender-option.placeholder			{margin-top: -10px;} */
 	#name-filter-4						{display: inline-block; }
 	.scaled-out, .scale-bounce-in,
 	.fade-in					 		{position: absolute; left: 7%; width: 700px;}
-
 	#name-filter-1.list-closed, 
 	#name-filter-2.list-closed 			{height: 50px;}
 	.setting-option.placeholder,     	
 	.species-option.placeholder     	{width: 175px;}
-
 }
 @media (min-width: 1000px) {
     .time-option.placeholder            {width: 125px;}
     .time-option.selection              {width: 250px;}
 	.time-option.complete               {width: 300px;}
 	.gender-option.placeholder     		{width: 100px;}
-	.scaled-out, .scale-bounce-in 		{left: 15%; width: 700px;}
+	.scaled-out, 
+	.scale-bounce-in, 
+	.fade-in 							{left: 15%; width: 700px;}
 	#name-filter-3.list-open 			{height: 25%;}
 }
 

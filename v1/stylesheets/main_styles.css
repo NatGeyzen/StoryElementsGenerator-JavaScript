@@ -1,6 +1,10 @@
 /* ---------------------------------------------------------------------------------------------
-	GENERAL STYLING
+	GENERAL/RECURRING STYLING
 --------------------------------------------------------------------------------------------- */
+:root {
+	--light-yellow: #f5fadb; 
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -14,78 +18,33 @@ html {
 	text-align: center;
 }
 
-/* ---------------------------------------------------------------------------------------------
-	NAVIGATION
---------------------------------------------------------------------------------------------- */
-nav {
-	width: 100vw; max-width: 100%;
-	position: fixed;
-	top: 0%;
-	z-index: 2;
-}
-#nav-icon-container {
-	width: 100vw; max-width: 100%;
-	padding: 1.25em 0 0.75em 0;
-}
-
-#nav-icon-container > ion-icon {
-	font-size: 35px;
-	color: #030333;
-	text-shadow: 1px 1px 1px rgb(0, 17, 22),
-	1px 2px 1px rgb(0, 17, 22),
-	1px 22px 10px rgba(16,16,16,0.2),
-	1px 25px 35px rgba(16,16,16,0.2),
-	1px 30px 60px rgba(16,16,16,0.4);
+.full-button {
+	outline: none;
+	border: none;
+	border-radius: 30px;
+	background-color: #1e59c7; 
+	box-shadow: 1px 1px 1px rgb(3, 56, 155),
+				2px 2px 1px rgb(3, 56, 155),
+				-1px -1px 1px rgb(55, 119, 240);
+	color: white;
+	font-variant: small-caps;
+	margin-bottom: 0.8em;
 }
 
-.non-active {
-	transform:scaleY(0);
-	transform-origin: top;
-	-webkit-transition: transform 0.5s ease-out;  
-	-moz-transition: transform 0.5s ease-out;  
-	-o-transition: transform 0.5s ease-out;  
-	-ms-transition: transform 0.5s ease-out;  
-	transition: transform 0.5s ease-out;
-}
-.active {
-	overflow: hidden;
-	height: auto;
-	transform: scaleY(1);
-	transform-origin: top;
-	display: flex;
-	flex-direction: column;
-	margin-top: -10px;
-}
-.active > a {
-	padding: 0.2em 0;
-}
-nav a {
-	font-family: 'Inconsolata', monospace;
-	text-decoration: none;
-	font-size: 0.9em;
-	color: #030333;
-	text-shadow: 1px 1px 1px #060663;
-}
-h3 {
-	margin: 0;
-}
+
 
 /* ---------------------------------------------------------------------------------------------
-	FOOTER
+	FOOTER ALL PAGES
 --------------------------------------------------------------------------------------------- */
 footer {
 	position: fixed;
 	bottom: 0%;
 	z-index: 2;
-	height: 15vh;
-}
-.footer {
-	width: 200px;
-	position: absolute;
-	bottom: 20px;
-	left: 80vw;
-	font-size: 1.15em;
+	height: 5vh;
+	width: 100%;
+	font-size:0.75em;
 	font-weight: bolder;
+	color: var(--light-yellow);
 }
 
 /* ---------------------------------------------------------------------------------------------
@@ -94,7 +53,7 @@ footer {
 #main-header {
 	height: 100vh;
 	background-color: #fff8d4;
-	background-image: linear-gradient(to bottom right, rgba(16, 212, 212, 0.6), rgba(16, 166, 212, 0.6) , rgba(1, 58, 133, 0.5)), url("../images/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg");
+	background-image: linear-gradient(to bottom right, rgba(16, 212, 212, 0.6), rgba(16, 166, 212, 0.6) , rgba(1, 58, 133, 0.5)), url("../images/patrick-tomasso-Oaqk7qqNh_c-unsplash-min-min.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	display: flex;
@@ -104,7 +63,7 @@ footer {
 }
 #header-text-container-top {
 	width: 90vw;
-	margin: auto;
+	margin: 10vh auto;
 }
 h1 {
 	font-size: 2em;
@@ -123,7 +82,6 @@ h1 {
 }
 #header-text-container-bottom {
 	position: relative;
-	bottom: 12.5%;
 	padding: 0 4em;
 }
 h2 {
@@ -139,6 +97,19 @@ h2 {
 				 1px 25px 35px rgba(16,16,16,0.2),
 				 1px 30px 60px rgba(16,16,16,0.4);
 }
+
+/* ---------------------------------------------------------------------------------------------
+	BUTTON MAIN PAGE
+--------------------------------------------------------------------------------------------- */
+#get-started {
+	position: absolute;
+	bottom: 20%;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 35px;
+	width: 150px;
+}
+
 
 /* ---------------------------------------------------------------------------------------------
 	RANDOM NAMES BUTTON
@@ -169,52 +140,10 @@ h2 {
 --------------------------------------------------------------------------------------------- */
 
 @media (min-width: 767px) {
-	h1 										{ font-size: 6em; margin: -75px 0 0 0; }
+	h1 										{ font-size: 4em; margin: -75px 0 0 0; }
 	#header-text-container-bottom 			{ padding: 0 5em; }
-	h2 										{ font-size: 1.75em; }
+	h2 										{ font-size: 1.5em; }
 	#nav-icon-container 					{ width: 5vw; padding-left: 3em; }
-	nav a 									{ font-size: 1.25em; }
-	.randomResults > li 					{ padding: 0.7em; font-size: 120%; }
-	nav {
-		width: 100%; max-width: 100%;
-		height: 15vh;  
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		font-size: 1.25em;
-	  }
-  
-	#nav-icon-container {
-		width: 5vw;
-		padding-left: 3em;
-	}
-	.non-active {
-		opacity: 0;
-		width: 80vw;
-		height: auto;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		margin-right: 5em;
-		transform: none;
-		-webkit-transition: all 1s ease;  
-		-moz-transition: all 1s ease;  
-		-o-transition: all 1s ease;  
-		-ms-transition: all 1s ease;  
-		transition: all 1s ease;
-		}
-	.active {
-		width: 60vw;
-		height: auto;
-		opacity: 1;
-		margin-right: 3em;
-		transform: none;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-	}
 	.randomResults {
 		height: 100%;
 		width: 60vw;

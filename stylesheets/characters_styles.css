@@ -10,25 +10,12 @@
 }
 
 button {outline: none;}
-.options-full {
-	border: 1px solid red;
-}
 
-
-
-/* .sentence.transparent,
-.setting-option.placeholder.transparent,
-.species-option.placeholder.transparent,
-.gender-option.placeholder.transparent {
-	color: transparent;
-	border-bottom: none;
-} */
 
 #name-filter-3 {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	justify-content: spece-between;
 }
 #positioned { 
 	position: absolute;
@@ -36,16 +23,15 @@ button {outline: none;}
 	width: 200px;
 }
 #gender, #species {display: inline-block; margin: auto 0 auto 0;}
-/* #species {    display: inline-block;
-    margin: auto 1.5em auto 0; } */
+
 
 .flex.row {
 	display: flex;
 	margin-bottom: 1em;
 }
 
-.text.white { display: flex; flex-direction: column; justify-content: flex-start; overflow: hidden;}
-.filter-wrapper.hidden, .next.hidden { 
+.filter-text { display: flex; flex-direction: column; justify-content: flex-start; overflow: hidden;}
+.filter-wrapper.hidden { 
 	display: none; 
 }
 .filter-wrapper.visible { 
@@ -88,15 +74,6 @@ button {outline: none;}
 	height: 160px;
 }
 
-.options.collapsed {
-	width: 100px;
-	height: 1em;
-}
-.options.full {
-	height: 300px;
-	width: 200px;
-	z-index: 99;
-}
 .option {
 	line-height: 150%;
 	text-align: left;
@@ -111,116 +88,8 @@ button {outline: none;}
 	text-align: left;
 }
 
-.options-visible {
-	text-align: center;
-	width: auto;
-	padding-top: 0.5em;
-	color: rgb(155, 155, 155);
-	text-shadow: 1px 1px 1px rgb(105, 105, 105);
-	cursor: pointer;
-}
-
-/* .time-option:hover {
-	color: var(--lighter-blue);
-	text-shadow: transparent;
-} */
-.inline-block {
-	display: inline-flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	/* text-align: left; */
-	width: 40vw;
-}
 
 
-
-
-/* .custom-select {
-	background-color: transparent;
-	font-size: 22px;
-	outline: none;
-	padding: 0 10px;
-	border: none;
-	border-bottom: 1px dashed rgb(216, 216, 216);
-}
-.custom-select.not-validated {
-	color: rgba(199, 30, 89, 0.9);
-}
-.custom-select.validated {
-	color: rgba(89, 199, 30, 0.8);
-} */
-
-
-
-
-
-
-.icon {
-	height: 70px;
-	width: 70px;
-	margin-bottom: 0.5em;
-	cursor: pointer;
-}
-
-
-.filter-title {
-	color: rgb(216, 216, 216);
-}
-.options-wrapper {
-	position: absolute;
-	top: 35%;
-	height: 200px;
-	width: 70vw;
-	height: 50vh;
-}
-
-.options-button-wrapper {
-	width: 100%;
-	display: flex;
-	/* flex-direction: column; */
-	justify-content: space-between;
-	align-items: center;
-	height: 30%;
-}
-.options-button-wrapper.center {
-	flex-direction: column;
-}
-.options-button {
-	margin-left: 0;
-	margin-bottom: 1.5em;
-}
-
-.filter-option {
-	border: none;
-	background-color: transparent;
-	display: flex;
-	flex-direction: column;
-}
-/* .options-button-wrapper > span {
-	color:  #64B5F6;
-	font-size: 1.3em;
-	font-weight: bold;
-	font-variant: small-caps;
-	text-align: center;
-} */
-
-
-.options-button > span {
-	font-size: 1em;
-	color: #07afc9;
-	font-weight: bold;
-	font-variant: small-caps;
-	position: absolute;
-}
-
-.button-left, .button-right {
-	width: 50%;
-	height: 100%;
-}
-
-#fantasy-img, #scifi-img 			{ position: absolute; }
-#fantasy-img 						{ left: 15%; }
-#scifi-img 							{ right: 15%; }
 
 
 
@@ -251,85 +120,35 @@ button {outline: none;}
  	RECURRING STYLES
    --------------------------------------------------------------- */
 
-#characters-original-screen.hidden, #gender-filter-wrapper.hidden, #genre-filter-wrapper.hidden,
-#modern-filter-wrapper.hidden, #fantasy-filter-wrapper.hidden, #timeperiod-filter-wrapper.hidden, 
-#scifi-filter-wrapper.hidden {
+#characters-original-screen.hidden {
   	display: none;
 }
 
-#characters-original-screen.visible, #gender-filter-wrapper.visible, #genre-filter-wrapper.visible,
-#modern-filter-wrapper.visible, #fantasy-filter-wrapper.visible, #timeperiod-filter-wrapper.visible,
-#sci-filter-wrapper.visible {
+#characters-original-screen.visible {
   	display: block;
 }
 
-#characters-original-screen,  .button-wrapper,
-.fantasy-options-wrapper > .options-column, .timeperiod-options-wrapper > .options-column {
-	display: flex;
-}
 
-#gender-filter-wrapper, #genre-filter-wrapper, #modern-filter-wrapper, 
-#fantasy-filter-wrapper, #timeperiod-filter-wrapper, #scifi-filter-wrapper {
-	width: 90vw;
-	height: 95vh;
-	text-align: center;
-	position: absolute;
-	top: 10vh;
-	left: 5vw;
-}
 
-#characters-original-screen, .btn-wrapper, .text-wrapper, .genders-button-wrapper,
-.modern-options-wrapper, .genre-options-wrapper, .timeperiod-options-wrapper,
-.timeperiod-options-wrapper, .fantasy-filter-wrapper, .scifi-options-wrapper {
+#characters-original-screen, .btn-wrapper {
 	position: absolute;
 }
 
-.modern-options-wrapper, .genre-options-wrapper, .timeperiod-options-wrapper {
-	top: 35vh;
-	left: 50%;
-	width: auto;
-	height: auto;
-	transform: translateX(-50%);
-	text-align: center;
-}
 
-#history-span, #fantasy-span, #scifi-span, #contemporary-span {
-	font-family: 'Montserrat', sans-serif;
-	color: #C75C1E;
-	font-size: 1.2em;
-}
 
 /* ---------------------------------------------------------------
  	ALL SCREENS STYLING
    --------------------------------------------------------------- */
-
-.character-text > span 				{ font-weight: bold; font-size: 1.2em;}
-.character-text.small 				{ font-size: 0.95em;}
-.character-text.smaller > span		{ font-size: 16px;}
-.character-text.filter 				{ border-bottom: 1px dashed black;}
-.text-wrapper 						{ width: 85vw; top: 7vh;}
-
-.btn-next-wrapper.hidden 			{ opacity: 0; animation: vanish 0.4s forwards; }
-.btn-next-wrapper.visible 			{ cursor: pointer; }
-
-.character-text {
+   .character-text {
 	font-size: 1.1em;
 	letter-spacing: 2px;
 	line-height: 150%;
 	padding: 0 25px 30px;
-	/* font-weight: 500; */
-	/* font-variant: small-caps; */
 	color: #E0E0E0;
-	/* text-shadow: 1px 1px 1px #9E9E9E; */
 	margin-bottom: 1em;
 }
-.character-text.smaller {
-	font-size: 0.8em;
-	margin-top: -1vh;
-	text-shadow: none;
-	font-weight: bold;
-	font-style: italic;
-}
+.character-text.small 				{ font-size: 0.95em;}
+
 .btn-wrapper {
 	justify-content: center;
 	margin: 3em auto 0;
@@ -361,7 +180,7 @@ button {outline: none;}
 	margin: 7vh auto 0;
 }
 
-.btn-wrapper button, .non-selected {
+.btn-wrapper button {
 	width: 130px;
 	height: 40px;
 	margin: 10px 30px;
@@ -378,7 +197,7 @@ button {outline: none;}
 	cursor: pointer;
 }
 
-.btn-wrapper button:first-child, .selected {
+.btn-wrapper button:first-child {
 	background-color: #1e59c7; 
 	box-shadow: 1px 1px 1px rgb(3, 56, 155),
 				2px 2px 1px rgb(3, 56, 155),
@@ -388,177 +207,58 @@ button {outline: none;}
 	margin-bottom: 0.8em;
 }
 
-.non-selected, .selected {
-	height: 35px;
-	width: 120px;
-	border-radius: 50px;
-	box-shadow: 1px 1px 1px rgb(3, 84, 97),
-				 2px 2px 1px rgb(3, 84, 97);  
-	margin: 1.1em;
-	font-size: 1em;
-	font-weight: bold;
-	display: block;
-}
-.non-selected {
-	color: #10d8f7;
-	border: 2px solid #10d8f7;
-	background-color: rgba(0, 0, 0, 0.5);
-}
 
-/* .selected {
-	background-color: #10d8f7;
-	border: 2px solid #10d8f7;
-	color: rgba(0, 0, 0, 0.8);
-} */
+
   
 
-/* ---------------------------------------------------------------
- 	GENDER FILTER SCREEN STYLING
-   --------------------------------------------------------------- */
-
-.genders-button-wrapper {
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	justify-content: center;
-}
 
 
-/* ---------------------------------------------------------------
- 	GENRE FILTER SCREEN STYLING
-   --------------------------------------------------------------- */
 
-.genre-options-wrapper {
-	top: 30vh;
-}
-.non-selected.genre, .selected.genre {
-	width: 170px;
-	margin: 1em auto;
-	height: 35px;
-	border-radius: 50px;
-	padding: 40px auto 20px;
-	text-align: center;
-	padding-left: 15px;
-}
 
-/* ---------------------------------------------------------------
- 	OTHER FILTER SCREEN STYLING
-   --------------------------------------------------------------- */
-.non-selected.modern, .selected.modern, .non-selected.scifi, .selected.scifi,
-.non-selected.fantasy, .selected.fantasy, .non-selected.time-period, .selected.time-period {
-	width: 175px;
-}
 
-.timeperiod-options-wrapper {
-	width: auto;
-	max-width: 95vw;
-	top: 55%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
 
-.fantasy-options-wrapper {
-	position: absolute;
-	top: 35%;
-	left: 50%;
-	transform: translateX(-50%);
-}
-
-.non-selected.fantasy, .selected.fantasy,
-.non-selected.time-period, .selected.time-period {
-	height: 46px;
-	width: 130px;
-	margin: 0.75em;
-	font-size: 0.95em;
-	font-weight: bold;
-	padding: 0 15px;
-}
-
-.scifi-options-wrapper {
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-#timeperiod-filter-wrapper {
-	top: 7vh;
-}
 /* ---------------------------------------------------------------------------------------------
    MEDIA QUERIES
    --------------------------------------------------------------------------------------------- */
 @media (min-width: 400px) {
 	#js--text-wrapper           		{ width: 90vw; position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);}
-	.text-wrapper						{ width: 80vw; }
 	.character-text             		{ font-size: 1.4em; padding: 0 10px 20px; }
 	.character-text.small       		{ font-size: 1.05em; }
 	.btn-wrapper                		{ height: 35vh; }
-	.btn-wrapper button         		{ height: 50px; width: 200px; font-size: 1.3em; margin: 10px 30px;}
-	.genre-options-wrapper				{ top: 30vh; }
-
-	/* .selected,  */
-	.non-selected,
-	.selected.genre, 
-	.non-selected.genre					{ height: 40px; width: 150px; margin: 1em; }
-	.non-selected.fantasy, 
-	.selected.fantasy,
-	.non-selected.time-period, 
-	.selected.time-period 				{ height: 45px;}
-
+	.btn-wrapper button         		{ height: 50px; width: 200px; font-size: 1.3em; margin: 10px 30px; } 
 }
 
 @media (max-height: 578px) {
-	.time-selections.visible {width: 150%;}
-	.filter-wrapper.visible { left: 10%; top: 10%; height: 90%;}
 	#js--text-wrapper           		{ width: 90vw; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);}
 	.character-text             		{ font-size: 0.8em; padding: 0 10px 1em; }
 	.character-text.small				{ font-size: 0.7em;}
 	.btn-wrapper button         		{ height: 30px; width: 140px; font-size: 1em; }
-	.non-selected		{ width: 100px; height: 35px; font-size: 0.9em; margin: 0.5em auto;}
-	.text-wrapper						{ top: 10%; width: 80vw; }
-
-	.genders-button-wrapper,
-	.genre-options-wrapper				{ display: flex; flex-direction: column; justify-content: center; align-items: center; width: 60vw; }
-	.genre-options-wrapper				{ top: 37%; }
-	.non-selected.modern,
-	.selected.modern,
-	.non-selected.scifi,
-	.selected.scifi						{ margin: 1em 0;}
-	.non-selected.genre,
-	.selected.genre						{ margin: 0 0 1em 0; }
-	.non-selected.fantasy,
-	.selected.fantasy,
-	.non-selected.time-period,
-	.selected.time-period				{ font-size: 0.9em; width: 120px; margin: 0.5em 0.6em; }
-
+	.filter-wrapper.visible 			{ left: 10%; top: 10%; height: 90%; }
 }
 
 @media (min-height: 800px) {
 	#js--text-wrapper           		{ width: 85vw; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);}
-	.text-wrapper						{ top: 15%; width: 75vw; }
 	.character-text             		{ font-size: 1.3em; padding: 0 10px 40px; }
 	.character-text.small       		{ font-size: 1.05em; }
 	.btn-wrapper                		{ height: 35vh; }
 	.btn-wrapper button         		{ height: 50px; width: 175px; font-size: 1.2em; }
-	.genders-button-wrapper				{ top: 55%; }
-	.genre-options-wrapper				{ top: 40%; }
-	.modern-options-wrapper				{ top: 42%; }
-	.non-selected,
-	.selected,
-	.non-selected.genre,
-	.selected.genre						{ height: 40px; }
-	.fantasy-options-wrapper			{ top: 40%; }
-
 }
 
 @media (min-width: 767px) {
 	.option {font-size: 0.6em; line-height: 140%; }
-
-	.options.collapsed {width: 200px;}
-	.filter-text  {display: flex; justify-content: flex-start; align-items: flex-start; font-size: 2em; width: 100%;}
-	.text.white { height: 60vh; width: 85vw; flex-direction: column; justify-content: center; align-items: center; }
-	.options.collapsed {display: inline-block; top: 0; margin: 0;} 
+	.filter-text  {
+		display: flex; 
+		justify-content: flex-start; 
+		align-items: flex-start; 
+		font-size: 2em; 
+		width: 100%;
+		height: 60vh; 
+		width: 85vw; 
+		flex-direction: column; 
+		justify-content: center; 
+		align-items: center;
+	}
 	.filter-wrapper.visible {top: 25%; left: 50%; transform: translateX(-50%); width: 90%; display: flex; flex-direction: column; align-items: center; }
-
 	#name-filter-1, #name-filter-2, #name-filter-3, #name-filter-4 {
 		display: flex; justify-content: flex-start;
 		height: 70px;
@@ -570,13 +270,8 @@ button {outline: none;}
 		
 	}
 	.flex.row {position: relative; left: 0; width: 100%; margin: 0;}
-	#positioned {margin: 0; position: relative; left: 2em; width: 250px;  }
+	#positioned {margin: 0; position: relative; left: 3em; width: 250px;  }
 	#species {margin: 0 ;}
-
-	
-	
-	
-	
 	.sentence {
 		text-align: left;
 		margin: 0;
@@ -586,61 +281,22 @@ button {outline: none;}
 		display: inline-block;
 		margin-left: 0.5em;
 	}
-	
-
-
-	.options-wrapper 					{ width: 45vw;}
-
 	#js--text-wrapper           		{ position: absolute; top: 5%; left: 50%; transform: translate(-50%, 0); width: 80%;}
-	.character-text             		{ font-size: 1.5em; padding: 0 10px 30px; }
-	.character-text.small       		{ font-size: 1.15em; line-height: 150%; }
-	.btn-wrapper                		{ height: 30vh; position: absolute; bottom: 0; border: 1px solid re;}
+	.character-text             		{ font-size: 1.75em; padding: 0 10px 30px; }
+	.character-text.small       		{ font-size: 1.5em; line-height: 150%; }
+	.btn-wrapper                		{ height: 30vh; position: absolute; bottom: 0;}
 	.btn-wrapper button         		{ width: 200px; height: 50px; font-size: 1.5em;}
-	.non-selected, .selected    		{ width: 140px; font-size: 1.2em;  outline: none; margin: 0 1.5em;}
-	.options-row						{ display: flex; }
-	.non-selected.genre,
-	.selected.genre 					{ width: 200px; margin: 1em 1.5em;}
-	.genders-button-wrapper				{ width: 80vw; flex-direction: row; }
-	.modern-options-wrapper,
-	.scifi-options-wrapper				{ display: flex; }
-
-	.character-text.filter 				{ margin-top: 10vh; border-bottom: 1px dashed black;}
-	.gender-filter-wrapper 				{ position: absolute; left: 0; width: 100vw; height: 100vh; }
-
-	/* .selected, */
-	/* .non-selected,
-	.selected.genre,
-	.non-selected.genre,
-	.selected.fantasy,
-	.non-selected.fantasy,
-	.selected.time-period,
-	.non-selected.time-period			{ width: 175px; font-size: 14px; height: 40px; font-weight: bold; margin: 1em 1.5em;}
-
-	.genders-button-wrapper,
-	.timeperiod-options-wrapper, 
-	.fantasy-options-wrapper			{ display: flex;}
-	.non-selected.time-period, 
-	.selected.time-period 				{ font-size: 14px; width: 180px; margin: 10px; }
-	.fantasy-options-wrapper > 
-		.options-column,
-	.timeperiod-options-wrapper >
-		.options-column					{ flex-direction: column; width: auto; justify-content: center; align-items: center; }
-	.modern-options-wrapper				{ top: 45%; }
-	.non-selected.modern,		
-	.selected.modern,
-	.non-selected.scifi,
-	.selected.scifi						{ margin: 0 1em; }	   */
 }
 
 @media (min-width: 1000px) {
-	.text.white { width: 75%;}
-	/* .time-option.selection {width: 30vw;} */
-	/* .time-option.complete {width: 35vw;} */
-	.genders-button-wrappper			{ bottom: 20%;}
-	.genre-options-wrapper				{ top: 45%; width: 40vw; }
+	#js--text-wrapper					{ top: 20%; }
+	.filter-text 						{ width: 75%; }
 	#gender.options 					{ height: 150px; }
 }
 
 @media (min-width: 768px) and (max-height: 578px) {
-	.filter-wrapper.visible { top: 25%;}
+	.filter-wrapper.visible 			{ top: 25%; }
+	#js--text-wrapper					{ top: 10%; }
+	.character-text             		{ font-size: 1.5em; padding: 0 10px 30px; }
+	.character-text.small       		{ font-size: 1.25em; line-height: 150%; }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="eng-us">
+<html lang="en-us">
 	<head>
 		<title>Characters</title>
 		<meta charset="UTF-8">
@@ -7,9 +7,10 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap">
 		<link rel="stylesheet" href="../stylesheets/effects.css"> 
-		<link rel="stylesheet" href="../stylesheets/new_styles.css">  
-		<link rel="stylesheet" href="../stylesheets/characters_styles.css">   
-		<link rel="stylesheet" href="../stylesheets/main_styles.css">    
+		<link rel="stylesheet" href="../stylesheets/new_styles.css"> 
+		<link rel="stylesheet" href="../stylesheets/characters_styles.css"> 
+		<link rel="stylesheet" href="../stylesheets/main_styles.css"> 
+		
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 		<script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
 		<script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script> 
@@ -35,7 +36,7 @@
 		<div id="characters-background-image"></div>
 
 			<!-- CUSTOM VS RANDOM SCREEN -->
-			<section id="characters-original-screen" class="visible">
+			<div id="characters-original-screen" class="visible">
 				<header id="js--text-wrapper">
 					<p class="character-text"> This random character name generator has names that fit different types of genders, species and periods in time. </p>
 					<p class="character-text small"> Would you like to filter through them to get suggestions that are more customized to your type of character? </p>
@@ -44,11 +45,11 @@
 					<button id="customizeBtn">Customize</button>
 					<button id="randomBtn">Random</button>
 				</div>
-			</section>
+			</div>
 
 			<!-- CUSTOM FILTER SCREEN -->
-			<section id="filter" class="filter-wrapper hidden">
-				<div class="filter-text text white">
+			<div id="filter" class="filter-wrapper hidden">
+				<div class="filter-text">
 					<!-- filter 1 -->
 					<div id="name-filter-1" class="scale-bounce-in list-closed">
 						<p class="sentence">My character is from </p>
@@ -137,30 +138,27 @@
 					</div>
 				</div>
 				<!-- button to results page, appears when all filters are marked 'complete' -->
-			</section>
-			<div class="btn-wrapper get-names"></div>
+			</div>
+			<div class="get-names">
 				<button id="getResultsBtn" class="filter-not-complete">
 					<svg id="checkmark" class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
 				</button>
 			</div>
 
 			<!-- GENERATED NAMES -->
-			<section id="generated-names-container" class="hidden">
-				<ul id="generated-names-list" class="generated-names">
-
-				</ul>
+			<div id="generated-names-container" class="hidden">
+				<ul id="generated-names-list" class="generated-names"></ul>
 				<button id="newFilteredResultsBtn" class="hidden">New customized names</button>
 				<button id="newRandomResultsBtn" class="hidden">New random names</button>
-			</section>
-		</div>
-
+			</div>
+		
 		<footer>
-			<div class="footer">&copy 2020 Nat Geyzen</div>
+			<div class="footer">&copy; 2020 Nat Geyzen</div>
 		</footer>
 		
 		<!-- SCRIPTS -->  
-		<script src="../toggleNav.js"></script> 
-		<script src="../character_names.js"></script> 
+		<script src="../UI/toggleNav.js"></script> 
+		<script src="../character_names/character_names.js"></script> 
 		<script src="../data/data.js"></script>
 	</body>
 </html>
