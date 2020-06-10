@@ -32,8 +32,6 @@ html {
 	cursor: pointer;
 }
 
-
-
 /* ---------------------------------------------------------------------------------------------
 	FOOTER ALL PAGES
 --------------------------------------------------------------------------------------------- */
@@ -171,7 +169,7 @@ h2 {
 	#header-text-container-bottom 			{ bottom: 15%; }
 	h2 										{ font-size: 1.5em; }
 	#get-started							{ width: 210px; height: 45px; font-size: 1.25em; bottom: 15%;}
-	footer 									{ font-size: 1.15em; }
+	footer 									{ font-size: 0.9em; color: var(--light-yellow);  }
 }
 
 
