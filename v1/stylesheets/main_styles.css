@@ -67,7 +67,7 @@ footer {
 	margin: 10vh auto;
 }
 h1 {
-	font-size: 2em;
+	font-size: 1.9em;
 	margin: 15vh auto auto auto;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -141,10 +141,13 @@ h2 {
 --------------------------------------------------------------------------------------------- */
 
 @media (min-width: 767px) {
-	h1 										{ font-size: 4em; margin: -75px 0 0 0; }
-	#header-text-container-bottom 			{ padding: 0 5em; }
-	h2 										{ font-size: 1.5em; }
+	#header-text-container-top				{ margin: 30vh auto; }
+	h1 										{ font-size: 4.5em; margin: -75px 0 0 0; }
+	#header-text-container-bottom 			{ padding: 0 5em; bottom: 20vh; }
+	h2 										{ font-size: 1.75em; }
 	#nav-icon-container 					{ width: 5vw; padding-left: 3em; }
+	#get-started							{ width: 250px; height: 50px; font-size: 1.5em; }
+	footer 									{ font-size: 1.25em; }
 	.randomResults {
 		height: 100%;
 		width: 60vw;
@@ -161,6 +164,16 @@ h2 {
 		justify-content: center;
 	}
 }
+
+@media (min-width: 767px) and (max-height: 577px) {
+	#header-text-container-top				{ width: 80vw; margin: 25vh auto; }
+	h1 										{ font-size: 3.75em; }
+	#header-text-container-bottom 			{ bottom: 15%; }
+	h2 										{ font-size: 1.5em; }
+	#get-started							{ width: 210px; height: 45px; font-size: 1.25em; bottom: 15%;}
+	footer 									{ font-size: 1.15em; }
+}
+
 
 
 /* ---------------------------------------------------------------------------------------------
