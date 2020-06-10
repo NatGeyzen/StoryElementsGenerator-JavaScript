@@ -2,13 +2,13 @@
 #name-filter-1, #name-filter-2, 
 #name-filter-3, #name-filter-4          { overflow: hidden; width: 100%; }   
 #name-filter-1, #name-filter-2          { margin: 2vh; }
-#name-filter-1                          { position: absolute; top: 0; }
-#name-filter-2                          { margin-bottom: 1em;  position: absolute; top: 25%; }
-#name-filter-3                          { margin: 2vh 0 0 2vh; position: absolute; top: 50%; }
-#name-filter-4                          { margin: 2vh 0 0 2vh;  position: absolute; top: 60%; }
+#name-filter-1                          { position: absolute; top: -5%; }
+#name-filter-2                          { margin-bottom: 1em;  position: absolute; top: 17.5%; }
+#name-filter-3                          { margin: 2vh 0 0 2vh; position: absolute; top: 40%; }
+#name-filter-4                          { margin: 2vh 0 0 2vh;  position: absolute; top: 47.5%; }
 #generated-names-container.visible      { 
     position: absolute; 
-    top: 17.5vh; 
+    top: 12.5vh; 
     left: 20vw; 
     width: 60vw; 
     height: 72.5vh; box-sizing: border-box; 
@@ -113,7 +113,6 @@ ul {
     border-radius: 25px;
     position: absolute;
     left: 50%;
-    bottom: 7.5%;
     padding: 0;
     transform: translateX(-50%);
     background-color: transparent;
@@ -123,17 +122,18 @@ ul {
 }
 
 .get-names {
-    height: 10vh;
-    width: 100vw;
+    height: 11.5vh;
+    width: 30vw;
     position: absolute;
-    bottom: 7.5vh;
-    left: 0;
+    bottom: 9vh;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 
 #generated-names-list {
     width: 100%;
-    height: 100%;
+    height: 95%;
 }
 .generated-name {
     padding: 9px;
@@ -165,8 +165,8 @@ ul {
 	box-shadow: 1px 1px 1px rgb(3, 56, 155),
                 2px 2px 1px rgb(3, 56, 155);
     font-size: 0.95em;
-    width: 215px;
-    height: 45px;
+    width: 200px;
+    height: 42.5px;
 }
 
 #newFilteredResultsBtn.hidden, #newRandomResultsBtn.hidden {
@@ -182,31 +182,33 @@ ul {
 
 
 @media (min-width: 400px) {
-    #name-filter-1                          { top: 5%; }
-    #name-filter-3                          { top: 45%; }
-    #name-filter-4                          { top: 52.5%; }
-    #generated-names-container.visible      { height: 70vh; top: 20vh;}
+    #name-filter-1                          { top: 0; }
+    #name-filter-2                          { top: 20%; }
+    #name-filter-3                          { top: 40%; }
+    #name-filter-4                          { top: 47.5%; }
+    .get-names                              { height: 12.5vh; }
     .generated-name                         { padding: 12px; font-size: 1.1em; }
     #newFilteredResultsBtn, 
-    #newRandomResultsBtn                    { font-size: 1.1em; width: 225px; height: 55px; }
+    #newRandomResultsBtn                    { font-size: 1em; width: 210px; height: 45px; }
 }
 
 @media (min-width: 400px) and (max-height: 737px) {
-    #generated-names-container.visible      { height: 75vh; top: 15vh;}   
+    #generated-names-container.visible      { height: 72.5vh; top: 15vh;}   
 }
 
 @media (min-width: 767px) {
     #time.options, #setting.options         { margin-left: 1em; }
-    #name-filter-4                          { top: 45%; left: 400px; height: 45px;}
+    #name-filter-4                          { top: 40%; left: 400px; height: 45px;}
 }
 
 @media (max-height: 569px) {
-    #generated-names-container.visible      { top: 12.5vh; height: 80vh; }
+    #generated-names-container.visible      { top: 12.5vh; height: 75vh; }
     .generated-name                         { font-size: 0.9em; }
+    #newRandomResultsBtn                    { font-size: 0.9em; width: 200px; height: 40px; }
 }
 @media (max-width: 400px) and (min-height: 800px) {
-    #name-filter-4                          { top: 56%; }
-    #generated-names-container.visible      { height: 65vh; top: 25vh;}  
+    /* #name-filter-4                          { top: 56%; } */
+    #generated-names-container.visible      { height: 60vh; top: 25vh;}  
 }
 
 @media (min-width: 767px) and (min-height: 578px) {
@@ -220,7 +222,7 @@ ul {
     #name-filter-1                          { top: -5%; }
     #name-filter-2                          { top: 17.5%; }
     #name-filter-3                          { top: 35%; }
-    #name-filter-4                          { top: 35%; }
+    #name-filter-4                          { top: 35%; left: 300px; }
     #name-filter-1.list-closed, #name-filter-2.list-closed, #name-filter-3.list-closed, #name-filter-4.list-closed {
         height: 40px;
     }
@@ -246,7 +248,7 @@ ul {
         margin: 1em 0 0 1em;
     }
     #fantasy-species-selections, #space-species-selections, #postapoc-species-selections, #techworld-species-selections  {
-        margin: 1em 0 0 1.6em; 
+        margin: 1em 0 0 2.25em; 
     }
     #gender-selections {
         margin: 1em 0 0 0.6em; 
@@ -256,31 +258,38 @@ ul {
         margin-top: 1em;
         z-index: 5;
     }
-    #generated-names-container.visible {top: 10vh; height: 82.5vh;}
+    #generated-names-container.visible {top: 10vh; height: 77.5vh;}
     #newFilteredResultsBtn, #newRandomResultsBtn {
         font-size: 1em;
-        width: 225px;
-        height: 45px;    
+        width: 215px;
+        height: 40px;    
     }
-    .generated-name                         { padding: 9px; font-size: 1em; }
-    .filter-complete                        { bottom: 10vh; }
+    #generated-names-list                   { height: 87.5%;}
+    .generated-name                         { padding: 8px; font-size: 0.9em; }
+    .filter-complete                        { bottom: 15vh; }
     .get-names                              { bottom: 0; }
     #positioned                             { left: 3em; }
 }
 
 @media (min-width: 1000px) and (max-height: 577px) {
     .species-option.placeholder, .species-option.selection, .species-option.complete, .species-option.auto-complete {
-        left: 4.5em;
+        left: 8em;
     }
 }
 
 @media (min-width: 1000px) and (min-height: 578px) {
-    #name-filter-4                          { left: 450px;}
+    #name-filter-4                          { left: 500px;}
     #gender.options                         { height: 150px; }
     .generated-name                         {font-size: 1.5em; padding: 15px; }
     #newFilteredResultsBtn, 
     #newRandomResultsBtn                    { font-size: 1.4em; width: 300px; height: 70px; }
-    
+}
+
+@media (min-width: 1000px) and (max-height: 578px) {
+    #name-filter-4                          { left: 400px;}
+    #fantasy-species-selections, #space-species-selections, #postapoc-species-selections, #techworld-species-selections  {
+        margin: 1em 0 0 5em; 
+    }
 }
 
 

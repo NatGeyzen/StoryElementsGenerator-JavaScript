@@ -215,6 +215,7 @@
     .time-option.selection              {width: 250px;}
 	.time-option.complete               {width: 300px;}
 	.gender-option.placeholder     		{width: 100px;}
+	.species-option.complete			{width: 275px;}
 	.scaled-out, 
 	.scale-bounce-in, 
 	.fade-in 							{left: 15%; width: 700px;}

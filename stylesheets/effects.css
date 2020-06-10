@@ -79,8 +79,8 @@
 
 .time-option.complete,
 .species-option.complete,
-.species-option.auto-complete   { width: 250px; }
-.setting-option.complete        { width: 275px; }
+.species-option.auto-complete   { width: 200px; }
+.setting-option.complete        { width: 265px; }
 .gender-option.complete         { width: 100px; }
 
 
