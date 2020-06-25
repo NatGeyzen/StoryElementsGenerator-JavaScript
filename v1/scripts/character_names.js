@@ -150,9 +150,11 @@ const openList = (filter, button, selection) => {
     toggleClass(filter, 'list-closed', 'list-open');
     if (button.classList.contains('placeholder')) {
         toggleClass(button, 'placeholder', 'selection');
+        console.log(selection);
     } else if (button.classList.contains('complete') && !button.classList.contains('not-allowed')) {
         toggleClass(button, 'complete', 'selection');
         selection.pop();
+        console.log(selection);
     }
     fadeOutNextFilters(button);   
 };
@@ -318,10 +320,14 @@ const nameFilterHandler = (eventTarget) => {
     if (time_selection.length !== 0 && setting_selection.length !== 0 && gender_selection.length !== 0 && species_selection.length !== 0) {
         toggleClass(document.getElementById('getResultsBtn'), 'filter-not-complete', 'filter-complete');
     } 
-    else if (time_selection.length === 0 || setting_selection.length === 0 || gender_selection.length === 0 || species_selection.length === 0) {
+    else if ((!time_button.classList.contains('complete') || !setting_button.classList.contains('complete') || !gender_button.classList.contains('complete')|| !species_button.classList.contains('complete'))) {
         toggleClass(document.getElementById('getResultsBtn'), 'filter-complete', 'filter-not-complete');
     }
 
+    // console.log(time_selection);
+    // console.log(setting_selection);
+    // console.log(gender_selection);
+    // console.log(species_selection);
     return [ time_selection, setting_selection, gender_selection, species_selection ];
  
 }

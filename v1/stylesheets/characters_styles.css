@@ -20,7 +20,7 @@ button {outline: none;}
 #positioned { 
 	position: absolute;
 	left: 7em;
-	margin-bottom: 5px;
+	top: -5px;
 	width: 200px;
 }
 #gender, #species {display: inline-block; margin: auto 0 auto 0;}
